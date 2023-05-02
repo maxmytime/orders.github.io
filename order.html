@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="utf-8">
+    <!-- <base href="/"> -->
+
+    <title>Заказы</title>
+    <meta name="description" content="">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Template Basic Images Start -->
+    <meta property="og:image" content="path/to/image.jpg">
+    <link rel="icon" href="img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png">
+    <!-- Template Basic Images End -->
+
+    <!-- Custom Browsers Color Start -->
+    <meta name="theme-color" content="#000">
+    <!-- Custom Browsers Color End -->
+
+    <link rel="stylesheet" href="css/main.min.css">
+
+    <script src="https://use.fontawesome.com/70b80c7de0.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Custom HTML -->
+
+    <div class="container is-widescreen">
+
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="index.html">Гладос</a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <span class="user-name has-text-grey">Иванов Петор Сидорович</span>
+                    </div>
+                    <div class="navbar-item">
+                        <a href="index.html" class="button is-primary"><strong>Выход</strong></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="columns">
+
+            <div class="column is-6 mt-6 is-offset-3">
+                <h1 class="is-size-1 is-inline mb-4">Заказ</h1>
+                <span class="order-number has-text-grey">№ АД-0000562</span>
+                <span class="order-date has-text-grey">от 24.05.2023</span>
+            </div>
+
+        </div>
+
+        <div class="columns">
+            <div class="column is-6 is-offset-3">
+
+                <form action="index.html" class="form-login ml-3 mr-3">
+
+                    <label class="label">Первый блок</label>
+                    <div class="field">
+                        <div class="control">
+                            <input class="input width-auto" name="date" type="date" placeholder="Дата поставки" value="2023-07-22">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" name="basis" type="text" placeholder="Базис">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" name="product" type="text" placeholder="Продукт">
+                        </div>
+                    </div>
+
+                    <label class="label">Второй блок</label>
+
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" name="partner" type="text" placeholder="Партнер">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" name="organisation" type="text" placeholder="Юридическое лицо">
+                        </div>
+                    </div>
+
+                    <label class="label">Третий блок</label>
+
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" name="nomenclature-type" type="text" placeholder="Номенклатура тип">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" name="quantity" type="text" placeholder="Количество (вес/объем) л/тн">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" name="price" type="text" placeholder="Цена">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" name="unit-of-measure" type="text" placeholder="Ед изм">
+                        </div>
+                    </div>
+
+                    <label class="label">Четвертый блок</label>
+
+                    <div class="field">
+                        <div class="control">
+                            <div class="select">
+                                <select>
+                                    <option>Доставка</option>
+                                    <option>Самовывоз</option>
+                                    <option>СК (Самовывоз ск)</option>
+                                    <option>Перемещение</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" name="сost-of-delivery" type="text" placeholder="Заложенная в цену стоимость доставки">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" name="unit-price" type="text" placeholder="р/л или р/тонна">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" name="delivery-address" type="text" placeholder="Адрес доставки (если несколько у клиента)">
+                        </div>
+                    </div>
+
+                    <label class="label">Информация по оплате</label>
+
+                    <div class="field">
+                        <div class="control">
+                            <div class="select">
+                                <select>
+                                    <option>Предоплата</option>
+                                    <option>По факту</option>
+                                    <option>Отсрочка</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control is-flex is-flex-direction-column">
+                            <label class="radio">
+                                <input type="radio" name="foobar">
+                              Оплата до момента отгрузки
+                            </label>
+                            <label class="radio ml-0">
+                                <input type="radio" name="foobar" checked>
+                              Оплата до определенного числа с заморозкой цены
+                            </label>
+                        </div>
+                    </div>
+
+                    <label class="label">Информация по документам</label>
+
+                    <div class="field">
+                        <div class="control">
+                            <div class="select">
+                                <select>
+                                    <option>доки</option>
+                                    <option>доки+счет</option>
+                                    <option>счет</option>
+                                    <option>без доков</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <label class="label">Срочность подготовки документов</label>
+
+                    <div class="field">
+                        <div class="control">
+                            <div class="select">
+                                <select>
+                                    <option>срочно</option>
+                                    <option>до 15:00</option>
+                                    <option>в течение дня</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-link">Submit</button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-link is-light">Cancel</button>
+                        </div>
+                    </div>
+
+
+
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/scripts.min.js"></script>
+
+</body>
+
+</html>
