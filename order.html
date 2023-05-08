@@ -71,7 +71,46 @@
         <div class="columns">
             <div class="column is-6 is-offset-3">
 
-                <form action="index.html" class="form-login ml-3 mr-3">
+                <!-- Аккордион -->
+                <form action="">
+
+                    <div class="akkordeon ml-3 mr-3">
+                        <div class="akkordeon-item akkordeon-item-active mb-4">
+                            <div class="akkordeon-head is-flex">
+                                <h5 class="is-size-5 has-text-weight-bold akkordeon-title width-100">Первый заголовок</h5>
+                                <a href="#" class="button is-small has-text-danger akkordeon-remove-item is-ghost">- Удалить</a>
+                            </div>
+                            <div class="akkordeon-content">
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="input" name="partner" type="text" placeholder="Партнер">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="input" name="basis" type="text" placeholder="Базис">
+                                    </div>
+                                </div>
+                                <div class="akkordeon-product-list">
+                                    <div class="akkordeon-product is-flex mb-3 is-flex-wrap-wrap">
+                                        <h6 class="is-size-6 has-text-weight-bold width-75">Продукт</h6>
+                                        <a href="#" class="button is-small has-text-danger akkordeon-remove-product is-ghost width-25 has-text-right is-inline-block">- Удалить</a>
+                                        <div class="field width-100">
+                                            <div class="control">
+                                                <input class="input" name="product" type="text" placeholder="Продукт">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <a href="#" class="button is-small akkordeon-add-product is-ghost has-text-grey">+ Продукт</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#" class="button is-small akkordeon-add-item is-ghost has-text-grey mt-3">+ Добавить</a>
+                    </div>
+                </form>
+                <!-- <form action="index.html" class="form-login ml-3 mr-3">
 
                     <label class="label">Первый блок</label>
                     <div class="field">
@@ -233,7 +272,7 @@
 
 
 
-                </form>
+                </form> -->
 
             </div>
         </div>
