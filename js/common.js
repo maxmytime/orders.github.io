@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const currentUrl = window.location.pathname;
     console.log(currentUrl);
 
-    if (currentUrl == '/' || currentUrl == '/index.html') {
+    if (currentUrl == '/' || currentUrl == '/index.html' || currentUrl == '/orders.github.io/') {
             // Скрытие пароля при вводе
             const eyeOpen = document.querySelector('.fa-eye'),
             eyeClose = document.querySelector('.fa-eye-slash'),
@@ -63,7 +63,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Аккордион
 
-    if (currentUrl == '/order.html') {
+    if (currentUrl == '/order.html' || currentUrl == '/orders.github.io/order.html') {
         const akkordeon = document.querySelector('.akkordeon'),
         akkordeonAddItem = document.querySelector('.akkordeon-add-item');
 
@@ -109,36 +109,61 @@ window.addEventListener('DOMContentLoaded', () => {
             });
 
             const value = `
-                    <div class="akkordeon-item mb-4 akkordeon-item-active">
-                        <div class="akkordeon-head is-flex">
-                            <h5 class="is-size-5 has-text-weight-bold akkordeon-title width-100">Первый заголовок</h5>
-                            <a href="#" class="button is-small has-text-danger akkordeon-remove-item is-ghost">- Удалить</a>
+            <div class="akkordeon-item akkordeon-item-active">
+                <div class="akkordeon-head is-flex pt-2 pb-2">
+                    <h5 class="is-size-5 has-text-weight-bold akkordeon-title width-100">Новый партнер</h5>
+                    <a href="#" class="button is-small has-text-danger akkordeon-remove-item is-ghost">- Удалить</a>
+                </div>
+                <div class="akkordeon-content mt-4">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input js-new-partner" name="partner" type="text" placeholder="Партнер">
                         </div>
-                        <div class="akkordeon-content">
-                            <div class="field">
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <div class="select" name="basis">
+                                <select>
+                                    <option>Склад 1</option>
+                                    <option>Склад 2</option>
+                                    <option>Склад 3</option>
+                                    <option>Склад 4</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="akkordeon-product-list">
+                        <div class="akkordeon-product is-flex mb-3 is-flex-wrap-wrap">
+                            <h6 class="is-size-6 has-text-weight-bold width-75">Продукт</h6>
+                            <a href="#" class="button is-small has-text-danger akkordeon-remove-product is-ghost width-25 has-text-right is-inline-block">- Удалить</a>
+                            <div class="field width-100">
                                 <div class="control">
-                                    <input class="input" name="partner" type="text" placeholder="Партнер">
+                                    <input class="input" name="product" type="text" placeholder="Продукт">
                                 </div>
                             </div>
-                            <div class="field">
-                                <div class="control">
-                                    <input class="input" name="basis" type="text" placeholder="Базис">
-                                </div>
-                            </div>
-                            <div class="akkordion-product-list">
-                                <div class="akkordion-product is-flex mb-3">
-                                    <h6 class="is-size-6 has-text-weight-bold akkordeon-title width-100">Продукт</h6>
-                                    <a href="#" class="button is-small has-text-danger akkordeon-remove-item is-ghost">- Удалить</a>
-                                </div>
+                        </div>
 
-                                <a href="#" class="button is-small akkordeon-add-product is-ghost has-text-grey mt-3">+ Продукт</a>
-                            </div>
-                        </div>
-                    </div>`;
+                        <a href="#" class="button is-small akkordeon-add-product is-ghost has-text-grey">+ Продукт</a>
+                    </div>
+                </div>
+            </div>`;
 
             akkordeonAddItem.insertAdjacentHTML('beforeBegin', value);
         });
 
+
+        // Вводим имя нового партнера
+
+        akkordeon.addEventListener('input', (e) => {
+
+            let newPartner = e.target;
+            if (newPartner.classList.contains('js-new-partner')) {
+                const item = newPartner.parentNode.parentNode.parentNode.parentNode;
+                item.querySelector('.akkordeon-title').textContent = newPartner.value;
+                console.log(item);
+            }
+
+        });
 
     }
 
