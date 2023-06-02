@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="utf-8">
+    <!-- <base href="/"> -->
+
+    <title>Заказы</title>
+    <meta name="description" content="">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+
+    <!-- Template Basic Images Start -->
+    <meta property="og:image" content="path/to/image.jpg">
+    <link rel="icon" href="img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png">
+    <!-- Template Basic Images End -->
+
+    <!-- Custom Browsers Color Start -->
+    <meta name="theme-color" content="#000">
+    <!-- Custom Browsers Color End -->
+
+    <link rel="stylesheet" href="css/main.min.css">
+
+    <!-- <script src="https://use.fontawesome.com/70b80c7de0.js"></script> -->
+
+</head>
+
+<body>
+
+    <div class="container is-fullhd">
+        <!-- Верхняя панель -->
+        <div class="top-bar">
+            <a class="button is-primary">
+                <span>Заявка</span>
+            </a>
+            <a class="button is-primary">
+                <span>Бронь</span>
+            </a>
+            <a class="button is-primary">
+                <span>Закрыть</span>
+            </a>
+            <span class="counter-basis">0</span>
+        </div>
+
+        <!-- Заявка -->
+        <div class="order">
+            <!-- Клиент -->
+            <div class="client">
+                <div>
+                    <h2 class="is-size-5">Тут будет информация о клиенте и дате заказа</h2>
+                </div>
+                <!-- Кнопка добавить адрес -->
+                <a class="button is-white js-add-new-address">
+                    <span class="js-add-new-address">Адрес</span>
+                    <span class="icon is-small js-add-new-address">
+                        <i class="fa fa-plus-square-o js-add-new-address" aria-hidden="true"></i>
+                    </span>
+                </a>
+
+                <!-- Адрес контейнер -->
+                <div class="address-container">
+                    <!-- Адрес -->
+                    <div class="address">
+                        <div>
+                            <h2 class="is-size-5">Тут будет информация адресе поставки</h2>
+                        </div>
+                        <!-- Кнопка добавить Базис -->
+                        <a class="button is-white js-add-new-basis">
+                            <span class="js-add-new-basis">Базис</span>
+                            <span class="icon is-small js-add-new-basis">
+                                <i class="fa fa-plus-square-o js-add-new-basis" aria-hidden="true"></i>
+                            </span>
+                        </a>
+
+                        <div class="basis-container">
+                            <!-- Базис -->
+                            <div class="basis">
+                                <div>
+                                    <h2 class="is-size-5">Тут будет информация c кагого адреса грузить</h2>
+                                </div>
+                                <!-- Кнопка добавить Юр. лицо -->
+                                <a class="button is-white js-add-new-legal-entity">
+                                    <span class="js-add-new-legal-entity">Юр. лицо</span>
+                                    <span class="icon is-small js-add-new-legal-entity">
+                                        <i class="fa fa-plus-square-o js-add-new-legal-entity" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+
+                                <div class="legal-entity-container">
+                                    <!-- Юридическое лицо -->
+                                    <div class="legal-entity">
+                                        <div>
+                                            <h2 class="is-size-5">Тут будет информация о юридическом лице</h2>
+                                        </div>
+                                        <!-- Кнопка добавить сделку -->
+                                        <a class="button is-white js-add-new-dael">
+                                            <span class="js-add-new-dael">Сделка</span>
+                                            <span class="icon is-small js-add-new-dael">
+                                                <i class="fa fa-plus-square-o js-add-new-dael" aria-hidden="true"></i>
+                                            </span>
+                                        </a>
+
+
+                                        <div class="dael-container">
+                                            <!-- Сделка -->
+                                            <div class="dael">
+                                                <div>
+                                                    <h2 class="is-size-5">Тут будет информация о сделке</h2>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/scripts.min.js"></script>
+
+</body>
+
+</html>

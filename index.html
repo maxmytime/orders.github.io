@@ -11,7 +11,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
 
     <!-- Template Basic Images Start -->
     <meta property="og:image" content="path/to/image.jpg">
@@ -25,48 +25,409 @@
 
     <link rel="stylesheet" href="css/main.min.css">
 
-    <script src="https://use.fontawesome.com/70b80c7de0.js"></script>
+    <!-- <script src="https://use.fontawesome.com/70b80c7de0.js"></script> -->
 
 </head>
 
 <body>
 
-    <!-- Custom HTML -->
-
-    <div class="container ml-3 mr-3">
+    <div class="container is-fullhd">
 
         <div class="columns">
-            <div class="column is-4 is-offset-5 mt-6">
+            <div class="column is-6-tablet is-4-desktop">
+                <div class="order">
 
-                <h1 class="is-size-1 text-center mb-4">Заказы</h1>
+                    <form action="#" class="form">
 
-                <form action="order.html" class="form-login">
-
-                    <div class="field">
-                        <div class="control">
-                            <input class="input" name="name" type="text" placeholder="Имя пользователя">
+                        <!-- Кнопка добавить базис -->
+                        <div class="field">
+                            <a class="button is-white button-rt">
+                                <span>Базис</span>
+                                <span class="icon is-small">
+                                    <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                            <label class="label">Адрес 1</label>
+                            <div class="control">
+                                <input class="input" type="text" name="address" placeholder="">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="field form-wrapper-pass">
-                        <p class="control">
-                            <input class="input input-pass" name="pass" type="text" placeholder="Пароль">
-                            <div class="form-icon-pass">
-                                <i class="fa fa-eye"></i>
-                                <i class="fa fa-eye-slash"></i>
+                        <!-- Поле базис -->
+                        <label class="label">Базис</label>
+                        <div class="field has-addons is-justify-content-space-between">
+                            <p class="control width-100">
+                                <input class="input" type="text" name="basis" placeholder="">
+                            </p>
+                            <p class="control">
+                                <a class="button ">
+                                    <span class="icon icon-width">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </p>
+                        </div>
+
+                        <div class="columns is-mobile is-variable is-1 mb-0">
+                            <div class="column is-6 is-6-mobile">
+                                <!-- Поле продукт -->
+                                <div class="field">
+                                    <label class="label">Продукт</label>
+                                    <div class="control">
+                                        <input class="input" type="text" name="" placeholder="">
+                                    </div>
+                                </div>
+
                             </div>
-                            <div class="form-icon-pass-hidden">
-                                <!-- <i class="fa fa-circle"></i> -->
+                            <div class="column is-6 is-6-mobile">
+                                <!-- Поле номенклатура -->
+                                <label class="label">Номенклатура</label>
+                                <div class="field has-addons is-justify-content-space-between">
+                                    <p class="control width-100">
+                                        <input class="input" type="text" name="" placeholder="">
+                                    </p>
+                                    <p class="control">
+                                        <a class="button">
+                                            <span class="icon icon-width">
+                                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                            </span>
+                                        </a>
+                                    </p>
+                                </div>
+
                             </div>
-                        </p>
-                    </div>
+                        </div>
 
-                    <div class="control">
-                        <button class="button is-primary is-focused is-fullwidth">Вход</button>
-                    </div>
+                        <div class="columns is-mobile is-variable is-1 is-multiline">
 
-                </form>
+                            <div class="column is-6-mobile">
+                                <!-- Поле объем -->
+                                <label class="label">Объем</label>
+                                <div class="field has-addons">
+                                    <p class="control width-100">
+                                        <input class="input" type="text" name="volume" placeholder="">
+                                    </p>
+                                    <p class="control">
+                                        <span class="select">
+                                            <select>
+                                                <option>л</option>
+                                                <option>т</option>
+                                            </select>
+                                        </span>
+                                    </p>
+                                </div>
 
+                            </div>
+
+                            <div class="column is-6 is-6-mobile">
+                                <!-- Поле доставка с учетом НДС -->
+                                <label class="label">Доставка с учетом НДС</label>
+                                <div class="field has-addons">
+                                    <p class="control width-100">
+                                        <input class="input" type="text" name="#" placeholder="">
+                                    </p>
+                                    <p class="control">
+                                        <span class="select">
+                                            <select>
+                                                <option>руб/л</option>
+                                                <option>руб/т</option>
+                                            </select>
+                                        </span>
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="column is-12">
+                                <!-- Комментарий -->
+                                <div class="field">
+                                    <label class="label">Комментарий</label>
+                                    <div class="control width-100 is-widescreen">
+                                        <textarea class="textarea" placeholder=""></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <hr>
+
+                        <!-- Юридическое лицо -->
+                        <div class="legal-entity">
+
+                            <div class="columns is-mobile is-variable is-1 is-multiline is-align-items-flex-end">
+
+                                <div class="column is-12">
+                                    <!-- Поле юридическое лицо -->
+                                    <label class="label">Юр. лицо</label>
+                                    <div class="field has-addons">
+                                        <p class="control width-100">
+                                            <input class="input" type="text" name="legal-entity" placeholder="">
+                                        </p>
+                                        <p class="control">
+                                            <a class="button ">
+                                                <span class="icon icon-width">
+                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Поле объем заказа -->
+                                <div class="column is-6-mobile">
+                                    <label class="label">Объем</label>
+                                    <div class="field has-addons">
+                                        <p class="control width-100">
+                                            <input class="input" type="text" name="volume" placeholder="">
+                                        </p>
+                                        <p class="control">
+                                            <span class="select">
+                                                <select>
+                                                    <option>л</option>
+                                                    <option>т</option>
+                                                </select>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="column is-6-mobile">
+                                    <!-- Поле стоимость заказа -->
+                                    <label class="label">Стоимость</label>
+                                    <div class="field has-addons">
+                                        <p class="control width-100">
+                                            <input class="input" type="text" name="volume" placeholder="">
+                                        </p>
+                                        <p class="control">
+                                            <span class="select">
+                                                <select>
+                                                    <option>руб/л</option>
+                                                    <option>руб/т</option>
+                                                </select>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="column is-6-mobile">
+                                    <!-- Поле дата заказа -->
+                                    <label class="label">Дата</label>
+                                    <div class="field has-addons">
+                                        <p class="control width-100">
+                                            <input class="input" type="date" name="volume" value="2023-07-22" placeholder="">
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="column is-1 has-text-right">
+                                    <!-- Кнопка удалить заказ -->
+                                    <a class="button ">
+                                        <span class="icon icon-width">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </span>
+                                    </a>
+                                </div>
+
+                                <!-- <div class="column is-12 has-text-right">
+                                    <a class="button is-white">
+                                        <span>Сделка</span>
+                                        <span class="icon is-small">
+                                            <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                        </span>
+                                    </a>
+                                </div> -->
+
+
+
+                            </div>
+                            <hr>
+
+
+                            <div class="columns is-mobile is-variable is-1 is-multiline is-align-items-flex-end">
+
+                                <div class="column is-6">
+                                    <!-- Поле юридическое лицо -->
+                                    <label class="label">Юр. лицо</label>
+                                    <div class="field has-addons">
+                                        <p class="control width-100">
+                                            <input class="input" type="text" name="legal-entity" placeholder="">
+                                        </p>
+                                        <p class="control">
+                                            <a class="button ">
+                                                <span class="icon icon-width">
+                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Поле объем заказа -->
+                                <div class="column is-6">
+                                    <label class="label">Объем</label>
+                                    <div class="field has-addons">
+                                        <p class="control width-100">
+                                            <input class="input" type="text" name="volume" placeholder="">
+                                        </p>
+                                        <p class="control">
+                                            <span class="select">
+                                                <select>
+                                                    <option>л</option>
+                                                    <option>т</option>
+                                                </select>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="column is-6">
+                                    <!-- Поле стоимость заказа -->
+                                    <label class="label">Стоимость</label>
+                                    <div class="field has-addons">
+                                        <p class="control width-100">
+                                            <input class="input" type="text" name="volume" placeholder="">
+                                        </p>
+                                        <p class="control">
+                                            <span class="select">
+                                                <select>
+                                                    <option>руб/л</option>
+                                                    <option>руб/т</option>
+                                                </select>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="column is-4">
+                                    <!-- Поле дата заказа -->
+                                    <label class="label">Дата</label>
+                                    <div class="field has-addons">
+                                        <p class="control width-100">
+                                            <input class="input" type="date" name="volume" value="2023-07-22" placeholder="">
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="column is-2 has-text-right">
+                                    <!-- Кнопка удалить заказ -->
+                                    <a class="button ">
+                                        <span class="icon icon-width">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </span>
+                                    </a>
+                                </div>
+
+                                <div class="column is-12 has-text-right">
+                                    <a class="button is-white">
+                                        <span>Сделка</span>
+                                        <span class="icon is-small">
+                                            <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                        </span>
+                                    </a>
+                                </div>
+
+                                <hr>
+
+                            </div>
+
+
+
+
+
+                        </div>
+
+
+                        <div class="columns is-mobile is-variable is-1 is-multiline is-align-items-flex-end">
+
+                            <div class="column is-6">
+                                <label class="label">Объем</label>
+                                <div class="field has-addons">
+                                    <p class="control">
+                                        <input class="input" type="text" name="volume" placeholder="">
+                                    </p>
+                                    <p class="control">
+                                        <span class="select">
+                                            <select>
+                                                <option>л</option>
+                                                <option>т</option>
+                                            </select>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="column is-6">
+                                <label class="label">Стоимость</label>
+                                <div class="field has-addons">
+                                    <p class="control">
+                                        <input class="input" type="text" name="volume" placeholder="">
+                                    </p>
+                                    <p class="control">
+                                        <span class="select">
+                                            <select>
+                                                <option>руб/л</option>
+                                                <option>руб/т</option>
+                                            </select>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="column is-6">
+                                <label class="label">Дата</label>
+                                <div class="field has-addons">
+                                    <p class="control">
+                                        <input class="input" type="date" name="volume" value="2018-07-22" placeholder="">
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="column is-6 has-text-right">
+                                <a class="button ">
+                                    <span class="icon icon-width">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <div class="columns is-mobile">
+                            <div class="column is-12 has-text-right">
+                                <a class="button is-white">
+                                    <span>Сделка</span>
+                                    <span class="icon is-small">
+                                        <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="columns is-mobile">
+                            <div class="column is-12">
+                                <div class="field">
+                                    <label class="label">Адрес 1</label>
+                                    <div class="control">
+                                        <input class="input" type="text" name="address" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="columns is-mobile">
+                            <div class="column is-12">
+                                <a class="button is-white">
+                                    <span>Юр. лицо</span>
+                                    <span class="icon is-small">
+                                        <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
             </div>
         </div>
 

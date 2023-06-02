@@ -2,171 +2,269 @@
 
 window.addEventListener('DOMContentLoaded', () => {
 
-    // const formLogIn = document.querySelector('.form-login');
-
-    // formLogIn.addEventListener('submit', (e) => {
-    //     e.preventDefault();
-
-        // const formData = new FormData(formLogIn);
-
-        // console.log(formData.get("name"));
-        // console.log(formData.get("pass"));
-
-    //     let response = fetch('/orders', {
-    //         method: 'POST',
-    //         body: new FormData(formLogIn)
-    //       });
-    // });
-
-    const currentUrl = window.location.pathname;
-    console.log(currentUrl);
-
-    if (currentUrl == '/' || currentUrl == '/index.html' || currentUrl == '/orders.github.io/') {
-            // Скрытие пароля при вводе
-            const eyeOpen = document.querySelector('.fa-eye'),
-            eyeClose = document.querySelector('.fa-eye-slash'),
-            wrapperEye = document.querySelector('.form-icon-pass'),
-            inputPass = document.querySelector('.input-pass'),
-            passHidden = document.querySelector('.form-icon-pass-hidden');
-
-        let pass, value = '';
-
-
-        eyeOpen.classList.add('is-hidden');
-
-        wrapperEye.addEventListener('click', (e) => {
-
-        if (eyeClose.classList.contains('is-hidden')) {
-            eyeClose.classList.remove('is-hidden');
-            eyeOpen.classList.add('is-hidden');
-            inputPass.style.color = '#fff';
-            passHidden.classList.remove('is-hidden');
-        } else {
-            eyeClose.classList.add('is-hidden');
-            eyeOpen.classList.remove('is-hidden');
-            inputPass.style.color = '#333';
-            passHidden.classList.add('is-hidden');
-        }
-
-        });
-
-        inputPass.addEventListener('input', (e) => {
-        pass = e.target.value;
-        let iconHiddenPass = document.querySelectorAll('.fa-circle');
-        iconHiddenPass.forEach(icon => {
-            icon.remove();
-        });
-        value = '<i class="fa fa-circle"></i>'.repeat(pass.length);
-        passHidden.insertAdjacentHTML('beforeend', value);
-        });
-    }
-
-    // Аккордион
-
-    if (currentUrl == '/order.html' || currentUrl == '/orders.github.io/order.html') {
-        const akkordeon = document.querySelector('.akkordeon'),
-        akkordeonAddItem = document.querySelector('.akkordeon-add-item');
-
-        akkordeon.addEventListener('click', (e) => {
-            e.preventDefault();
-            let element = e.target;
-
-            if (element.classList.contains('akkordeon-title')) {
-                const akkordeonItem = document.querySelectorAll('.akkordeon-item');
-                akkordeonItem.forEach((e) => {
-                    e.classList.remove('akkordeon-item-active');
-                });
-                element.parentNode.parentNode.classList.add('akkordeon-item-active');
-            } else if (element.classList.contains('akkordeon-remove-item')) {
-                const parentElem = element.parentNode.parentNode;
-                parentElem.remove();
-            } else if (element.classList.contains('akkordeon-add-product')) {
-                const prodact = `
-                <div class="akkordeon-product is-flex mb-3 is-flex-wrap-wrap">
-                    <h6 class="is-size-6 has-text-weight-bold width-75">Продукт</h6>
-                    <a href="#" class="button is-small has-text-danger akkordeon-remove-product is-ghost width-25 has-text-right is-inline-block">- Удалить</a>
-                    <div class="field width-100">
-                        <div class="control">
-                            <input class="input" name="product" type="text" placeholder="Продукт">
-                        </div>
-                    </div>
-                </div>`;
-                element.insertAdjacentHTML('beforeBegin', prodact);
-            } else if (element.classList.contains('akkordeon-remove-product')) {
-                const parentRemove = element.parentNode;
-                parentRemove.remove();
-            }
-
-        });
-
-        // Добавить элемент в аккордион
-        akkordeonAddItem.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            const akkordeonItem = document.querySelectorAll('.akkordeon-item');
-            akkordeonItem.forEach((e) => {
-                e.classList.remove('akkordeon-item-active');
-            });
-
-            const value = `
-            <div class="akkordeon-item akkordeon-item-active">
-                <div class="akkordeon-head is-flex pt-2 pb-2">
-                    <h5 class="is-size-5 has-text-weight-bold akkordeon-title width-100">Новый партнер</h5>
-                    <a href="#" class="button is-small has-text-danger akkordeon-remove-item is-ghost">- Удалить</a>
-                </div>
-                <div class="akkordeon-content mt-4">
-                    <div class="field">
-                        <div class="control">
-                            <input class="input js-new-partner" name="partner" type="text" placeholder="Партнер">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="control">
-                            <div class="select" name="basis">
-                                <select>
-                                    <option>Склад 1</option>
-                                    <option>Склад 2</option>
-                                    <option>Склад 3</option>
-                                    <option>Склад 4</option>
-                                </select>
+    // Добавляем новый адрес доставки
+    const newAddresTpl = `<div class="address">
+                            <div>
+                                <h2 class="is-size-5">Тут будет информация адресе поставки</h2>
                             </div>
-                        </div>
-                    </div>
-                    <div class="akkordeon-product-list">
-                        <div class="akkordeon-product is-flex mb-3 is-flex-wrap-wrap">
-                            <h6 class="is-size-6 has-text-weight-bold width-75">Продукт</h6>
-                            <a href="#" class="button is-small has-text-danger akkordeon-remove-product is-ghost width-25 has-text-right is-inline-block">- Удалить</a>
-                            <div class="field width-100">
-                                <div class="control">
-                                    <input class="input" name="product" type="text" placeholder="Продукт">
+                            <!-- Кнопка добавить Базис -->
+                            <a class="button is-white js-add-new-basis">
+                                <span class="js-add-new-basis">Базис</span>
+                                <span class="icon is-small js-add-new-basis">
+                                    <i class="fa fa-plus-square-o js-add-new-basis" aria-hidden="true"></i>
+                                </span>
+                            </a>
+
+                            <div class="basis-container">
+                                <!-- Базис -->
+                                <div class="basis">
+                                    <div>
+                                        <h2 class="is-size-5">Тут будет информация c кагого адреса грузить</h2>
+                                    </div>
+                                    <!-- Кнопка добавить Юр. лицо -->
+                                    <a class="button is-white js-add-new-legal-entity">
+                                        <span class="js-add-new-legal-entity">Юр. лицо</span>
+                                        <span class="icon is-small js-add-new-legal-entity">
+                                            <i class="fa fa-plus-square-o js-add-new-legal-entity" aria-hidden="true"></i>
+                                        </span>
+                                    </a>
+
+                                    <div class="legal-entity-container">
+                                        <!-- Юридическое лицо -->
+                                        <div class="legal-entity">
+                                            <div>
+                                                <h2 class="is-size-5">Тут будет информация о юридическом лице</h2>
+                                            </div>
+                                            <!-- Кнопка добавить сделку -->
+                                            <a class="button is-white js-add-new-dael">
+                                                <span class="js-add-new-dael">Сделка</span>
+                                                <span class="icon is-small js-add-new-dael">
+                                                    <i class="fa fa-plus-square-o js-add-new-dael" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+
+
+                                            <div class="dael-container">
+                                                <!-- Сделка -->
+                                                <div class="dael">
+                                                    <div>
+                                                        <h2 class="is-size-5">Тут будет информация о сделке</h2>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>`;
+
+    // Добавляем новый базис
+    const newBasisTpl = `<div class="basis">
+                            <div>
+                                <h2 class="is-size-5">Тут будет информация c кагого адреса грузить</h2>
+                            </div>
+                            <!-- Кнопка добавить Юр. лицо -->
+                            <a class="button is-white js-add-new-legal-entity">
+                                <span class="js-add-new-legal-entity">Юр. лицо</span>
+                                <span class="icon is-small js-add-new-legal-entity">
+                                    <i class="fa fa-plus-square-o js-add-new-legal-entity" aria-hidden="true"></i>
+                                </span>
+                            </a>
+
+                            <div class="legal-entity-container">
+                                <!-- Юридическое лицо -->
+                                <div class="legal-entity">
+                                    <div>
+                                        <h2 class="is-size-5">Тут будет информация о юридическом лице</h2>
+                                    </div>
+                                    <!-- Кнопка добавить сделку -->
+                                    <a class="button is-white js-add-new-dael">
+                                        <span class="js-add-new-dael">Сделка</span>
+                                        <span class="icon is-small js-add-new-dael">
+                                            <i class="fa fa-plus-square-o js-add-new-dael" aria-hidden="true"></i>
+                                        </span>
+                                    </a>
+
+
+                                    <div class="dael-container">
+                                        <!-- Сделка -->
+                                        <div class="dael">
+                                            <div>
+                                                <h2 class="is-size-5">Тут будет информация о сделке</h2>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
+
+                        </div>`;
+
+    // Добавить новое юридическое лицо
+    const newLegalEntityTpl = `<div class="legal-entity">
+                                    <div>
+                                        <h2 class="is-size-5">Тут будет информация о юридическом лице</h2>
+                                    </div>
+                                    <!-- Кнопка добавить сделку -->
+                                    <a class="button is-white js-add-new-dael">
+                                        <span class"js-add-new-dael">Сделка</span>
+                                        <span class="icon is-small js-add-new-dael">
+                                            <i class="fa fa-plus-square-o js-add-new-dael" aria-hidden="true"></i>
+                                        </span>
+                                    </a>
+
+
+                                    <!-- Сделка -->
+                                    <div class="dael">
+                                        <div>
+                                            <h2 class="is-size-5">Тут будет информация о сделке</h2>
+                                        </div>
+
+                                    </div>
+
+                                </div>`;
+
+
+    // Добавить сделку
+    const newDael = `<div class="dael">
+                        <div>
+                            <h2 class="is-size-5">Тут будет информация о сделке</h2>
                         </div>
 
-                        <a href="#" class="button is-small akkordeon-add-product is-ghost has-text-grey">+ Продукт</a>
-                    </div>
-                </div>
-            </div>`;
+                     </div>`;
 
-            akkordeonAddItem.insertAdjacentHTML('beforeBegin', value);
-        });
+    // Обработка событий добовления элементов в заказ
+    const order = document.querySelector('.order');
+    const counter = document.querySelector('.counter-basis');
+    const addressContainer = document.querySelector('.address-container');
+    let counterBasis = basisNumberOfElements ();
+    let basisWidth;
+    let clientWidth;
+    let basisAllWidt;
+    let translateX;
 
+    counter.innerHTML = counterBasis;
 
-        // Вводим имя нового партнера
+    order.addEventListener('click', (e) => {
+        e.preventDefault();
+        const el = e.target;
 
-        akkordeon.addEventListener('input', (e) => {
+        if (el.classList.contains('js-add-new-address')) {
+            const container = containerSearch(el);
+            container.insertAdjacentHTML('beforeEnd', newAddresTpl);
+            counter.innerHTML = basisNumberOfElements ();
 
-            let newPartner = e.target;
-            if (newPartner.classList.contains('js-new-partner')) {
-                const item = newPartner.parentNode.parentNode.parentNode.parentNode;
-                item.querySelector('.akkordeon-title').textContent = newPartner.value;
-                console.log(item);
+            clientWidth = clientElementWidth ();
+            basisAllWidt = basisWidthOfAllElements ();
+            basisWidth = basisElementWidth ();
+            if (clientWidth < basisAllWidt) {
+                const step = positionTranslateX ();
+                translateX = clientWidth - basisAllWidt;
+                addressContainer.style.transform = `translate3D(${translateX}px, 0, 0)`;
             }
 
-        });
+        } else if (el.classList.contains('js-add-new-basis')) {
+            const container = containerSearch(el);
+            container.insertAdjacentHTML('beforeEnd', newBasisTpl);
+            counter.innerHTML = basisNumberOfElements ();
 
+            clientWidth = clientElementWidth ();
+            basisAllWidt = basisWidthOfAllElements ();
+            basisWidth = basisElementWidth ();
+            if (clientWidth < basisAllWidt) {
+                const step = positionTranslateX ();
+                translateX = clientWidth - basisAllWidt;
+                addressContainer.style.transform = `translate3D(${translateX}px, 0, 0)`;
+            }
+
+        } else if (el.classList.contains('js-add-new-legal-entity')) {
+            const container = containerSearch(el);
+            container.insertAdjacentHTML('beforeEnd', newLegalEntityTpl);
+        } else if (el.classList.contains('js-add-new-dael')) {
+            const container = containerSearch(el);
+            container.insertAdjacentHTML('beforeEnd', newDael);
+        }
+    });
+
+    // Поиск контейнера куда будет добавлен новый элемент
+    function containerSearch (e) {
+        let parent = e;
+
+        while (parent.tagName != 'A') {
+            parent = parent.parentElement;
+        }
+       return parent.nextElementSibling;
     }
 
+    // Слайдер
+
+    const container = document.querySelector('.address-container');
+    let moveX, clickX = 0, step = 0;
+
+    container.style.transform = `translate3D(0px, 0px, 0px)`;
+
+    container.addEventListener('pointermove', (e) => {
+
+        moveX = e.offsetX;
+        counterBasis = basisNumberOfElements ();
+        basisWidth = basisElementWidth ();
+        clientWidth = clientElementWidth ();
+        console.log(basisWidth, clientWidth);
+
+        if (counterBasis * basisWidth > clientWidth && clickX != 0) {
+            step = positionTranslateX();
+            translateX = (moveX - clickX + Number(step) > 0) ? 0 : moveX - clickX + Number(step);
+
+            if (translateX > clientWidth - (counterBasis * basisWidth)) {
+                container.style.transform = `translate3D(${translateX}px, 0, 0)`;
+            }
+
+        }
+    });
+
+    container.addEventListener('pointerdown', (e) => {
+        clickX = e.offsetX;
+    });
+
+    container.addEventListener('pointerup', (e) => {
+        clickX = 0;
+    });
+
+    // Возвращает текущее значение трансформ по оси X
+    function positionTranslateX () {
+        let regexp = /(?<=\()\d+|(?<=\()-\d+/g;
+        let t = container.style.transform;
+        return t.match(regexp)[0];
+    }
+
+    // Возвращает текущее колличество базисов
+    function basisNumberOfElements () {
+        return document.querySelectorAll('.basis').length;
+    }
+
+    // Возвращает ширину элемента базис
+    function basisElementWidth () {
+        return document.querySelector('.basis').offsetWidth;
+    }
+
+    // Возвращает сумму ширин всех элементов базис
+    function basisWidthOfAllElements () {
+        const width = document.querySelector('.basis').offsetWidth;
+        const count = document.querySelectorAll('.basis').length;
+
+        return width * count;
+    }
+
+    // Возвращает ширину клиента
+    function clientElementWidth () {
+        return document.querySelector('.client').offsetWidth;
+    }
 
 
 });
