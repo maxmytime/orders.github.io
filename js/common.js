@@ -160,7 +160,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     counter.innerHTML = counterBasis;
     height.innerHTML = document.body.scrollHeight;
-    addressContainer.style.height = document.body.scrollHeight;
+    addressContainer.style.height = String(document.body.scrollHeight) + 'px';
 
     order.addEventListener('click', (e) => {
         e.preventDefault();
@@ -204,12 +204,12 @@ window.addEventListener('DOMContentLoaded', () => {
             const container = containerSearch(el);
             container.insertAdjacentHTML('beforeEnd', newLegalEntityTpl);
             height.innerHTML = document.body.scrollHeight;
-            addressContainer.style.height = document.body.scrollHeight;
+            addressContainer.style.height = String(document.body.scrollHeight) + 'px';
         } else if (el.classList.contains('js-add-new-dael')) {
             const container = containerSearch(el);
             container.insertAdjacentHTML('beforeEnd', newDael);
             height.innerHTML = document.body.scrollHeight;
-            addressContainer.style.height = document.body.scrollHeight;
+            addressContainer.style.height = String(document.body.scrollHeight) + 'px';
         }
     });
 
