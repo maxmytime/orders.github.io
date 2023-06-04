@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', () => {
                                 <h2 class="is-size-5">Тут будет информация адресе поставки</h2>
                             </div>
                             <!-- Кнопка добавить Базис -->
-                            <a class="button is-white js-add-new-basis">
+                            <a class="button is-white width-100px js-add-new-basis">
                                 <span class="js-add-new-basis">Базис</span>
                                 <span class="icon is-small js-add-new-basis">
                                     <i class="fa fa-plus-square-o js-add-new-basis" aria-hidden="true"></i>
@@ -113,21 +113,24 @@ window.addEventListener('DOMContentLoaded', () => {
                                     </div>
                                     <!-- Кнопка добавить сделку -->
                                     <a class="button is-white js-add-new-dael">
-                                        <span class"js-add-new-dael">Сделка</span>
+                                        <span class="js-add-new-dael">Сделка</span>
                                         <span class="icon is-small js-add-new-dael">
                                             <i class="fa fa-plus-square-o js-add-new-dael" aria-hidden="true"></i>
                                         </span>
                                     </a>
 
 
-                                    <!-- Сделка -->
-                                    <div class="dael">
-                                        <div>
-                                            <h2 class="is-size-5">Тут будет информация о сделке</h2>
-                                        </div>
+                                    <div class="dael-container">
+                                        <!-- Сделка -->
+                                        <div class="dael">
+                                            <div>
+                                                <h2 class="is-size-5">Тут будет информация о сделке</h2>
+                                            </div>
 
+                                        </div>
                                     </div>
 
+                                </div>
                                 </div>`;
 
 
@@ -148,6 +151,10 @@ window.addEventListener('DOMContentLoaded', () => {
     let clientWidth;
     let basisAllWidt;
     let translateX;
+    let translateStart;
+    let translateEnd;
+
+    basisSetWidth();
 
     counter.innerHTML = counterBasis;
 
@@ -158,6 +165,9 @@ window.addEventListener('DOMContentLoaded', () => {
         if (el.classList.contains('js-add-new-address')) {
             const container = containerSearch(el);
             container.insertAdjacentHTML('beforeEnd', newAddresTpl);
+
+            basisSetWidth();
+
             counter.innerHTML = basisNumberOfElements ();
 
             clientWidth = clientElementWidth ();
@@ -172,6 +182,9 @@ window.addEventListener('DOMContentLoaded', () => {
         } else if (el.classList.contains('js-add-new-basis')) {
             const container = containerSearch(el);
             container.insertAdjacentHTML('beforeEnd', newBasisTpl);
+
+            basisSetWidth();
+
             counter.innerHTML = basisNumberOfElements ();
 
             clientWidth = clientElementWidth ();
@@ -211,17 +224,28 @@ window.addEventListener('DOMContentLoaded', () => {
 
     container.addEventListener('pointermove', (e) => {
 
-        moveX = e.offsetX;
-        counterBasis = basisNumberOfElements ();
-        basisWidth = basisElementWidth ();
-        clientWidth = clientElementWidth ();
-        console.log(basisWidth, clientWidth);
+        moveX = e.offsetX;                         // Значие координаты курсора по оси X
+        counterBasis = basisNumberOfElements();    // Количество элементов базис
+        basisWidth = basisElementWidth();          // Ширина элемента базис
+        clientWidth = clientElementWidth();        // Ширина элемента клиент
+        basisAllWidt = basisWidthOfAllElements();  // Ширина всех элементов базис
+        // console.log(positionTranslateX());         // Выводим в консоль текущее положение трансформации по оси X
 
-        if (counterBasis * basisWidth > clientWidth && clickX != 0) {
-            step = positionTranslateX();
-            translateX = (moveX - clickX + Number(step) > 0) ? 0 : moveX - clickX + Number(step);
+        // Если ширина всех элементов базис больше ширины клиента и координата клика не равна 0
+        if (basisAllWidt > clientWidth && clickX != 0) {
+            step = positionTranslateX();            // Текущее положение трансформации по оси X
 
-            if (translateX > clientWidth - (counterBasis * basisWidth)) {
+            // Вычисляем новое знаечение трансформации по оси Х
+            // Если координата по осии Х минус координата клика по осии Х плюс текущее положении трансформации по оси Х больше 0
+            if (moveX - clickX + Number(step) > 0) {
+                translateX = 0;                             // Ставим ограничение движения в право
+            } else {
+                translateX = moveX - clickX + Number(step);
+            }
+
+            // Если новое значение трансформации больше чем ширина клиента минус ширина всех базисов
+            // Ставим ограничение движения в лево
+            if (translateX > clientWidth - basisAllWidt) {
                 container.style.transform = `translate3D(${translateX}px, 0, 0)`;
             }
 
@@ -229,18 +253,37 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     container.addEventListener('pointerdown', (e) => {
+        translateStart = positionTranslateX();
         clickX = e.offsetX;
+        container.style.transition = 'none';
     });
 
     container.addEventListener('pointerup', (e) => {
+
+        container.style.transition = '0.1s';
+
+        if (clientWidth < 900) {
+            basisWidth = basisElementWidth();          // Ширина элемента базис
+            translateEnd = positionTranslateX();       // Значение трансформации в момент отпускания клавишиы мыши
+
+            if (translateStart > translateEnd) {
+                translateX = translateStart - basisWidth;
+                container.style.transform = `translate3D(${translateX}px, 0, 0)`;
+            } else if (translateStart < translateEnd) {
+                translateX = translateStart + basisWidth;
+                container.style.transform = `translate3D(${translateX}px, 0, 0)`;
+            }
+        }
+
         clickX = 0;
     });
+
 
     // Возвращает текущее значение трансформ по оси X
     function positionTranslateX () {
         let regexp = /(?<=\()\d+|(?<=\()-\d+/g;
         let t = container.style.transform;
-        return t.match(regexp)[0];
+        return Number(t.match(regexp)[0]);
     }
 
     // Возвращает текущее колличество базисов
@@ -262,9 +305,25 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     // Возвращает ширину клиента
-    function clientElementWidth () {
+    function clientElementWidth() {
         return document.querySelector('.client').offsetWidth;
     }
 
+    // Устанавливает ширину элементам .basis и .basis-container
+    function basisSetWidth() {
+        const cW = clientElementWidth();
+        const b = document.querySelectorAll('.basis');
+
+        if (cW < 900) {
+            b.forEach(e => {
+                e.style.width = cW + 'px';
+            });
+        } else {
+            b.forEach(e => {
+                e.style.width = `500px`;
+            });
+        }
+
+    }
 
 });
