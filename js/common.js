@@ -145,6 +145,8 @@ window.addEventListener('DOMContentLoaded', () => {
     // Обработка событий добовления элементов в заказ
     const order = document.querySelector('.order');
     const counter = document.querySelector('.counter-basis');
+    const height = document.querySelector('.height');
+    const addresHeight = document.querySelector('.address-height');
     const addressContainer = document.querySelector('.address-container');
     let counterBasis = basisNumberOfElements ();
     let basisWidth;
@@ -157,6 +159,8 @@ window.addEventListener('DOMContentLoaded', () => {
     basisSetWidth();
 
     counter.innerHTML = counterBasis;
+    height.innerHTML = document.body.scrollHeight;
+    addressContainer.style.height = document.body.scrollHeight;
 
     order.addEventListener('click', (e) => {
         e.preventDefault();
@@ -199,9 +203,13 @@ window.addEventListener('DOMContentLoaded', () => {
         } else if (el.classList.contains('js-add-new-legal-entity')) {
             const container = containerSearch(el);
             container.insertAdjacentHTML('beforeEnd', newLegalEntityTpl);
+            height.innerHTML = document.body.scrollHeight;
+            addressContainer.style.height = document.body.scrollHeight;
         } else if (el.classList.contains('js-add-new-dael')) {
             const container = containerSearch(el);
             container.insertAdjacentHTML('beforeEnd', newDael);
+            height.innerHTML = document.body.scrollHeight;
+            addressContainer.style.height = document.body.scrollHeight;
         }
     });
 
