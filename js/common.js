@@ -179,7 +179,7 @@ window.addEventListener('DOMContentLoaded', () => {
             basisWidth = basisElementWidth ();
             if (clientWidth < basisAllWidt) {
                 const step = positionTranslateX ();
-                translateX = clientWidth - basisAllWidt;
+                translateX = clientWidth - basisAllWidt - 11;
                 addressContainer.style.transform = `translate3D(${translateX}px, 0, 0)`;
             }
 
@@ -196,7 +196,7 @@ window.addEventListener('DOMContentLoaded', () => {
             basisWidth = basisElementWidth ();
             if (clientWidth < basisAllWidt) {
                 const step = positionTranslateX ();
-                translateX = clientWidth - basisAllWidt;
+                translateX = clientWidth - basisAllWidt - 11;
                 addressContainer.style.transform = `translate3D(${translateX}px, 0, 0)`;
             }
 
@@ -228,7 +228,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.address-container');
     let moveX, clickX = 0, step = 0;
 
-    container.style.transform = `translate3D(0px, 0px, 0px)`;
+    container.style.transform = `translate3D(-11px, 0px, 0px)`;
 
     container.addEventListener('pointermove', (e) => {
 
@@ -245,8 +245,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
             // Вычисляем новое знаечение трансформации по оси Х
             // Если координата по осии Х минус координата клика по осии Х плюс текущее положении трансформации по оси Х больше 0
-            if (moveX - clickX + Number(step) > 0) {
-                translateX = 0;                             // Ставим ограничение движения в право
+            if (moveX - clickX + Number(step) > -11) {
+                translateX = -11;                             // Ставим ограничение движения в право
             } else {
                 translateX = moveX - clickX + Number(step);
             }
@@ -324,8 +324,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (cW < 900) {
             b.forEach(e => {
-                e.style.width = cW + 'px';
+                e.style.width = cW +'px';
             });
+            console.log(cW);
         } else {
             b.forEach(e => {
                 e.style.width = `500px`;
