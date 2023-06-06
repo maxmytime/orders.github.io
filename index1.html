@@ -49,12 +49,49 @@
         </div>
 
         <!-- Заявка -->
-        <div class="order">
+        <form class="order">
             <!-- Клиент -->
             <div class="client">
-                <div>
+                <!-- <div>
                     <h2 class="is-size-5">Тут будет информация о клиенте и дате заказа</h2>
+                </div> -->
+
+                <div class="is-flex">
+                    <div class="field mr-2">
+                        <label class="label">Дата</label>
+                        <div class="control">
+                            <input class="input" type="date" name="order-date" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="field mr-2">
+                        <label class="label">Клиент</label>
+                        <div class="control">
+                            <input class="input" type="input" name="order-client" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="field mr-2">
+                        <div class="control is-flex is-flex-direction-column">
+                            <label class="radio">
+                                Тип А
+                                <input type="radio" name="order-type">
+                            </label>
+                            <label class="radio ml-0">
+                                Тип B
+                                <input type="radio" name="order-type">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="field mr-2">
+                        <label class="label">Тип отгрузки</label>
+                        <div class="control">
+                            <input class="input" type="input" name="order-type-input" placeholder="">
+                        </div>
+                    </div>
                 </div>
+
                 <!-- Кнопка добавить адрес -->
                 <a class="button is-white js-add-new-address">
                     <span class="js-add-new-address">Адрес</span>
@@ -67,9 +104,17 @@
                 <div class="address-container">
                     <!-- Адрес -->
                     <div class="address">
-                        <div>
-                            <h2 class="is-size-5">Тут будет информация адресе поставки</h2>
+                        <!-- <div>
+                            <h2 class="is-size-5 ml-5">Адрес</h2>
+                        </div> -->
+
+                        <div class="field ml-5">
+                            <label class="label">Адрес</label>
+                            <div class="control">
+                                <input class="input" type="text" name="order-date" placeholder="">
+                            </div>
                         </div>
+
                         <!-- Кнопка добавить Базис -->
                         <a class="button is-white width-100px position-sticky js-add-new-basis">
                             <span class="js-add-new-basis">Базис</span>
@@ -81,11 +126,97 @@
                         <div class="basis-container">
                             <!-- Базис -->
                             <div class="basis">
-                                <div>
+                                <!-- <div>
                                     <h2 class="is-size-5">Тут будет информация c кагого адреса грузить</h2>
+                                </div> -->
+
+                                <div class="field ml-3 p-3 has-background-grey">
+                                    <label class="label">Базис</label>
+                                    <div class="control">
+                                        <input class="input" type="text" name="order-basis" placeholder="">
+                                    </div>
                                 </div>
+
+                                <div class="columns is-mobile is-variable is-1 mb-0 is-multiline ml-3">
+                                    <div class="column is-6 is-6-mobile">
+                                        <!-- Поле продукт -->
+                                        <div class="field">
+                                            <label class="label">Продукт</label>
+                                            <div class="control">
+                                                <input class="input" type="text" name="order-basis-product" placeholder="">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="column is-6 is-6-mobile">
+                                        <!-- Поле номенклатура -->
+                                        <label class="label">Номенклатура</label>
+                                        <div class="field has-addons is-justify-content-space-between">
+                                            <p class="control width-100">
+                                                <input class="input" type="text" name="" placeholder="">
+                                            </p>
+                                            <p class="control">
+                                                <a class="button">
+                                                    <span class="icon icon-width">
+                                                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                                    </span>
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="column is-6">
+                                        <!-- Поле объем -->
+                                        <label class="label">Объем</label>
+                                        <div class="field has-addons">
+                                            <p class="control width-100">
+                                                <input class="input" type="text" name="volume" placeholder="">
+                                            </p>
+                                            <p class="control">
+                                                <span class="select">
+                                                    <select>
+                                                        <option>л</option>
+                                                        <option>т</option>
+                                                    </select>
+                                                </span>
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="column is-6 is-6-mobile">
+                                        <!-- Поле доставка с учетом НДС -->
+                                        <label class="label">Доставка с учетом НДС</label>
+                                        <div class="field has-addons">
+                                            <p class="control width-100">
+                                                <input class="input" type="text" name="#" placeholder="">
+                                            </p>
+                                            <p class="control">
+                                                <span class="select">
+                                                    <select>
+                                                        <option>руб/л</option>
+                                                        <option>руб/т</option>
+                                                    </select>
+                                                </span>
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="column is-12">
+                                        <!-- Комментарий -->
+                                        <div class="field">
+                                            <label class="label">Комментарий</label>
+                                            <div class="control width-100 is-widescreen">
+                                                <textarea class="textarea" placeholder=""></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <!-- Кнопка добавить Юр. лицо -->
-                                <a class="button is-white js-add-new-legal-entity">
+                                <a class="button is-white js-add-new-legal-entity position-r0-b0">
                                     <span class="js-add-new-legal-entity">Юр. лицо</span>
                                     <span class="icon is-small js-add-new-legal-entity">
                                         <i class="fa fa-plus-square-o js-add-new-legal-entity" aria-hidden="true"></i>
@@ -95,11 +226,19 @@
                                 <div class="legal-entity-container">
                                     <!-- Юридическое лицо -->
                                     <div class="legal-entity">
-                                        <div>
+                                        <!-- <div>
                                             <h2 class="is-size-5">Тут будет информация о юридическом лице</h2>
+                                        </div> -->
+
+                                        <div class="field">
+                                            <label class="label">Юридическое лицо</label>
+                                            <div class="control">
+                                                <input class="input" type="text" name="order-legal-entity" placeholder="">
+                                            </div>
                                         </div>
+
                                         <!-- Кнопка добавить сделку -->
-                                        <a class="button is-white js-add-new-dael">
+                                        <a class="button is-white js-add-new-dael position-r0-b0">
                                             <span class="js-add-new-dael">Сделка</span>
                                             <span class="icon is-small js-add-new-dael">
                                                 <i class="fa fa-plus-square-o js-add-new-dael" aria-hidden="true"></i>
@@ -110,10 +249,67 @@
                                         <div class="dael-container">
                                             <!-- Сделка -->
                                             <div class="dael">
-                                                <div>
+                                                <!-- <div>
                                                     <h2 class="is-size-5">Тут будет информация о сделке</h2>
+                                                </div> -->
+
+                                                <div class="columns is-multiline is-variable is-1">
+
+                                                    <div class="column is-4">
+                                                        <label class="label">Объем</label>
+                                                        <div class="field has-addons">
+                                                            <p class="control width-100">
+                                                                <input class="input" type="text" name="order-volume" placeholder="">
+                                                            </p>
+                                                            <p class="control">
+                                                                <span class="select">
+                                                                    <select>
+                                                                        <option>л</option>
+                                                                        <option>т</option>
+                                                                    </select>
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="column is-4">
+
+                                                        <label class="label">Стоимость</label>
+                                                        <div class="field has-addons">
+                                                            <p class="control width-100">
+                                                                <input class="input" type="text" name="order-prisce" placeholder="">
+                                                            </p>
+                                                            <p class="control">
+                                                                <span class="select">
+                                                                    <select>
+                                                                        <option>руб/л</option>
+                                                                        <option>руб/т</option>
+                                                                    </select>
+                                                                </span>
+                                                            </p>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="column is-4">
+
+                                                        <label class="label">Дата</label>
+                                                        <div class="field has-addons">
+                                                            <p class="control width-100">
+                                                                <input class="input" type="date" name="order-dael-date" value="2023-07-22" placeholder="">
+                                                            </p>
+                                                        </div>
+
+                                                    </div>
                                                 </div>
 
+                                            </div>
+                                        </div>
+
+                                        <div class="field">
+                                            <label class="label">Исполнитель</label>
+                                            <div class="control">
+                                                <input class="input" type="text" name="order-contractor" placeholder="">
                                             </div>
                                         </div>
 
@@ -129,7 +325,7 @@
                 </div>
 
             </div>
-        </div>
+        </form>
 
     </div>
 

@@ -148,6 +148,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const height = document.querySelector('.height');
     const addresHeight = document.querySelector('.address-height');
     const addressContainer = document.querySelector('.address-container');
+    const offSet = 11;
     let counterBasis = basisNumberOfElements ();
     let basisWidth;
     let clientWidth;
@@ -163,7 +164,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // addressContainer.style.height = String(document.body.scrollHeight) + 'px';
 
     order.addEventListener('click', (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         const el = e.target;
 
         if (el.classList.contains('js-add-new-address')) {
@@ -179,7 +180,7 @@ window.addEventListener('DOMContentLoaded', () => {
             basisWidth = basisElementWidth ();
             if (clientWidth < basisAllWidt) {
                 const step = positionTranslateX ();
-                translateX = clientWidth - basisAllWidt - 11;
+                translateX = clientWidth - basisAllWidt - offSet;
                 addressContainer.style.transform = `translate3D(${translateX}px, 0, 0)`;
             }
 
@@ -196,7 +197,7 @@ window.addEventListener('DOMContentLoaded', () => {
             basisWidth = basisElementWidth ();
             if (clientWidth < basisAllWidt) {
                 const step = positionTranslateX ();
-                translateX = clientWidth - basisAllWidt - 11;
+                translateX = clientWidth - basisAllWidt - offSet;
                 addressContainer.style.transform = `translate3D(${translateX}px, 0, 0)`;
             }
 
@@ -228,7 +229,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.address-container');
     let moveX, clickX = 0, step = 0;
 
-    container.style.transform = `translate3D(-11px, 0px, 0px)`;
+    container.style.transform = `translate3D(-${offSet}px, 0px, 0px)`;
 
     container.addEventListener('pointermove', (e) => {
 
@@ -245,7 +246,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             // Вычисляем новое знаечение трансформации по оси Х
             // Если координата по осии Х минус координата клика по осии Х плюс текущее положении трансформации по оси Х больше 0
-            if (moveX - clickX + Number(step) > -11) {
+            if (moveX - clickX + Number(step) > -offSet) {
                 translateX = -11;                             // Ставим ограничение движения в право
             } else {
                 translateX = moveX - clickX + Number(step);
