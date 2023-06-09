@@ -60,7 +60,7 @@
                     <div class="field mr-2">
                         <label class="label">Дата</label>
                         <div class="control">
-                            <input class="input" type="date" name="order-date" placeholder="">
+                            <input class="input js-type-date-is-range" type="date" name="order-date" placeholder="">
                         </div>
                     </div>
 
@@ -72,22 +72,22 @@
                     </div>
 
                     <div class="field mr-2">
-                        <div class="control is-flex is-flex-direction-column">
-                            <label class="radio">
-                                Тип А
-                                <input type="radio" name="order-type">
-                            </label>
-                            <label class="radio ml-0">
-                                Тип B
-                                <input type="radio" name="order-type">
-                            </label>
+                        <label class="label">Тип клиента</label>
+                        <div class="control">
+                            <input class="input" type="input" name="order-client-type" placeholder="">
                         </div>
                     </div>
 
                     <div class="field mr-2">
                         <label class="label">Тип отгрузки</label>
                         <div class="control">
-                            <input class="input" type="input" name="order-type-input" placeholder="">
+                            <div class="select">
+                                <select>
+                                    <option>Тип 1</option>
+                                    <option>Тип 2</option>
+                                    <option>Тип 3</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
                         <div class="field ml-5">
                             <label class="label">Адрес</label>
                             <div class="control">
-                                <input class="input" type="text" name="order-date" placeholder="">
+                                <input class="input" type="text" name="order-address-date" placeholder="">
                             </div>
                         </div>
 
@@ -166,26 +166,49 @@
                                         </div>
                                     </div>
 
-                                    <div class="column is-6">
+                                    <div class="column is-12">
                                         <!-- Поле объем -->
-                                        <label class="label">Объем</label>
-                                        <div class="field has-addons">
-                                            <p class="control width-100">
-                                                <input class="input" type="text" name="volume" placeholder="">
+                                        <label class="label">Вес</label>
+                                        <div class="field has-addons is-align-items-end">
+                                            <p class="control">
+                                                <label class="label has-text-weight-normal">Минимум</label>
+                                                <input class="input" type="text" name="order-basis-wt-min" placeholder="-">
                                             </p>
                                             <p class="control">
-                                                <span class="select">
-                                                    <select>
-                                                        <option>л</option>
-                                                        <option>т</option>
-                                                    </select>
-                                                </span>
+                                                <label class="label has-text-weight-normal">Максимум</label>
+                                                <input class="input" type="text" name="order-basis-wt-max" placeholder="-">
+                                            </p>
+                                            <p class="control">
+                                                <a class="button is-static">
+                                                    Литр
+                                                </a>
                                             </p>
                                         </div>
 
                                     </div>
 
-                                    <div class="column is-6 is-6-mobile">
+                                    <div class="column is-12">
+                                        <!-- Поле объем -->
+                                        <label class="label">Объем</label>
+                                        <div class="field has-addons is-align-items-end">
+                                            <p class="control">
+                                                <label class="label has-text-weight-normal">Минимум</label>
+                                                <input class="input" type="text" name="order-basis-wt-min" placeholder="-">
+                                            </p>
+                                            <p class="control">
+                                                <label class="label has-text-weight-normal">Максимум</label>
+                                                <input class="input" type="text" name="order-basis-wt-max" placeholder="-">
+                                            </p>
+                                            <p class="control">
+                                                <a class="button is-static">
+                                                    Тонна
+                                                </a>
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="column is-12 is-12-mobile">
                                         <!-- Поле доставка с учетом НДС -->
                                         <label class="label">Доставка с учетом НДС</label>
                                         <div class="field has-addons">
@@ -303,13 +326,6 @@
                                                     </div>
                                                 </div>
 
-                                            </div>
-                                        </div>
-
-                                        <div class="field">
-                                            <label class="label">Исполнитель</label>
-                                            <div class="control">
-                                                <input class="input" type="text" name="order-contractor" placeholder="">
                                             </div>
                                         </div>
 
