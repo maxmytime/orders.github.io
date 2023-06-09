@@ -56,40 +56,50 @@
                     <h2 class="is-size-5">Тут будет информация о клиенте и дате заказа</h2>
                 </div> -->
 
-                <div class="is-flex">
-                    <div class="field mr-2">
-                        <label class="label">Дата</label>
-                        <div class="control">
-                            <input class="input js-type-date-is-range" type="date" name="order-date" placeholder="">
-                        </div>
-                    </div>
+                <div class="columns is-variable is-1 is-multiline">
 
-                    <div class="field mr-2">
-                        <label class="label">Клиент</label>
-                        <div class="control">
-                            <input class="input" type="input" name="order-client" placeholder="">
-                        </div>
-                    </div>
-
-                    <div class="field mr-2">
-                        <label class="label">Тип клиента</label>
-                        <div class="control">
-                            <input class="input" type="input" name="order-client-type" placeholder="">
-                        </div>
-                    </div>
-
-                    <div class="field mr-2">
-                        <label class="label">Тип отгрузки</label>
-                        <div class="control">
-                            <div class="select">
-                                <select>
-                                    <option>Тип 1</option>
-                                    <option>Тип 2</option>
-                                    <option>Тип 3</option>
-                                </select>
+                    <div class="column is-3">
+                        <div class="field mr-2">
+                            <label class="label">Дата</label>
+                            <div class="control">
+                                <input class="input js-type-date-is-range" type="date" name="order-date" placeholder="">
                             </div>
                         </div>
                     </div>
+
+                    <div class="column is-3">
+                        <div class="field mr-2">
+                            <label class="label">Клиент</label>
+                            <div class="control">
+                                <input class="input" type="input" name="order-client" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-3">
+                        <div class="field mr-2">
+                            <label class="label">Тип клиента</label>
+                            <div class="control">
+                                <input class="input" type="input" name="order-client-type" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-3">
+                        <div class="field mr-2">
+                            <label class="label">Тип отгрузки</label>
+                            <div class="control">
+                                <div class="select width-100">
+                                    <select class="width-100">
+                                        <option>Тип 1</option>
+                                        <option>Тип 2</option>
+                                        <option>Тип 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 <!-- Кнопка добавить адрес -->
@@ -220,6 +230,7 @@
                                                     <select>
                                                         <option>руб/л</option>
                                                         <option>руб/т</option>
+                                                        <option>руб</option>
                                                     </select>
                                                 </span>
                                             </p>

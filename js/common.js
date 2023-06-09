@@ -340,7 +340,7 @@ window.addEventListener('DOMContentLoaded', () => {
         color: 'link',
         isRange: true,
         lang: 'ru',
-        dateFormat: 'MM.dd.yyyy',
+        dateFormat: 'dd.MM.yyyy',
     };
 
     // Initialize all input of date type.
