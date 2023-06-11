@@ -606,7 +606,7 @@ window.addEventListener('DOMContentLoaded', () => {
             // counter.innerHTML = basisNumberOfElements ();
 
             clientWidth = clientElementWidth ();
-            basisAllWidt = basisWidthOfAllElements(38);
+            basisAllWidt = basisWidthOfAllElements();
             basisWidth = basisElementWidth ();
             if (clientWidth < basisAllWidt) {
                 const step = positionTranslateX ();
@@ -623,7 +623,7 @@ window.addEventListener('DOMContentLoaded', () => {
             // counter.innerHTML = basisNumberOfElements ();
 
             clientWidth = clientElementWidth ();
-            basisAllWidt = basisWidthOfAllElements(37);
+            basisAllWidt = basisWidthOfAllElements();
             basisWidth = basisElementWidth ();
             if (clientWidth < basisAllWidt) {
                 const step = positionTranslateX ();
@@ -736,12 +736,13 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     // Возвращает сумму ширин всех элементов базис
-    function basisWidthOfAllElements (step) {
+    function basisWidthOfAllElements () {
         const width = document.querySelector('.basis').offsetWidth;
         const count = document.querySelectorAll('.basis').length;
 
-        return (width + step) * count;
+        return (width + 38) * count;
     }
+
 
     // Возвращает ширину клиента
     function clientElementWidth() {
