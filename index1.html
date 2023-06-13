@@ -97,15 +97,17 @@
                         </div>
                     </div>
 
-                    <div class="column is-1">
+                    <div class="column is-2">
                         <div class="field mr-2">
                             <label class="label">Тип отгрузки</label>
                             <div class="control">
                                 <div class="select width-100">
                                     <select class="width-100">
-                                        <option>Тип 1</option>
-                                        <option>Тип 2</option>
-                                        <option>Тип 3</option>
+                                        <option>Перемещение</option>
+                                        <option>Самовывоз</option>
+                                        <option>Доставка</option>
+                                        <option>Самовывоз СК</option>
+                                        <option>С доставкой</option>
                                     </select>
                                 </div>
                             </div>
@@ -147,7 +149,7 @@
 
                         <div class="basis-container">
                             <!-- Базис -->
-                            <div class="basis">
+                            <div id="" class="basis">
                                 <!-- <div>
                                     <h2 class="is-size-5">Тут будет информация c кагого адреса грузить</h2>
                                 </div> -->
@@ -156,7 +158,7 @@
                                     <label class="label">Базис</label>
                                     <div class="control is-flex is-justify-content-space-between">
                                         <input class="input" type="text" name="order-basis" placeholder="">
-                                        <a class="button">
+                                        <a id="1" class="button">
                                             <span class="icon is-small">
                                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                                             </span>
@@ -195,11 +197,15 @@
                                     <div class="column is-12">
                                         <!-- Поле объем -->
                                         <label class="label mt-2">Вес</label>
+                                        <label class="checkbox is-flex mb-3">
+                                            <input class="mr-2 js-wt-checkbox" type="checkbox">
+                                            Диапазон
+                                        </label>
                                         <div class="field has-addons">
-                                            <p class="control width-100">
-                                                <input class="input" type="text" name="order-basis-wt-min" placeholder="Минимум">
+                                            <p class="control width-100 js-wt-min">
+                                                <input class="input js-order-basis-wt-min" type="text" name="order-basis-wt-min" placeholder="-">
                                             </p>
-                                            <p class="control width-100">
+                                            <p class="control width-100 js-wt-max is-hidden">
                                                 <input class="input" type="text" name="order-basis-wt-max" placeholder="Максимум">
                                             </p>
                                             <p class="control">
@@ -214,12 +220,16 @@
                                     <div class="column is-12">
                                         <!-- Поле объем -->
                                         <label class="label mt-2">Объем</label>
+                                        <label class="checkbox is-flex mb-3">
+                                            <input class="mr-2 js-volume-checkbox" type="checkbox">
+                                            Диапазон
+                                        </label>
                                         <div class="field has-addons is-align-items-end">
                                             <p class="control width-100">
-                                                <input class="input" type="text" name="order-basis-wt-min" placeholder="Минимум">
+                                                <input class="input js-order-basis-volume-min" type="text" name="order-basis-volume-min" placeholder="-">
                                             </p>
-                                            <p class="control width-100">
-                                                <input class="input" type="text" name="order-basis-wt-max" placeholder="Максимум">
+                                            <p class="control width-100 js-volume-max is-hidden">
+                                                <input class="input" type="text" name="order-basis-volume-max" placeholder="Максимум">
                                             </p>
                                             <p class="control">
                                                 <a class="button is-static">
@@ -283,7 +293,7 @@
                                             <label class="label">Юридическое лицо</label>
                                             <div class="control is-flex">
                                                 <input class="input" type="text" name="order-legal-entity" placeholder="">
-                                                <a class="button button-ico button-ico-color-gray">
+                                                <a id="2" class="button button-ico button-ico-color-gray">
                                                     <span class="icon">
                                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                     </span>
@@ -310,18 +320,19 @@
                                                 <div class="columns is-multiline is-variable is-1">
 
                                                     <div class="column is-4">
+                                                        <label class="label">Вес</label>
+                                                        <div class="field has-addons">
+                                                            <p class="control width-100">
+                                                                <input class="input" type="text" name="order-wt" placeholder="">
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="column is-4">
                                                         <label class="label">Объем</label>
                                                         <div class="field has-addons">
                                                             <p class="control width-100">
                                                                 <input class="input" type="text" name="order-volume" placeholder="">
-                                                            </p>
-                                                            <p class="control">
-                                                                <span class="select">
-                                                                    <select>
-                                                                        <option>л</option>
-                                                                        <option>т</option>
-                                                                    </select>
-                                                                </span>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -349,9 +360,9 @@
                                                     <div class="column is-4">
 
                                                         <label class="label">Тип оплаты</label>
-                                                        <p class="control is-flex is-justify-content-space-between">
-                                                            <span class="select width-88">
-                                                                <select class="">
+                                                        <p class="control">
+                                                            <span class="select width-100">
+                                                                <select class="width-100">
                                                                     <option>-</option>
                                                                     <option>Предоплата на дату</option>
                                                                     <option>Предоплата до отгрузки</option>
@@ -360,11 +371,7 @@
                                                                     <option>Отсрочка сдвиг</option>
                                                                 </select>
                                                             </span>
-                                                            <a class="button button-ico button-ico-color-gray">
-                                                                <span class="icon">
-                                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                                </span>
-                                                            </a>
+
                                                         </p>
 
                                                     </div>
@@ -384,8 +391,13 @@
 
                                                         <label class="label">Количество дней</label>
                                                         <div class="field has-addons">
-                                                            <p class="control width-100">
+                                                            <p class="control is-flex is-justify-content-space-between">
                                                                 <input class="input" type="text" name="" value="" placeholder="">
+                                                                <a id="3" class="button button-ico button-ico-color-gray">
+                                                                    <span class="icon">
+                                                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                                    </span>
+                                                                </a>
                                                             </p>
                                                         </div>
 

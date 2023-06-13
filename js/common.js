@@ -804,5 +804,59 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Форма чекбокс диапазон
+    const wtCheckbox = document.querySelector('.js-wt-checkbox'),
+          wtMax = document.querySelector('.js-wt-max'),
+          orderBasisWtMin = document.querySelector('.js-order-basis-wt-min');
+
+    wtCheckbox.addEventListener('change', (e) => {
+        if (e.target.checked) {
+            wtMax.classList.remove('is-hidden');
+            orderBasisWtMin.setAttribute('placeholder', 'Минимум');
+        } else {
+            wtMax.classList.add('is-hidden');
+            orderBasisWtMin.setAttribute('placeholder', '-');
+        }
+    });
+
+    const volumeCheckbox = document.querySelector('.js-volume-checkbox'),
+          volumeMax = document.querySelector('.js-volume-max'),
+          orderBasisVolumeMin = document.querySelector('.js-order-basis-volume-min');
+
+        volumeCheckbox.addEventListener('change', (e) => {
+        if (e.target.checked) {
+            volumeMax.classList.remove('is-hidden');
+            orderBasisVolumeMin.setAttribute('placeholder', 'Минимум');
+        } else {
+            volumeMax.classList.add('is-hidden');
+            orderBasisVolumeMin.setAttribute('placeholder', '-');
+        }
+    });
+
+    // Кнопка удаления элемента базис/юридическое лицо/сделка
+    const btnDeletBasis = document.getElementById('1');
+    const basisAll = document.querySelectorAll('.basis');
+
+    btnDeletBasis.addEventListener('click', (e) => {
+        let id = btnDeletBasis.id;
+        basisAll[id - 1].remove();
+    });
+
+    const btnDeletLegalEntity = document.getElementById('2');
+    const legalEntityAll = document.querySelectorAll('.legal-entity');
+
+    btnDeletLegalEntity.addEventListener('click', (e) => {
+        let id = btnDeletLegalEntity.id;
+        legalEntityAll[id - 2].remove();
+    });
+
+    const btnDeletDael = document.getElementById('3');
+    const daelAll = document.querySelectorAll('.dael');
+
+    btnDeletDael.addEventListener('click', (e) => {
+        let id = btnDeletDael.id;
+        daelAll[id - 3].remove();
+    });
+
 
 });
