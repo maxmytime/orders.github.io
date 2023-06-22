@@ -677,7 +677,7 @@ window.addEventListener('DOMContentLoaded', () => {
             // Вычисляем новое знаечение трансформации по оси Х
             // Если координата по осии Х минус координата клика по осии Х плюс текущее положении трансформации по оси Х больше 0
             if (moveX - clickX + Number(step) > -offSet) {
-                translateX = -11;                             // Ставим ограничение движения в право
+                translateX = 0;                             // Ставим ограничение движения в право
             } else {
                 translateX = moveX - clickX + Number(step);
             }
@@ -780,12 +780,12 @@ window.addEventListener('DOMContentLoaded', () => {
     const calendars = bulmaCalendar.attach('[name="order-date"]', options);
 
     // Loop on each calendar initialized
-    calendars.forEach(calendar => {
-        // Add listener to select event
-        calendar.on('select', date => {
-            console.log(date);
-        });
-    });
+    // calendars.forEach(calendar => {
+    //     // Add listener to select event
+    //     calendar.on('select', date => {
+    //         console.log(date);
+    //     });
+    // });
 
     const option = {
         color: 'link',
@@ -797,27 +797,43 @@ window.addEventListener('DOMContentLoaded', () => {
     const calendar = bulmaCalendar.attach('[name="order-dael-date"]', option);
 
     // Loop on each calendar initialized
-    calendars.forEach(calendar => {
+    calendar.forEach(calendar => {
         // Add listener to select event
-        calendar.on('select', date => {
+        calendar.on('show', date => {
+            console.log(date);
+        });
+    });
+
+    // Initialize all input of date type.
+    const orderBasisDatetime = bulmaCalendar.attach('[name="order-basis-datetime"]', {
+        type: 'datetime',
+        color: 'link',
+        lang: 'ru',
+        dateFormat: 'dd.MM.yyyy',
+    });
+
+    // Loop on each calendar initialized
+    orderBasisDatetime.forEach(calendar => {
+        // Add listener to select event
+        calendar.on('show', date => {
             console.log(date);
         });
     });
 
     // Форма чекбокс диапазон
-    const wtCheckbox = document.querySelector('.js-wt-checkbox'),
-          wtMax = document.querySelector('.js-wt-max'),
-          orderBasisWtMin = document.querySelector('.js-order-basis-wt-min');
+    // const wtCheckbox = document.querySelector('.js-wt-checkbox'),
+    //       wtMax = document.querySelector('.js-wt-max'),
+    //       orderBasisWtMin = document.querySelector('.js-order-basis-wt-min');
 
-    wtCheckbox.addEventListener('change', (e) => {
-        if (e.target.checked) {
-            wtMax.classList.remove('is-hidden');
-            orderBasisWtMin.setAttribute('placeholder', 'Минимум');
-        } else {
-            wtMax.classList.add('is-hidden');
-            orderBasisWtMin.setAttribute('placeholder', '-');
-        }
-    });
+    // wtCheckbox.addEventListener('change', (e) => {
+    //     if (e.target.checked) {
+    //         wtMax.classList.remove('is-hidden');
+    //         orderBasisWtMin.setAttribute('placeholder', 'Минимум');
+    //     } else {
+    //         wtMax.classList.add('is-hidden');
+    //         orderBasisWtMin.setAttribute('placeholder', '-');
+    //     }
+    // });
 
     const volumeCheckbox = document.querySelector('.js-volume-checkbox'),
           volumeMax = document.querySelector('.js-volume-max'),
@@ -832,6 +848,47 @@ window.addEventListener('DOMContentLoaded', () => {
             orderBasisVolumeMin.setAttribute('placeholder', '-');
         }
     });
+
+    // Скрываемые поля в базисе
+    const orderBasisUrgency = document.querySelector('.js-order-basis-urgency'),
+          orderBasisTerm = document.querySelector('.js-order-basis-term'),
+          datetime = document.querySelector('.js-order-basis-datetime');
+
+    orderBasisUrgency.addEventListener('change', e => {
+        const option = e.target.value;
+
+        if (option === 'Срочно в течение') {
+            orderBasisTerm.classList.remove('is-hidden');
+            datetime.classList.add('is-hidden');
+        } else if (option === 'До') {
+            datetime.classList.remove('is-hidden');
+            orderBasisTerm.classList.add('is-hidden');
+        } else {
+            orderBasisTerm.classList.add('is-hidden');
+            datetime.classList.add('is-hidden');
+        }
+    });
+
+    // Скрываемые поля в сделке
+    const orderDaelPaymentType = document.querySelector('.js-order-dael-payment-type'),
+          orderDaelDate = document.querySelector('.js-order-dael-date'),
+          orderDaelDey = document.querySelector('.js-order-dael-dey');
+
+    orderDaelPaymentType.addEventListener('change', e => {
+        const option = e.target.value;
+
+        if (option === 'Предоплата на дату' || option === 'Отсрочка на дату') {
+            orderDaelDate.classList.remove('is-hidden');
+            orderDaelDey.classList.add('is-hidden');
+        } else if (option === 'Отсрочка сдвиг') {
+            orderDaelDey.classList.remove('is-hidden');
+            orderDaelDate.classList.add('is-hidden');
+        } else {
+            orderDaelDate.classList.add('is-hidden');
+            orderDaelDey.classList.add('is-hidden');
+        }
+    });
+
 
     // Кнопка удаления элемента базис/юридическое лицо/сделка
     const btnDeletBasis = document.getElementById('1');
