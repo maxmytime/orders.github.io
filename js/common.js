@@ -3,7 +3,7 @@
 window.addEventListener('DOMContentLoaded', () => {
 
     // Добавляем новый адрес доставки
-    const newAddresTpl = `                    <div class="address">
+    const newAddresTpl = `<div class="address">
     <!-- <div>
         <h2 class="is-size-5 ml-5">Адрес</h2>
     </div> -->
@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     <div class="basis-container">
         <!-- Базис -->
-        <div class="basis">
+        <div id="" class="basis">
             <!-- <div>
                 <h2 class="is-size-5">Тут будет информация c кагого адреса грузить</h2>
             </div> -->
@@ -34,7 +34,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 <label class="label">Базис</label>
                 <div class="control is-flex is-justify-content-space-between">
                     <input class="input" type="text" name="order-basis" placeholder="">
-                    <a class="button">
+                    <a id="1" class="button js-btn-basis-del">
                         <span class="icon is-small">
                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                         </span>
@@ -43,10 +43,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
             </div>
 
-            <div class="columns is-mobile is-gapless is-multiline">
+            <div class="columns is-mobile is-variable is-1 is-multiline">
                 <div class="column is-6 is-6-mobile">
                     <!-- Поле продукт -->
-                    <div class="field mr-2">
+                    <div class="field">
                         <label class="label">Продукт</label>
                         <div class="control">
                             <input class="input" type="text" name="order-basis-product" placeholder="">
@@ -70,15 +70,42 @@ window.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
 
-                <div class="column is-12">
-                    <!-- Поле объем -->
+                <!-- <div class="column is-12">
+                    Поле объем
                     <label class="label mt-2">Вес</label>
+                    <label class="checkbox is-flex mb-3">
+                        <input class="mr-2 js-wt-checkbox" type="checkbox">
+                        Диапазон
+                    </label>
                     <div class="field has-addons">
-                        <p class="control width-100">
-                            <input class="input" type="text" name="order-basis-wt-min" placeholder="Минимум">
+                        <p class="control width-100 js-wt-min">
+                            <input class="input js-order-basis-wt-min" type="text" name="order-basis-wt-min" placeholder="-">
                         </p>
-                        <p class="control width-100">
+                        <p class="control width-100 js-wt-max is-hidden">
                             <input class="input" type="text" name="order-basis-wt-max" placeholder="Максимум">
+                        </p>
+                        <p class="control">
+                            <a class="button is-static">
+                                Литр
+                            </a>
+                        </p>
+                    </div>
+
+                </div> -->
+
+                <div class="column is-6">
+                    <!-- Поле объем -->
+                    <label class="label">Объем</label>
+                    <label class="checkbox is-flex mb-3">
+                        <input class="mr-2 js-volume-checkbox" type="checkbox">
+                        Диапазон
+                    </label>
+                    <div class="field has-addons is-align-items-end">
+                        <p class="control width-100 js-volume-min">
+                            <input class="input js-order-basis-volume-min " type="text" name="order-basis-volume-min" placeholder="-">
+                        </p>
+                        <p class="control width-100 js-volume-max is-hidden">
+                            <input class="input" type="text" name="order-basis-volume-max" placeholder="Максимум">
                         </p>
                         <p class="control">
                             <a class="button is-static">
@@ -89,28 +116,19 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 </div>
 
-                <div class="column is-12">
-                    <!-- Поле объем -->
-                    <label class="label mt-2">Объем</label>
-                    <div class="field has-addons is-align-items-end">
-                        <p class="control width-100">
-                            <input class="input" type="text" name="order-basis-wt-min" placeholder="Минимум">
-                        </p>
-                        <p class="control width-100">
-                            <input class="input" type="text" name="order-basis-wt-max" placeholder="Максимум">
-                        </p>
-                        <p class="control">
-                            <a class="button is-static">
-                                Тонна
-                            </a>
-                        </p>
+                <div class="column is-6 is-6-mobile">
+                    <!-- Поле доставка -->
+                    <label class="label">Доставка</label>
+                    <div class="control mb-2">
+                        <label class="radio">
+                          <input type="radio" name="foobar">
+                          С НДС
+                        </label>
+                        <label class="radio">
+                          <input type="radio" name="foobar" checked>
+                          Без НДС
+                        </label>
                     </div>
-
-                </div>
-
-                <div class="column is-12 is-12-mobile">
-                    <!-- Поле доставка с учетом НДС -->
-                    <label class="label mt-2">Доставка с учетом НДС</label>
                     <div class="field has-addons">
                         <p class="control width-100">
                             <input class="input" type="text" name="#" placeholder="">
@@ -125,6 +143,81 @@ window.addEventListener('DOMContentLoaded', () => {
                             </span>
                         </p>
                     </div>
+
+                </div>
+
+                <div class="column is-6 is-4-mobile">
+                    <!-- Поле Документы -->
+                    <label class="label">Документы</label>
+                    <div class="field">
+                        <p class="control">
+                            <span class="select width-100">
+                                <select class="width-100">
+                                    <option>Документы</option>
+                                    <option>Документы + счет</option>
+                                    <option>Счет</option>
+                                    <option>Без документов</option>
+                                </select>
+                            </span>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="column is-6 is-4-mobile js-order-basis-urgency-container">
+                    <!-- Поле Срочность -->
+                    <label class="label">Срочность</label>
+                    <div class="field">
+                        <p class="control">
+                            <span class="select width-100">
+                                <select class="width-100 js-order-basis-urgency">
+                                    <option>-</option>
+                                    <option>Крайне срочно</option>
+                                    <option>Срочно в течение</option>
+                                    <option>До</option>
+                                    <option>В течение дня</option>
+                                </select>
+                            </span>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="column is-6 is-4-mobile js-order-basis-term is-hidden">
+                    <!-- Поле Срочность -->
+                    <label class="label">Срок</label>
+                    <div class="field">
+                        <p class="control">
+                            <span class="select width-100">
+                                <select class="width-100">
+                                    <option>30 минут</option>
+                                    <option>Час</option>
+                                    <option>2 часа</option>
+                                    <option>До конца рабочего дня</option>
+                                    <option>Утром следующего дня</option>
+                                </select>
+                            </span>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="column is-12 is-4-mobile js-order-basis-datetime is-hidden">
+                    <!-- Поле До -->
+                    <label class="label">До</label>
+                    <div class="is-flex is-justify-content-space-between">
+                        <div class="field has-addons width-100 pr-4px">
+                            <p class="control width-100">
+                                <input class="input" type="date" name="order-basis-datetime" value="2023-07-22" placeholder="">
+                            </p>
+                        </div>
+                        <div class="field width-100 pl-4px">
+                            <p class="control width-100">
+                                <input class="input" type="time" name="" value="" placeholder="__:__">
+                            </p>
+                        </div>
+                    </div>
+
 
                 </div>
 
@@ -161,7 +254,7 @@ window.addEventListener('DOMContentLoaded', () => {
                         <label class="label">Юридическое лицо</label>
                         <div class="control is-flex">
                             <input class="input" type="text" name="order-legal-entity" placeholder="">
-                            <a class="button button-ico button-ico-color-gray">
+                            <a id="2" class="button button-ico button-ico-color-gray js-btn-le-del">
                                 <span class="icon">
                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                 </span>
@@ -191,22 +284,23 @@ window.addEventListener('DOMContentLoaded', () => {
                                     <label class="label">Объем</label>
                                     <div class="field has-addons">
                                         <p class="control width-100">
-                                            <input class="input" type="text" name="order-volume" placeholder="">
+                                            <input class="input" type="text" name="order-wt" placeholder="">
                                         </p>
-                                        <p class="control">
-                                            <span class="select">
-                                                <select>
-                                                    <option>л</option>
-                                                    <option>т</option>
-                                                </select>
-                                            </span>
+                                    </div>
+                                </div>
+
+                                <div class="column is-4">
+                                    <label class="label">Вес</label>
+                                    <div class="field has-addons">
+                                        <p class="control width-100">
+                                            <input class="input" type="text" name="order-volume" placeholder="">
                                         </p>
                                     </div>
                                 </div>
 
                                 <div class="column is-4">
 
-                                    <label class="label">Стоимость</label>
+                                    <label class="label">Цена</label>
                                     <div class="field has-addons">
                                         <p class="control width-100">
                                             <input class="input" type="text" name="order-prisce" placeholder="">
@@ -216,7 +310,6 @@ window.addEventListener('DOMContentLoaded', () => {
                                                 <select>
                                                     <option>руб/л</option>
                                                     <option>руб/т</option>
-                                                    <option>руб</option>
                                                 </select>
                                             </span>
                                         </p>
@@ -224,30 +317,26 @@ window.addEventListener('DOMContentLoaded', () => {
 
                                 </div>
 
-                                <div class="column is-4">
+                                <div class="column is-4 js-order-dael-payment-type-container">
 
                                     <label class="label">Тип оплаты</label>
-                                    <p class="control is-flex is-justify-content-space-between">
-                                        <span class="select width-88">
-                                            <select class="">
+                                    <p class="control">
+                                        <span class="select width-100">
+                                            <select class="width-100 js-order-dael-payment-type">
                                                 <option>-</option>
                                                 <option>Предоплата на дату</option>
                                                 <option>Предоплата до отгрузки</option>
-                                                <option>Предоплата по факту отгрузки</option>
+                                                <option>По факту отгрузки</option>
                                                 <option>Отсрочка на дату</option>
                                                 <option>Отсрочка сдвиг</option>
                                             </select>
                                         </span>
-                                        <a class="button button-ico button-ico-color-gray">
-                                            <span class="icon">
-                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                            </span>
-                                        </a>
+
                                     </p>
 
                                 </div>
 
-                                <div class="column is-4">
+                                <div class="column is-4 js-order-dael-date is-hidden">
 
                                     <label class="label">Дата</label>
                                     <div class="field has-addons">
@@ -258,15 +347,23 @@ window.addEventListener('DOMContentLoaded', () => {
 
                                 </div>
 
-                                <div class="column is-4">
+                                <div class="column is-4 js-order-dael-dey is-hidden">
 
                                     <label class="label">Количество дней</label>
                                     <div class="field has-addons">
-                                        <p class="control width-100">
-                                            <input class="input" type="text" name="" value="" placeholder="">
+                                        <p class="control is-flex is-justify-content-space-between">
+                                            <input class="input" type="text" name="" value="" placeholder=""
                                         </p>
                                     </div>
 
+                                </div>
+
+                                <div class="column is-1">
+                                    <a id="3" class="button button-ico button-ico-color-gray is-flex is-align-items-end js-btn-dael-del">
+                                        <span class="icon">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </span>
+                                    </a>
                                 </div>
                             </div>
 
@@ -283,7 +380,7 @@ window.addEventListener('DOMContentLoaded', () => {
 </div>`;
 
     // Добавляем новый базис
-    const newBasisTpl = `                            <div class="basis">
+    const newBasisTpl = `<div id="" class="basis">
     <!-- <div>
         <h2 class="is-size-5">Тут будет информация c кагого адреса грузить</h2>
     </div> -->
@@ -292,7 +389,7 @@ window.addEventListener('DOMContentLoaded', () => {
         <label class="label">Базис</label>
         <div class="control is-flex is-justify-content-space-between">
             <input class="input" type="text" name="order-basis" placeholder="">
-            <a class="button">
+            <a id="1" class="button js-btn-basis-del">
                 <span class="icon is-small">
                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                 </span>
@@ -301,10 +398,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
     </div>
 
-    <div class="columns is-mobile is-gapless is-multiline">
+    <div class="columns is-mobile is-variable is-1 is-multiline">
         <div class="column is-6 is-6-mobile">
             <!-- Поле продукт -->
-            <div class="field mr-2">
+            <div class="field">
                 <label class="label">Продукт</label>
                 <div class="control">
                     <input class="input" type="text" name="order-basis-product" placeholder="">
@@ -328,15 +425,42 @@ window.addEventListener('DOMContentLoaded', () => {
             </div>
         </div>
 
-        <div class="column is-12">
-            <!-- Поле объем -->
+        <!-- <div class="column is-12">
+            Поле объем
             <label class="label mt-2">Вес</label>
+            <label class="checkbox is-flex mb-3">
+                <input class="mr-2 js-wt-checkbox" type="checkbox">
+                Диапазон
+            </label>
             <div class="field has-addons">
-                <p class="control width-100">
-                    <input class="input" type="text" name="order-basis-wt-min" placeholder="Минимум">
+                <p class="control width-100 js-wt-min">
+                    <input class="input js-order-basis-wt-min" type="text" name="order-basis-wt-min" placeholder="-">
                 </p>
-                <p class="control width-100">
+                <p class="control width-100 js-wt-max is-hidden">
                     <input class="input" type="text" name="order-basis-wt-max" placeholder="Максимум">
+                </p>
+                <p class="control">
+                    <a class="button is-static">
+                        Литр
+                    </a>
+                </p>
+            </div>
+
+        </div> -->
+
+        <div class="column is-6">
+            <!-- Поле объем -->
+            <label class="label">Объем</label>
+            <label class="checkbox is-flex mb-3">
+                <input class="mr-2 js-volume-checkbox" type="checkbox">
+                Диапазон
+            </label>
+            <div class="field has-addons is-align-items-end">
+                <p class="control width-100 js-volume-min">
+                    <input class="input js-order-basis-volume-min" type="text" name="order-basis-volume-min" placeholder="-">
+                </p>
+                <p class="control width-100 js-volume-max is-hidden">
+                    <input class="input" type="text" name="order-basis-volume-max" placeholder="Максимум">
                 </p>
                 <p class="control">
                     <a class="button is-static">
@@ -347,28 +471,19 @@ window.addEventListener('DOMContentLoaded', () => {
 
         </div>
 
-        <div class="column is-12">
-            <!-- Поле объем -->
-            <label class="label mt-2">Объем</label>
-            <div class="field has-addons is-align-items-end">
-                <p class="control width-100">
-                    <input class="input" type="text" name="order-basis-wt-min" placeholder="Минимум">
-                </p>
-                <p class="control width-100">
-                    <input class="input" type="text" name="order-basis-wt-max" placeholder="Максимум">
-                </p>
-                <p class="control">
-                    <a class="button is-static">
-                        Тонна
-                    </a>
-                </p>
+        <div class="column is-6 is-6-mobile">
+            <!-- Поле доставка -->
+            <label class="label">Доставка</label>
+            <div class="control mb-2">
+                <label class="radio">
+                  <input type="radio" name="foobar">
+                  С НДС
+                </label>
+                <label class="radio">
+                  <input type="radio" name="foobar" checked>
+                  Без НДС
+                </label>
             </div>
-
-        </div>
-
-        <div class="column is-12 is-12-mobile">
-            <!-- Поле доставка с учетом НДС -->
-            <label class="label mt-2">Доставка с учетом НДС</label>
             <div class="field has-addons">
                 <p class="control width-100">
                     <input class="input" type="text" name="#" placeholder="">
@@ -383,6 +498,81 @@ window.addEventListener('DOMContentLoaded', () => {
                     </span>
                 </p>
             </div>
+
+        </div>
+
+        <div class="column is-6 is-4-mobile">
+            <!-- Поле Документы -->
+            <label class="label">Документы</label>
+            <div class="field">
+                <p class="control">
+                    <span class="select width-100">
+                        <select class="width-100">
+                            <option>Документы</option>
+                            <option>Документы + счет</option>
+                            <option>Счет</option>
+                            <option>Без документов</option>
+                        </select>
+                    </span>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="column is-6 is-4-mobile js-order-basis-urgency-container">
+            <!-- Поле Срочность -->
+            <label class="label">Срочность</label>
+            <div class="field">
+                <p class="control">
+                    <span class="select width-100">
+                        <select class="width-100 js-order-basis-urgency">
+                            <option>-</option>
+                            <option>Крайне срочно</option>
+                            <option>Срочно в течение</option>
+                            <option>До</option>
+                            <option>В течение дня</option>
+                        </select>
+                    </span>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="column is-6 is-4-mobile js-order-basis-term is-hidden">
+            <!-- Поле Срочность -->
+            <label class="label">Срок</label>
+            <div class="field">
+                <p class="control">
+                    <span class="select width-100">
+                        <select class="width-100">
+                            <option>30 минут</option>
+                            <option>Час</option>
+                            <option>2 часа</option>
+                            <option>До конца рабочего дня</option>
+                            <option>Утром следующего дня</option>
+                        </select>
+                    </span>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="column is-12 is-4-mobile js-order-basis-datetime is-hidden">
+            <!-- Поле До -->
+            <label class="label">До</label>
+            <div class="is-flex is-justify-content-space-between">
+                <div class="field has-addons width-100 pr-4px">
+                    <p class="control width-100">
+                        <input class="input" type="date" name="order-basis-datetime" value="2023-07-22" placeholder="">
+                    </p>
+                </div>
+                <div class="field width-100 pl-4px">
+                    <p class="control width-100">
+                        <input class="input" type="time" name="" value="" placeholder="__:__">
+                    </p>
+                </div>
+            </div>
+
 
         </div>
 
@@ -419,7 +609,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 <label class="label">Юридическое лицо</label>
                 <div class="control is-flex">
                     <input class="input" type="text" name="order-legal-entity" placeholder="">
-                    <a class="button button-ico button-ico-color-gray">
+                    <a id="2" class="button button-ico button-ico-color-gray js-btn-le-del">
                         <span class="icon">
                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                         </span>
@@ -437,7 +627,102 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
             <div class="dael-container">
+                <!-- Сделка -->
+                <div class="dael">
+                    <!-- <div>
+                        <h2 class="is-size-5">Тут будет информация о сделке</h2>
+                    </div> -->
 
+                    <div class="columns is-multiline is-variable is-1">
+
+                        <div class="column is-4">
+                            <label class="label">Объем</label>
+                            <div class="field has-addons">
+                                <p class="control width-100">
+                                    <input class="input" type="text" name="order-wt" placeholder="">
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="column is-4">
+                            <label class="label">Вес</label>
+                            <div class="field has-addons">
+                                <p class="control width-100">
+                                    <input class="input" type="text" name="order-volume" placeholder="">
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="column is-4">
+
+                            <label class="label">Цена</label>
+                            <div class="field has-addons">
+                                <p class="control width-100">
+                                    <input class="input" type="text" name="order-prisce" placeholder="">
+                                </p>
+                                <p class="control">
+                                    <span class="select">
+                                        <select>
+                                            <option>руб/л</option>
+                                            <option>руб/т</option>
+                                        </select>
+                                    </span>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="column is-4 js-order-dael-payment-type-container">
+
+                            <label class="label">Тип оплаты</label>
+                            <p class="control">
+                                <span class="select width-100">
+                                    <select class="width-100 js-order-dael-payment-type">
+                                        <option>-</option>
+                                        <option>Предоплата на дату</option>
+                                        <option>Предоплата до отгрузки</option>
+                                        <option>По факту отгрузки</option>
+                                        <option>Отсрочка на дату</option>
+                                        <option>Отсрочка сдвиг</option>
+                                    </select>
+                                </span>
+
+                            </p>
+
+                        </div>
+
+                        <div class="column is-4 js-order-dael-date is-hidden">
+
+                            <label class="label">Дата</label>
+                            <div class="field has-addons">
+                                <p class="control width-100">
+                                    <input class="input" type="date" name="order-dael-date" value="2023-07-22" placeholder="">
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="column is-4 js-order-dael-dey is-hidden">
+
+                            <label class="label">Количество дней</label>
+                            <div class="field has-addons">
+                                <p class="control is-flex is-justify-content-space-between">
+                                    <input class="input" type="text" name="" value="" placeholder=""
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="column is-1">
+                            <a id="3" class="button button-ico button-ico-color-gray is-flex is-align-items-end js-btn-dael-del">
+                                <span class="icon">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
         </div>
@@ -446,7 +731,7 @@ window.addEventListener('DOMContentLoaded', () => {
 </div>`;
 
     // Добавить новое юридическое лицо
-    const newLegalEntityTpl = `                                    <div class="legal-entity">
+    const newLegalEntityTpl = `<div class="legal-entity">
     <!-- <div>
         <h2 class="is-size-5">Тут будет информация о юридическом лице</h2>
     </div> -->
@@ -455,7 +740,7 @@ window.addEventListener('DOMContentLoaded', () => {
         <label class="label">Юридическое лицо</label>
         <div class="control is-flex">
             <input class="input" type="text" name="order-legal-entity" placeholder="">
-            <a class="button button-ico button-ico-color-gray">
+            <a id="2" class="button button-ico button-ico-color-gray js-btn-le-del">
                 <span class="icon">
                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                 </span>
@@ -473,14 +758,109 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     <div class="dael-container">
+        <!-- Сделка -->
+        <div class="dael">
+            <!-- <div>
+                <h2 class="is-size-5">Тут будет информация о сделке</h2>
+            </div> -->
 
+            <div class="columns is-multiline is-variable is-1">
+
+                <div class="column is-4">
+                    <label class="label">Объем</label>
+                    <div class="field has-addons">
+                        <p class="control width-100">
+                            <input class="input" type="text" name="order-wt" placeholder="">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <label class="label">Вес</label>
+                    <div class="field has-addons">
+                        <p class="control width-100">
+                            <input class="input" type="text" name="order-volume" placeholder="">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+
+                    <label class="label">Цена</label>
+                    <div class="field has-addons">
+                        <p class="control width-100">
+                            <input class="input" type="text" name="order-prisce" placeholder="">
+                        </p>
+                        <p class="control">
+                            <span class="select">
+                                <select>
+                                    <option>руб/л</option>
+                                    <option>руб/т</option>
+                                </select>
+                            </span>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="column is-4 js-order-dael-payment-type-container">
+
+                    <label class="label">Тип оплаты</label>
+                    <p class="control">
+                        <span class="select width-100">
+                            <select class="width-100 js-order-dael-payment-type">
+                                <option>-</option>
+                                <option>Предоплата на дату</option>
+                                <option>Предоплата до отгрузки</option>
+                                <option>По факту отгрузки</option>
+                                <option>Отсрочка на дату</option>
+                                <option>Отсрочка сдвиг</option>
+                            </select>
+                        </span>
+
+                    </p>
+
+                </div>
+
+                <div class="column is-4 js-order-dael-date is-hidden">
+
+                    <label class="label">Дата</label>
+                    <div class="field has-addons">
+                        <p class="control width-100">
+                            <input class="input" type="date" name="order-dael-date" value="2023-07-22" placeholder="">
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="column is-4 js-order-dael-dey is-hidden">
+
+                    <label class="label">Количество дней</label>
+                    <div class="field has-addons">
+                        <p class="control is-flex is-justify-content-space-between">
+                            <input class="input" type="text" name="" value="" placeholder=""
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="column is-1">
+                    <a id="3" class="button button-ico button-ico-color-gray is-flex is-align-items-end js-btn-dael-del">
+                        <span class="icon">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 </div>`;
 
 
     // Добавить сделку
-    const newDael = `                                            <div class="dael">
+    const newDael = `<div class="dael">
     <!-- <div>
         <h2 class="is-size-5">Тут будет информация о сделке</h2>
     </div> -->
@@ -491,22 +871,23 @@ window.addEventListener('DOMContentLoaded', () => {
             <label class="label">Объем</label>
             <div class="field has-addons">
                 <p class="control width-100">
-                    <input class="input" type="text" name="order-volume" placeholder="">
+                    <input class="input" type="text" name="order-wt" placeholder="">
                 </p>
-                <p class="control">
-                    <span class="select">
-                        <select>
-                            <option>л</option>
-                            <option>т</option>
-                        </select>
-                    </span>
+            </div>
+        </div>
+
+        <div class="column is-4">
+            <label class="label">Вес</label>
+            <div class="field has-addons">
+                <p class="control width-100">
+                    <input class="input" type="text" name="order-volume" placeholder="">
                 </p>
             </div>
         </div>
 
         <div class="column is-4">
 
-            <label class="label">Стоимость</label>
+            <label class="label">Цена</label>
             <div class="field has-addons">
                 <p class="control width-100">
                     <input class="input" type="text" name="order-prisce" placeholder="">
@@ -516,7 +897,6 @@ window.addEventListener('DOMContentLoaded', () => {
                         <select>
                             <option>руб/л</option>
                             <option>руб/т</option>
-                            <option>руб</option>
                         </select>
                     </span>
                 </p>
@@ -524,30 +904,26 @@ window.addEventListener('DOMContentLoaded', () => {
 
         </div>
 
-        <div class="column is-4">
+        <div class="column is-4 js-order-dael-payment-type-container">
 
             <label class="label">Тип оплаты</label>
-            <p class="control is-flex is-justify-content-space-between">
-                <span class="select width-88">
-                    <select class="">
+            <p class="control">
+                <span class="select width-100">
+                    <select class="width-100 js-order-dael-payment-type">
                         <option>-</option>
                         <option>Предоплата на дату</option>
                         <option>Предоплата до отгрузки</option>
-                        <option>Предоплата по факту отгрузки</option>
+                        <option>По факту отгрузки</option>
                         <option>Отсрочка на дату</option>
                         <option>Отсрочка сдвиг</option>
                     </select>
                 </span>
-                <a class="button button-ico button-ico-color-gray">
-                    <span class="icon">
-                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                    </span>
-                </a>
+
             </p>
 
         </div>
 
-        <div class="column is-4">
+        <div class="column is-4 js-order-dael-date is-hidden">
 
             <label class="label">Дата</label>
             <div class="field has-addons">
@@ -558,15 +934,23 @@ window.addEventListener('DOMContentLoaded', () => {
 
         </div>
 
-        <div class="column is-4">
+        <div class="column is-4 js-order-dael-dey is-hidden">
 
             <label class="label">Количество дней</label>
             <div class="field has-addons">
-                <p class="control width-100">
-                    <input class="input" type="text" name="" value="" placeholder="">
+                <p class="control is-flex is-justify-content-space-between">
+                    <input class="input" type="text" name="" value="" placeholder=""
                 </p>
             </div>
 
+        </div>
+
+        <div class="column is-1">
+            <a id="3" class="button button-ico button-ico-color-gray is-flex is-align-items-end js-btn-dael-del">
+                <span class="icon">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </span>
+            </a>
         </div>
     </div>
 
@@ -614,6 +998,13 @@ window.addEventListener('DOMContentLoaded', () => {
                 addressContainer.style.transform = `translate3D(${translateX}px, 0, 0)`;
             }
 
+            eventBasisDel();
+            eventELDel();
+            eventDaelDel();
+            ativeVolume();
+            ativeBasisInput();
+            ativeDaelInput();
+
         } else if (el.classList.contains('js-add-new-basis')) {
             const container = containerSearch(el);
             container.insertAdjacentHTML('beforeEnd', newBasisTpl);
@@ -631,16 +1022,28 @@ window.addEventListener('DOMContentLoaded', () => {
                 addressContainer.style.transform = `translate3D(${translateX}px, 0, 0)`;
             }
 
+            eventBasisDel();
+            eventELDel();
+            eventDaelDel();
+            ativeVolume();
+            ativeBasisInput();
+            ativeDaelInput();
+
         } else if (el.classList.contains('js-add-new-legal-entity')) {
             const container = containerSearch(el);
             container.insertAdjacentHTML('beforeEnd', newLegalEntityTpl);
             // height.innerHTML = document.body.scrollHeight;
             // addressContainer.style.height = String(document.body.scrollHeight) + 'px';
+            eventELDel();
+            eventDaelDel();
+            ativeDaelInput();
         } else if (el.classList.contains('js-add-new-dael')) {
             const container = containerSearch(el);
             container.insertAdjacentHTML('beforeEnd', newDael);
             // height.innerHTML = document.body.scrollHeight;
             // addressContainer.style.height = String(document.body.scrollHeight) + 'px';
+            eventDaelDel();
+            ativeDaelInput();
         }
     });
 
@@ -732,15 +1135,30 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Возвращает ширину элемента базис
     function basisElementWidth () {
-        return document.querySelector('.basis').offsetWidth;
+        try {
+
+            return document.querySelector('.basis').offsetWidth;
+
+          } catch (err) {
+
+            // обработка ошибки
+
+          }
     }
 
     // Возвращает сумму ширин всех элементов базис
     function basisWidthOfAllElements () {
-        const width = document.querySelector('.basis').offsetWidth;
-        const count = document.querySelectorAll('.basis').length;
+        try {
 
-        return (width + 38) * count;
+            const width = document.querySelector('.basis').offsetWidth;
+            const count = document.querySelectorAll('.basis').length;
+            return (width + 38) * count;
+          } catch (err) {
+
+            // обработка ошибки
+
+          }
+
     }
 
 
@@ -774,6 +1192,7 @@ window.addEventListener('DOMContentLoaded', () => {
         isRange: true,
         lang: 'ru',
         dateFormat: 'dd.MM.yyyy',
+        // displayMode: 'dialog'
     };
 
     // Initialize all input of date type.
@@ -791,6 +1210,7 @@ window.addEventListener('DOMContentLoaded', () => {
         color: 'link',
         lang: 'ru',
         dateFormat: 'dd.MM.yyyy',
+        // displayMode: 'dialog'
     };
 
     // Initialize all input of date type.
@@ -804,116 +1224,175 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Initialize all input of date type.
-    const orderBasisDatetime = bulmaCalendar.attach('[name="order-basis-datetime"]', {
-        type: 'datetime',
-        color: 'link',
-        lang: 'ru',
-        dateFormat: 'dd.MM.yyyy',
-    });
+    // Включить диапазон
+    function ativeVolume() {
+        const volumes = document.querySelectorAll('.js-volume-checkbox');
 
-    // Loop on each calendar initialized
-    orderBasisDatetime.forEach(calendar => {
-        // Add listener to select event
-        calendar.on('show', date => {
-            console.log(date);
+        volumes.forEach(vol => {
+            vol.addEventListener('change', e => {
+                const parentEl = e.target.parentElement.nextElementSibling;
+                const min =parentEl.querySelector('.js-volume-min');
+                const max =parentEl.querySelector('.js-volume-max');
+
+
+                if (e.target.checked) {
+                    max.classList.remove('is-hidden');
+                    min.childNodes[1].setAttribute('placeholder', 'Минимум');
+                } else {
+                    max.classList.add('is-hidden');
+                    min.childNodes[1].setAttribute('placeholder', '-');
+                }
+
+            });
         });
-    });
+    }
 
-    // Форма чекбокс диапазон
-    // const wtCheckbox = document.querySelector('.js-wt-checkbox'),
-    //       wtMax = document.querySelector('.js-wt-max'),
-    //       orderBasisWtMin = document.querySelector('.js-order-basis-wt-min');
+    ativeVolume();
 
-    // wtCheckbox.addEventListener('change', (e) => {
-    //     if (e.target.checked) {
-    //         wtMax.classList.remove('is-hidden');
-    //         orderBasisWtMin.setAttribute('placeholder', 'Минимум');
-    //     } else {
-    //         wtMax.classList.add('is-hidden');
-    //         orderBasisWtMin.setAttribute('placeholder', '-');
-    //     }
-    // });
+    // Включаем поля в базисе
+    function ativeBasisInput() {
+        const urgencys = document.querySelectorAll('.js-order-basis-urgency');
 
-    const volumeCheckbox = document.querySelector('.js-volume-checkbox'),
-          volumeMax = document.querySelector('.js-volume-max'),
-          orderBasisVolumeMin = document.querySelector('.js-order-basis-volume-min');
+        urgencys.forEach(section => {
+            section.addEventListener('change', e => {
 
-        volumeCheckbox.addEventListener('change', (e) => {
-        if (e.target.checked) {
-            volumeMax.classList.remove('is-hidden');
-            orderBasisVolumeMin.setAttribute('placeholder', 'Минимум');
-        } else {
-            volumeMax.classList.add('is-hidden');
-            orderBasisVolumeMin.setAttribute('placeholder', '-');
-        }
-    });
+                const option = e.target.value;
+                let container = e.target;
 
-    // Скрываемые поля в базисе
-    const orderBasisUrgency = document.querySelector('.js-order-basis-urgency'),
-          orderBasisTerm = document.querySelector('.js-order-basis-term'),
-          datetime = document.querySelector('.js-order-basis-datetime');
+                while (!container.classList.contains('js-order-basis-urgency-container')) {
+                    container = container.parentElement;
+                }
 
-    orderBasisUrgency.addEventListener('change', e => {
-        const option = e.target.value;
+                const term = container.nextElementSibling;
+                const datetime = container.nextElementSibling.nextElementSibling;
 
-        if (option === 'Срочно в течение') {
-            orderBasisTerm.classList.remove('is-hidden');
-            datetime.classList.add('is-hidden');
-        } else if (option === 'До') {
-            datetime.classList.remove('is-hidden');
-            orderBasisTerm.classList.add('is-hidden');
-        } else {
-            orderBasisTerm.classList.add('is-hidden');
-            datetime.classList.add('is-hidden');
-        }
-    });
+                if (option === 'Срочно в течение') {
+                    term.classList.remove('is-hidden');
+                    datetime.classList.add('is-hidden');
+                } else if (option === 'До') {
+                    datetime.classList.remove('is-hidden');
+                    term.classList.add('is-hidden');
+                } else {
+                    term.classList.add('is-hidden');
+                    datetime.classList.add('is-hidden');
+                }
 
-    // Скрываемые поля в сделке
-    const orderDaelPaymentType = document.querySelector('.js-order-dael-payment-type'),
-          orderDaelDate = document.querySelector('.js-order-dael-date'),
-          orderDaelDey = document.querySelector('.js-order-dael-dey');
+            });
+        });
+    }
 
-    orderDaelPaymentType.addEventListener('change', e => {
-        const option = e.target.value;
+    ativeBasisInput();
 
-        if (option === 'Предоплата на дату' || option === 'Отсрочка на дату') {
-            orderDaelDate.classList.remove('is-hidden');
-            orderDaelDey.classList.add('is-hidden');
-        } else if (option === 'Отсрочка сдвиг') {
-            orderDaelDey.classList.remove('is-hidden');
-            orderDaelDate.classList.add('is-hidden');
-        } else {
-            orderDaelDate.classList.add('is-hidden');
-            orderDaelDey.classList.add('is-hidden');
-        }
-    });
+    // Включаем поля в сделке
+    function ativeDaelInput() {
+        const paymentType = document.querySelectorAll('.js-order-dael-payment-type');
 
+        paymentType.forEach(section => {
+            section.addEventListener('change', e => {
 
-    // Кнопка удаления элемента базис/юридическое лицо/сделка
-    const btnDeletBasis = document.getElementById('1');
-    const basisAll = document.querySelectorAll('.basis');
+                const option = e.target.value;
+                let container = e.target;
 
-    btnDeletBasis.addEventListener('click', (e) => {
-        let id = btnDeletBasis.id;
-        basisAll[id - 1].remove();
-    });
+                while (!container.classList.contains('js-order-dael-payment-type-container')) {
+                    container = container.parentElement;
+                }
 
-    const btnDeletLegalEntity = document.getElementById('2');
-    const legalEntityAll = document.querySelectorAll('.legal-entity');
+                const date = container.nextElementSibling;
+                const dey = container.nextElementSibling.nextElementSibling;
 
-    btnDeletLegalEntity.addEventListener('click', (e) => {
-        let id = btnDeletLegalEntity.id;
-        legalEntityAll[id - 2].remove();
-    });
+                if (option === 'Предоплата на дату' || option === 'Отсрочка на дату') {
+                    date.classList.remove('is-hidden');
+                    dey.classList.add('is-hidden');
+                } else if (option === 'Отсрочка сдвиг') {
+                    dey.classList.remove('is-hidden');
+                    date.classList.add('is-hidden');
+                } else {
+                    date.classList.add('is-hidden');
+                    dey.classList.add('is-hidden');
+                }
 
-    const btnDeletDael = document.getElementById('3');
-    const daelAll = document.querySelectorAll('.dael');
+            });
+        });
+    }
 
-    btnDeletDael.addEventListener('click', (e) => {
-        let id = btnDeletDael.id;
-        daelAll[id - 3].remove();
-    });
+    ativeDaelInput();
 
+    // Удалить базис
+    function eventBasisDel() {
+        const btnBasisDel = document.querySelectorAll('.js-btn-basis-del');
 
+        btnBasisDel.forEach(btn => {
+            btn.addEventListener('click', e => {
+                let parent = e.target;
+
+                while (!parent.classList.contains('address')) {
+                    parent = parent.parentElement;
+                }
+
+                // console.log(parent);
+
+                const address = parent.querySelectorAll('.basis').length;
+                // console.log(address);
+                if (address > 1) {
+                    parent = e.target;
+
+                    while (!parent.classList.contains('basis')) {
+                        parent = parent.parentElement;
+                    }
+                    parent.remove();
+                } else {
+                    parent.remove();
+                }
+
+                if (basisWidthOfAllElements() < clientElementWidth()) {
+                    const client = document.querySelector('.address-container');
+                    client.style.transform = `translate3D(0px, 0px, 0px)`;
+                } else {
+                    const client = document.querySelector('.address-container');
+                    client.style.transform = `translate3D(-${basisWidthOfAllElements() - clientElementWidth()}px, 0px, 0px)`;
+                }
+
+            });
+        });
+    }
+
+    eventBasisDel();
+
+    // Удалить ЮЛ
+    function eventELDel() {
+        const btnBasisDel = document.querySelectorAll('.js-btn-le-del');
+
+        btnBasisDel.forEach(btn => {
+            btn.addEventListener('click', e => {
+                let parent = e.target;
+
+                while (!parent.classList.contains('legal-entity')) {
+                    parent = parent.parentElement;
+                }
+                parent.remove();
+
+            });
+        });
+    }
+
+    eventELDel();
+
+    // Удалить сделку
+    function eventDaelDel() {
+        const btnBasisDel = document.querySelectorAll('.js-btn-dael-del');
+
+        btnBasisDel.forEach(btn => {
+            btn.addEventListener('click', e => {
+                let parent = e.target;
+
+                while (!parent.classList.contains('dael')) {
+                    parent = parent.parentElement;
+                }
+                parent.remove();
+
+            });
+        });
+    }
+
+    eventDaelDel();
 });

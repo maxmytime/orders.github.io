@@ -164,21 +164,17 @@
                         <div class="basis-container">
                             <!-- Базис -->
                             <div id="" class="basis">
-                                <!-- <div>
-                                    <h2 class="is-size-5">Тут будет информация c кагого адреса грузить</h2>
-                                </div> -->
 
                                 <div class="field basis-panel">
                                     <label class="label">Базис</label>
                                     <div class="control is-flex is-justify-content-space-between">
                                         <input class="input" type="text" name="order-basis" placeholder="">
-                                        <a id="1" class="button">
+                                        <a id="1" class="button js-btn-basis-del">
                                             <span class="icon is-small">
                                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                                             </span>
                                         </a>
                                     </div>
-
                                 </div>
 
                                 <div class="columns is-mobile is-variable is-1 is-multiline">
@@ -208,19 +204,19 @@
                                         </div>
                                     </div>
 
-                                    <!-- <div class="column is-12">
-                                        Поле объем
-                                        <label class="label mt-2">Вес</label>
+                                    <div class="column is-6">
+                                        <!-- Поле объем -->
+                                        <label class="label">Объем</label>
                                         <label class="checkbox is-flex mb-3">
-                                            <input class="mr-2 js-wt-checkbox" type="checkbox">
+                                            <input class="mr-2 js-volume-checkbox" type="checkbox">
                                             Диапазон
                                         </label>
-                                        <div class="field has-addons">
-                                            <p class="control width-100 js-wt-min">
-                                                <input class="input js-order-basis-wt-min" type="text" name="order-basis-wt-min" placeholder="-">
+                                        <div class="field has-addons is-align-items-end">
+                                            <p class="control width-100 js-volume-min">
+                                                <input class="input js-order-basis-volume-min" type="text" name="order-basis-volume-min" placeholder="-">
                                             </p>
-                                            <p class="control width-100 js-wt-max is-hidden">
-                                                <input class="input" type="text" name="order-basis-wt-max" placeholder="Максимум">
+                                            <p class="control width-100 js-volume-max is-hidden">
+                                                <input class="input" type="text" name="order-basis-volume-max" placeholder="Максимум">
                                             </p>
                                             <p class="control">
                                                 <a class="button is-static">
@@ -229,34 +225,21 @@
                                             </p>
                                         </div>
 
-                                    </div> -->
-
-                                    <div class="column is-12">
-                                        <!-- Поле объем -->
-                                        <label class="label mt-2">Объем</label>
-                                        <label class="checkbox is-flex mb-3">
-                                            <input class="mr-2 js-volume-checkbox" type="checkbox">
-                                            Диапазон
-                                        </label>
-                                        <div class="field has-addons is-align-items-end">
-                                            <p class="control width-100">
-                                                <input class="input js-order-basis-volume-min" type="text" name="order-basis-volume-min" placeholder="-">
-                                            </p>
-                                            <p class="control width-100 js-volume-max is-hidden">
-                                                <input class="input" type="text" name="order-basis-volume-max" placeholder="Максимум">
-                                            </p>
-                                            <p class="control">
-                                                <a class="button is-static">
-                                                    Тонна
-                                                </a>
-                                            </p>
-                                        </div>
-
                                     </div>
 
                                     <div class="column is-6 is-6-mobile">
-                                        <!-- Поле доставка с учетом НДС -->
-                                        <label class="label mt-2">Доставка с учетом НДС</label>
+                                        <!-- Поле доставка -->
+                                        <label class="label">Доставка</label>
+                                        <div class="control mb-2">
+                                            <label class="radio">
+                                              <input type="radio" name="foobar">
+                                              С НДС
+                                            </label>
+                                            <label class="radio">
+                                              <input type="radio" name="foobar" checked>
+                                              Без НДС
+                                            </label>
+                                        </div>
                                         <div class="field has-addons">
                                             <p class="control width-100">
                                                 <input class="input" type="text" name="#" placeholder="">
@@ -266,7 +249,7 @@
                                                     <select>
                                                         <option>руб/л</option>
                                                         <option>руб/т</option>
-                                                        <!-- <option>руб</option> -->
+                                                        <option>руб</option>
                                                     </select>
                                                 </span>
                                             </p>
@@ -274,9 +257,9 @@
 
                                     </div>
 
-                                    <div class="column is-6 is-6-mobile">
+                                    <div class="column is-6 is-4-mobile">
                                         <!-- Поле Документы -->
-                                        <label class="label mt-2">Документы</label>
+                                        <label class="label">Документы</label>
                                         <div class="field">
                                             <p class="control">
                                                 <span class="select width-100">
@@ -292,13 +275,14 @@
 
                                     </div>
 
-                                    <div class="column is-6 is-6-mobile">
+                                    <div class="column is-6 is-4-mobile js-order-basis-urgency-container">
                                         <!-- Поле Срочность -->
                                         <label class="label">Срочность</label>
                                         <div class="field">
                                             <p class="control">
                                                 <span class="select width-100">
                                                     <select class="width-100 js-order-basis-urgency">
+                                                        <option>-</option>
                                                         <option>Крайне срочно</option>
                                                         <option>Срочно в течение</option>
                                                         <option>До</option>
@@ -310,7 +294,7 @@
 
                                     </div>
 
-                                    <div class="column is-6 is-6-mobile js-order-basis-term is-hidden">
+                                    <div class="column is-6 is-4-mobile js-order-basis-term is-hidden">
                                         <!-- Поле Срочность -->
                                         <label class="label">Срок</label>
                                         <div class="field">
@@ -329,14 +313,22 @@
 
                                     </div>
 
-                                    <div class="column is-6 is-6-mobile js-order-basis-datetime is-hidden">
+                                    <div class="column is-12 is-4-mobile js-order-basis-datetime is-hidden">
                                         <!-- Поле До -->
                                         <label class="label">До</label>
-                                        <div class="field has-addons">
-                                            <p class="control width-100">
-                                                <input class="input" type="date" name="order-basis-datetime" value="2023-07-22" placeholder="">
-                                            </p>
+                                        <div class="is-flex is-justify-content-space-between">
+                                            <div class="field has-addons width-100 pr-4px">
+                                                <p class="control width-100">
+                                                    <input class="input" type="date" name="order-basis-datetime" value="2023-07-22" placeholder="">
+                                                </p>
+                                            </div>
+                                            <div class="field width-100 pl-4px">
+                                                <p class="control width-100">
+                                                    <input class="input" type="time" name="" value="" placeholder="__:__">
+                                                </p>
+                                            </div>
                                         </div>
+
 
                                     </div>
 
@@ -365,15 +357,12 @@
                                     <hr>
                                     <!-- Юридическое лицо -->
                                     <div class="legal-entity">
-                                        <!-- <div>
-                                            <h2 class="is-size-5">Тут будет информация о юридическом лице</h2>
-                                        </div> -->
 
                                         <div class="field">
                                             <label class="label">Юридическое лицо</label>
                                             <div class="control is-flex">
                                                 <input class="input" type="text" name="order-legal-entity" placeholder="">
-                                                <a id="2" class="button button-ico button-ico-color-gray">
+                                                <a id="2" class="button button-ico button-ico-color-gray js-btn-le-del">
                                                     <span class="icon">
                                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                     </span>
@@ -436,7 +425,7 @@
 
                                                     </div>
 
-                                                    <div class="column is-4">
+                                                    <div class="column is-4 js-order-dael-payment-type-container">
 
                                                         <label class="label">Тип оплаты</label>
                                                         <p class="control">
@@ -471,15 +460,18 @@
                                                         <label class="label">Количество дней</label>
                                                         <div class="field has-addons">
                                                             <p class="control is-flex is-justify-content-space-between">
-                                                                <input class="input" type="text" name="" value="" placeholder="">
-                                                                <!-- <a id="3" class="button button-ico button-ico-color-gray">
-                                                                    <span class="icon">
-                                                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                                    </span>
-                                                                </a> -->
+                                                                <input class="input" type="text" name="" value="" placeholder=""
                                                             </p>
                                                         </div>
 
+                                                    </div>
+
+                                                    <div class="column is-1">
+                                                        <a id="3" class="button button-ico button-ico-color-gray is-flex is-align-items-end js-btn-dael-del">
+                                                            <span class="icon">
+                                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                            </span>
+                                                        </a>
                                                     </div>
                                                 </div>
 
