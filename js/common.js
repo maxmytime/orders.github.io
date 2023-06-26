@@ -973,10 +973,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     basisSetWidth();
 
-    // counter.innerHTML = counterBasis;
-    // height.innerHTML = document.body.scrollHeight;
-    // addressContainer.style.height = String(document.body.scrollHeight) + 'px';
-
     order.addEventListener('click', (e) => {
         // e.preventDefault();
         const el = e.target;
@@ -986,8 +982,6 @@ window.addEventListener('DOMContentLoaded', () => {
             container.insertAdjacentHTML('beforeEnd', newAddresTpl);
 
             basisSetWidth();
-
-            // counter.innerHTML = basisNumberOfElements ();
 
             clientWidth = clientElementWidth ();
             basisAllWidt = basisWidthOfAllElements();
@@ -1010,8 +1004,6 @@ window.addEventListener('DOMContentLoaded', () => {
             container.insertAdjacentHTML('beforeEnd', newBasisTpl);
 
             basisSetWidth();
-
-            // counter.innerHTML = basisNumberOfElements ();
 
             clientWidth = clientElementWidth ();
             basisAllWidt = basisWidthOfAllElements();
@@ -1325,32 +1317,35 @@ window.addEventListener('DOMContentLoaded', () => {
             btn.addEventListener('click', e => {
                 let parent = e.target;
 
-                while (!parent.classList.contains('address')) {
-                    parent = parent.parentElement;
-                }
+                const basisCoun = document.querySelectorAll('.basis').length;
 
-                // console.log(parent);
-
-                const address = parent.querySelectorAll('.basis').length;
-                // console.log(address);
-                if (address > 1) {
-                    parent = e.target;
-
-                    while (!parent.classList.contains('basis')) {
+                if (basisCoun > 1) {
+                    while (!parent.classList.contains('address')) {
                         parent = parent.parentElement;
                     }
-                    parent.remove();
-                } else {
-                    parent.remove();
+
+                    const address = parent.querySelectorAll('.basis').length;
+                    if (address > 1) {
+                        parent = e.target;
+
+                        while (!parent.classList.contains('basis')) {
+                            parent = parent.parentElement;
+                        }
+                        parent.remove();
+                    } else {
+                        parent.remove();
+                    }
+
+                    if (basisWidthOfAllElements() < clientElementWidth()) {
+                        const client = document.querySelector('.address-container');
+                        client.style.transform = `translate3D(0px, 0px, 0px)`;
+                    } else {
+                        const client = document.querySelector('.address-container');
+                        client.style.transform = `translate3D(-${basisWidthOfAllElements() - clientElementWidth()}px, 0px, 0px)`;
+                    }
                 }
 
-                if (basisWidthOfAllElements() < clientElementWidth()) {
-                    const client = document.querySelector('.address-container');
-                    client.style.transform = `translate3D(0px, 0px, 0px)`;
-                } else {
-                    const client = document.querySelector('.address-container');
-                    client.style.transform = `translate3D(-${basisWidthOfAllElements() - clientElementWidth()}px, 0px, 0px)`;
-                }
+
 
             });
         });
@@ -1365,11 +1360,23 @@ window.addEventListener('DOMContentLoaded', () => {
         btnBasisDel.forEach(btn => {
             btn.addEventListener('click', e => {
                 let parent = e.target;
+                let basis = e.target;
+                let classBasis;
 
-                while (!parent.classList.contains('legal-entity')) {
-                    parent = parent.parentElement;
+                while (!basis.classList.contains('basis')) {
+                    basis = basis.parentElement;
                 }
-                parent.remove();
+
+                const count = basis.querySelectorAll('.legal-entity').length;
+
+                if (count > 1) {
+                    while (!parent.classList.contains('legal-entity')) {
+                        parent = parent.parentElement;
+                    }
+                    parent.remove();
+                }
+
+
 
             });
         });
@@ -1384,11 +1391,22 @@ window.addEventListener('DOMContentLoaded', () => {
         btnBasisDel.forEach(btn => {
             btn.addEventListener('click', e => {
                 let parent = e.target;
+                let basis = e.target;
 
-                while (!parent.classList.contains('dael')) {
-                    parent = parent.parentElement;
+                while (!basis.classList.contains('basis')) {
+                    basis = basis.parentElement;
                 }
-                parent.remove();
+
+                const count = basis.querySelectorAll('.dael').length;
+
+                if (count > 1) {
+
+                    while (!parent.classList.contains('dael')) {
+                        parent = parent.parentElement;
+                    }
+                    parent.remove();
+
+                }
 
             });
         });

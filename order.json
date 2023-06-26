@@ -1,0 +1,51 @@
+{
+    "data": "10.04.2023",
+    "time": "10:25:54",
+    "number": "",
+    "autor": "",
+    "client": {                                      // Клиент
+        "data-min": "",
+        "data-max": "",
+        "client": "",
+        "type-client": "",
+        "type-shipment": "",
+        "address": [{                                // Адрес
+            "address": "",
+            "basis": [{                              // Базис
+                "basis": "",
+                "product": "",
+                "nomenclature": "",
+                "volume": {
+                    "range": true,
+                    "min": "",
+                    "max": ""
+                },
+                "nds": {
+                    "nds": true,
+                    "value": "",
+                    "unit": ""
+                },
+                "document": "",
+                "urgency": "",
+                "term": "",
+                "date": "",
+                "time": "",
+                "comment": "",
+                "legal-entity": [{                    // Юридическое лицо
+                    "legal-entity": "",
+                    "deal": [{                        // Сделка
+                        "volume": "",
+                        "wt": "",
+                        "price": {
+                            "value": "",
+                            "unit": ""
+                        },
+                        "payment-type": "",
+                        "date": "10.04.2023",
+                        "number-of-days": ""
+                    }]
+                }]
+            }]
+        }]
+    }
+}
