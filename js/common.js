@@ -732,6 +732,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Добавить новое юридическое лицо
     const newLegalEntityTpl = `<div class="legal-entity">
+
+    <hr>
     <!-- <div>
         <h2 class="is-size-5">Тут будет информация о юридическом лице</h2>
     </div> -->
@@ -1022,7 +1024,8 @@ window.addEventListener('DOMContentLoaded', () => {
             ativeDaelInput();
 
         } else if (el.classList.contains('js-add-new-legal-entity')) {
-            const container = containerSearch(el);
+            // const container = containerSearch(el);
+            const container = containerSearchLE(el);
             container.insertAdjacentHTML('beforeEnd', newLegalEntityTpl);
             // height.innerHTML = document.body.scrollHeight;
             // addressContainer.style.height = String(document.body.scrollHeight) + 'px';
@@ -1047,6 +1050,15 @@ window.addEventListener('DOMContentLoaded', () => {
             parent = parent.parentElement;
         }
        return parent.nextElementSibling;
+    }
+
+    function containerSearchLE(e) {
+        let parent = e;
+
+        while (!parent.classList.contains('basis')) {
+            parent = parent.parentElement;
+        }
+        return parent.querySelector('.legal-entity-container');
     }
 
     // Слайдер
