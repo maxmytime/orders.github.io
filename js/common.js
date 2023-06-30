@@ -4,9 +4,25 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Добавляем новый адрес доставки
     const newAddresTpl = `<div class="address">
-    <!-- <div>
-        <h2 class="is-size-5 ml-5">Адрес</h2>
-    </div> -->
+
+    <div class="field has-addons position-r0-t0">
+        <p class="control">
+            <!-- Кнопка удалить адрес -->
+            <a class="button is-white js-del-address">
+                <span class="icon ">
+                    <i class="fa fa-minus-square-o fa-lg " aria-hidden="true"></i>
+                </span>
+            </a>
+        </p>
+        <p class="control">
+            <!-- Кнопка добавить адрес -->
+            <a class="button is-white js-add-new-address">
+                <span class="icon is-small js-add-new-address">
+                    <i class="fa fa-plus-square-o js-add-new-address" aria-hidden="true"></i>
+                </span>
+            </a>
+        </p>
+    </div>
 
     <div class="field">
         <label class="label">Адрес</label>
@@ -15,32 +31,34 @@ window.addEventListener('DOMContentLoaded', () => {
         </div>
     </div>
 
-    <!-- Кнопка добавить Базис -->
-    <a class="button is-white width-100px position-sticky js-add-new-basis">
-        <span class="js-add-new-basis">Базис</span>
-        <span class="icon is-small js-add-new-basis">
-            <i class="fa fa-plus-square-o js-add-new-basis" aria-hidden="true"></i>
-        </span>
-    </a>
 
     <div class="basis-container">
         <!-- Базис -->
         <div id="" class="basis">
-            <!-- <div>
-                <h2 class="is-size-5">Тут будет информация c кагого адреса грузить</h2>
-            </div> -->
 
             <div class="field basis-panel">
                 <label class="label">Базис</label>
                 <div class="control is-flex is-justify-content-space-between">
                     <input class="input" type="text" name="order-basis" placeholder="">
-                    <a id="1" class="button js-btn-basis-del">
-                        <span class="icon is-small">
-                            <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        </span>
-                    </a>
+                    <div class="field is-flex">
+                        <p class="control ml-3">
+                            <!-- Кнопка удалить адрес -->
+                            <a class="button is-lite-gray js-btn-basis-del">
+                                <span class="icon">
+                                    <i class="fa fa-minus-square-o fa-lg" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        </p>
+                        <p class="control ml-3">
+                            <!-- Кнопка добавить адрес -->
+                            <a class="button is-lite-gray js-add-new-basis">
+                                <span class="icon is-small js-add-new-basis">
+                                    <i class="fa fa-plus-square-o js-add-new-basis" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        </p>
+                    </div>
                 </div>
-
             </div>
 
             <div class="columns is-mobile is-variable is-1 is-multiline">
@@ -70,29 +88,6 @@ window.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
 
-                <!-- <div class="column is-12">
-                    Поле объем
-                    <label class="label mt-2">Вес</label>
-                    <label class="checkbox is-flex mb-3">
-                        <input class="mr-2 js-wt-checkbox" type="checkbox">
-                        Диапазон
-                    </label>
-                    <div class="field has-addons">
-                        <p class="control width-100 js-wt-min">
-                            <input class="input js-order-basis-wt-min" type="text" name="order-basis-wt-min" placeholder="-">
-                        </p>
-                        <p class="control width-100 js-wt-max is-hidden">
-                            <input class="input" type="text" name="order-basis-wt-max" placeholder="Максимум">
-                        </p>
-                        <p class="control">
-                            <a class="button is-static">
-                                Литр
-                            </a>
-                        </p>
-                    </div>
-
-                </div> -->
-
                 <div class="column is-6">
                     <!-- Поле объем -->
                     <label class="label">Объем</label>
@@ -102,7 +97,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     </label>
                     <div class="field has-addons is-align-items-end">
                         <p class="control width-100 js-volume-min">
-                            <input class="input js-order-basis-volume-min " type="text" name="order-basis-volume-min" placeholder="-">
+                            <input class="input js-order-basis-volume-min" type="text" name="order-basis-volume-min" placeholder="-">
                         </p>
                         <p class="control width-100 js-volume-max is-hidden">
                             <input class="input" type="text" name="order-basis-volume-max" placeholder="Максимум">
@@ -232,53 +227,57 @@ window.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
 
-            <!-- Кнопка добавить Юр. лицо -->
-            <a class="button is-white js-add-new-legal-entity">
-                <span class="js-add-new-legal-entity">Юр. лицо</span>
-                <span class="icon is-small js-add-new-legal-entity">
-                    <i class="fa fa-plus-square-o js-add-new-legal-entity" aria-hidden="true"></i>
-                </span>
-            </a>
-
-
 
             <div class="legal-entity-container">
-                <hr>
+
+                <!-- Кнопка добавить Юр. лицо -->
+                <a class="button is-white js-add-new-legal-entity position-r0-b10">
+                    <span class="js-add-new-legal-entity">Юр. лицо</span>
+                    <span class="icon is-small js-add-new-legal-entity">
+                        <i class="fa fa-plus-square-o js-add-new-legal-entity" aria-hidden="true"></i>
+                    </span>
+                </a>
                 <!-- Юридическое лицо -->
                 <div class="legal-entity">
-                    <!-- <div>
-                        <h2 class="is-size-5">Тут будет информация о юридическом лице</h2>
-                    </div> -->
+
+                    <hr>
 
                     <div class="field">
                         <label class="label">Юридическое лицо</label>
                         <div class="control is-flex">
                             <input class="input" type="text" name="order-legal-entity" placeholder="">
-                            <a id="2" class="button button-ico button-ico-color-gray js-btn-le-del">
-                                <span class="icon">
-                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                </span>
-                            </a>
                         </div>
                     </div>
 
+                    <!-- Удалить ЮЛ -->
+                    <a class="button is-white position-r0-t10 js-btn-le-del">
+                        <span class="icon">
+                            <i class="fa fa-minus-square-o fa-lg" aria-hidden="true"></i>
+                        </span>
+                    </a>
+
+
+
+                    <div class="dael-container">
+                        <!-- Сделка -->
+
                     <!-- Кнопка добавить сделку -->
-                    <a class="button is-white js-add-new-dael position-r0-b0">
+                    <a class="button is-white js-add-new-dael position-r0-b10">
                         <span class="js-add-new-dael">Сделка</span>
                         <span class="icon is-small js-add-new-dael">
                             <i class="fa fa-plus-square-o js-add-new-dael" aria-hidden="true"></i>
                         </span>
                     </a>
 
-
-                    <div class="dael-container">
-                        <!-- Сделка -->
                         <div class="dael">
-                            <!-- <div>
-                                <h2 class="is-size-5">Тут будет информация о сделке</h2>
-                            </div> -->
 
-                            <div class="columns is-multiline is-variable is-1">
+                            <a class="button is-white position-r0-t0 js-del-dael">
+                                <span class="icon">
+                                    <i class="fa fa-minus-square-o fa-lg" aria-hidden="true"></i>
+                                </span>
+                            </a>
+
+                            <div class="columns is-multiline is-variable is-1 mt-4">
 
                                 <div class="column is-4">
                                     <label class="label">Объем</label>
@@ -352,19 +351,12 @@ window.addEventListener('DOMContentLoaded', () => {
                                     <label class="label">Количество дней</label>
                                     <div class="field has-addons">
                                         <p class="control is-flex is-justify-content-space-between">
-                                            <input class="input" type="text" name="" value="" placeholder=""
+                                            <input class="input" type="text" name="" value="" placeholder="">
                                         </p>
                                     </div>
 
                                 </div>
 
-                                <div class="column is-1">
-                                    <a id="3" class="button button-ico button-ico-color-gray is-flex is-align-items-end js-btn-dael-del">
-                                        <span class="icon">
-                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                        </span>
-                                    </a>
-                                </div>
                             </div>
 
                         </div>
@@ -381,21 +373,30 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Добавляем новый базис
     const newBasisTpl = `<div id="" class="basis">
-    <!-- <div>
-        <h2 class="is-size-5">Тут будет информация c кагого адреса грузить</h2>
-    </div> -->
 
     <div class="field basis-panel">
         <label class="label">Базис</label>
         <div class="control is-flex is-justify-content-space-between">
             <input class="input" type="text" name="order-basis" placeholder="">
-            <a id="1" class="button js-btn-basis-del">
-                <span class="icon is-small">
-                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                </span>
-            </a>
+            <div class="field is-flex">
+                <p class="control ml-3">
+                    <!-- Кнопка удалить адрес -->
+                    <a class="button is-lite-gray js-btn-basis-del">
+                        <span class="icon">
+                            <i class="fa fa-minus-square-o fa-lg" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </p>
+                <p class="control ml-3">
+                    <!-- Кнопка добавить адрес -->
+                    <a class="button is-lite-gray js-add-new-basis">
+                        <span class="icon is-small js-add-new-basis">
+                            <i class="fa fa-plus-square-o js-add-new-basis" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </p>
+            </div>
         </div>
-
     </div>
 
     <div class="columns is-mobile is-variable is-1 is-multiline">
@@ -424,29 +425,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 </p>
             </div>
         </div>
-
-        <!-- <div class="column is-12">
-            Поле объем
-            <label class="label mt-2">Вес</label>
-            <label class="checkbox is-flex mb-3">
-                <input class="mr-2 js-wt-checkbox" type="checkbox">
-                Диапазон
-            </label>
-            <div class="field has-addons">
-                <p class="control width-100 js-wt-min">
-                    <input class="input js-order-basis-wt-min" type="text" name="order-basis-wt-min" placeholder="-">
-                </p>
-                <p class="control width-100 js-wt-max is-hidden">
-                    <input class="input" type="text" name="order-basis-wt-max" placeholder="Максимум">
-                </p>
-                <p class="control">
-                    <a class="button is-static">
-                        Литр
-                    </a>
-                </p>
-            </div>
-
-        </div> -->
 
         <div class="column is-6">
             <!-- Поле объем -->
@@ -587,53 +565,57 @@ window.addEventListener('DOMContentLoaded', () => {
         </div>
     </div>
 
-    <!-- Кнопка добавить Юр. лицо -->
-    <a class="button is-white js-add-new-legal-entity">
-        <span class="js-add-new-legal-entity">Юр. лицо</span>
-        <span class="icon is-small js-add-new-legal-entity">
-            <i class="fa fa-plus-square-o js-add-new-legal-entity" aria-hidden="true"></i>
-        </span>
-    </a>
-
-
 
     <div class="legal-entity-container">
-        <hr>
+
+        <!-- Кнопка добавить Юр. лицо -->
+        <a class="button is-white js-add-new-legal-entity position-r0-b10">
+            <span class="js-add-new-legal-entity">Юр. лицо</span>
+            <span class="icon is-small js-add-new-legal-entity">
+                <i class="fa fa-plus-square-o js-add-new-legal-entity" aria-hidden="true"></i>
+            </span>
+        </a>
         <!-- Юридическое лицо -->
         <div class="legal-entity">
-            <!-- <div>
-                <h2 class="is-size-5">Тут будет информация о юридическом лице</h2>
-            </div> -->
+
+            <hr>
 
             <div class="field">
                 <label class="label">Юридическое лицо</label>
                 <div class="control is-flex">
                     <input class="input" type="text" name="order-legal-entity" placeholder="">
-                    <a id="2" class="button button-ico button-ico-color-gray js-btn-le-del">
-                        <span class="icon">
-                            <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        </span>
-                    </a>
                 </div>
             </div>
 
+            <!-- Удалить ЮЛ -->
+            <a class="button is-white position-r0-t10 js-btn-le-del">
+                <span class="icon">
+                    <i class="fa fa-minus-square-o fa-lg" aria-hidden="true"></i>
+                </span>
+            </a>
+
+
+
+            <div class="dael-container">
+                <!-- Сделка -->
+
             <!-- Кнопка добавить сделку -->
-            <a class="button is-white js-add-new-dael position-r0-b0">
+            <a class="button is-white js-add-new-dael position-r0-b10">
                 <span class="js-add-new-dael">Сделка</span>
                 <span class="icon is-small js-add-new-dael">
                     <i class="fa fa-plus-square-o js-add-new-dael" aria-hidden="true"></i>
                 </span>
             </a>
 
-
-            <div class="dael-container">
-                <!-- Сделка -->
                 <div class="dael">
-                    <!-- <div>
-                        <h2 class="is-size-5">Тут будет информация о сделке</h2>
-                    </div> -->
 
-                    <div class="columns is-multiline is-variable is-1">
+                    <a class="button is-white position-r0-t0 js-del-dael">
+                        <span class="icon">
+                            <i class="fa fa-minus-square-o fa-lg" aria-hidden="true"></i>
+                        </span>
+                    </a>
+
+                    <div class="columns is-multiline is-variable is-1 mt-4">
 
                         <div class="column is-4">
                             <label class="label">Объем</label>
@@ -707,19 +689,12 @@ window.addEventListener('DOMContentLoaded', () => {
                             <label class="label">Количество дней</label>
                             <div class="field has-addons">
                                 <p class="control is-flex is-justify-content-space-between">
-                                    <input class="input" type="text" name="" value="" placeholder=""
+                                    <input class="input" type="text" name="" value="" placeholder="">
                                 </p>
                             </div>
 
                         </div>
 
-                        <div class="column is-1">
-                            <a id="3" class="button button-ico button-ico-color-gray is-flex is-align-items-end js-btn-dael-del">
-                                <span class="icon">
-                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                </span>
-                            </a>
-                        </div>
                     </div>
 
                 </div>
@@ -734,39 +709,43 @@ window.addEventListener('DOMContentLoaded', () => {
     const newLegalEntityTpl = `<div class="legal-entity">
 
     <hr>
-    <!-- <div>
-        <h2 class="is-size-5">Тут будет информация о юридическом лице</h2>
-    </div> -->
 
     <div class="field">
         <label class="label">Юридическое лицо</label>
         <div class="control is-flex">
             <input class="input" type="text" name="order-legal-entity" placeholder="">
-            <a id="2" class="button button-ico button-ico-color-gray js-btn-le-del">
-                <span class="icon">
-                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                </span>
-            </a>
         </div>
     </div>
 
+    <!-- Удалить ЮЛ -->
+    <a class="button is-white position-r0-t10 js-btn-le-del">
+        <span class="icon">
+            <i class="fa fa-minus-square-o fa-lg" aria-hidden="true"></i>
+        </span>
+    </a>
+
+
+
+    <div class="dael-container">
+        <!-- Сделка -->
+
     <!-- Кнопка добавить сделку -->
-    <a class="button is-white js-add-new-dael position-r0-b0">
+    <a class="button is-white js-add-new-dael position-r0-b10">
         <span class="js-add-new-dael">Сделка</span>
         <span class="icon is-small js-add-new-dael">
             <i class="fa fa-plus-square-o js-add-new-dael" aria-hidden="true"></i>
         </span>
     </a>
 
-
-    <div class="dael-container">
-        <!-- Сделка -->
         <div class="dael">
-            <!-- <div>
-                <h2 class="is-size-5">Тут будет информация о сделке</h2>
-            </div> -->
 
-            <div class="columns is-multiline is-variable is-1">
+            <a class="button is-white position-r0-t0 js-del-dael">
+                <span class="icon">
+                    <i class="fa fa-minus-square-o fa-lg" aria-hidden="true"></i>
+                </span>
+            </a>
+
+            <div class="columns is-multiline is-variable is-1 mt-4">
 
                 <div class="column is-4">
                     <label class="label">Объем</label>
@@ -840,19 +819,12 @@ window.addEventListener('DOMContentLoaded', () => {
                     <label class="label">Количество дней</label>
                     <div class="field has-addons">
                         <p class="control is-flex is-justify-content-space-between">
-                            <input class="input" type="text" name="" value="" placeholder=""
+                            <input class="input" type="text" name="" value="" placeholder="">
                         </p>
                     </div>
 
                 </div>
 
-                <div class="column is-1">
-                    <a id="3" class="button button-ico button-ico-color-gray is-flex is-align-items-end js-btn-dael-del">
-                        <span class="icon">
-                            <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        </span>
-                    </a>
-                </div>
             </div>
 
         </div>
@@ -860,14 +832,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
 </div>`;
 
-
     // Добавить сделку
     const newDael = `<div class="dael">
-    <!-- <div>
-        <h2 class="is-size-5">Тут будет информация о сделке</h2>
-    </div> -->
 
-    <div class="columns is-multiline is-variable is-1">
+    <a class="button is-white position-r0-t0 js-del-dael">
+        <span class="icon">
+            <i class="fa fa-minus-square-o fa-lg" aria-hidden="true"></i>
+        </span>
+    </a>
+
+    <div class="columns is-multiline is-variable is-1 mt-4">
 
         <div class="column is-4">
             <label class="label">Объем</label>
@@ -941,19 +915,12 @@ window.addEventListener('DOMContentLoaded', () => {
             <label class="label">Количество дней</label>
             <div class="field has-addons">
                 <p class="control is-flex is-justify-content-space-between">
-                    <input class="input" type="text" name="" value="" placeholder=""
+                    <input class="input" type="text" name="" value="" placeholder="">
                 </p>
             </div>
 
         </div>
 
-        <div class="column is-1">
-            <a id="3" class="button button-ico button-ico-color-gray is-flex is-align-items-end js-btn-dael-del">
-                <span class="icon">
-                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                </span>
-            </a>
-        </div>
     </div>
 
 </div>`;
@@ -980,7 +947,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const el = e.target;
 
         if (el.classList.contains('js-add-new-address')) {
-            const container = containerSearch(el);
+            const container = containerSearchAdd(el, 'address-container');
             container.insertAdjacentHTML('beforeEnd', newAddresTpl);
 
             basisSetWidth();
@@ -994,6 +961,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 addressContainer.style.transform = `translate3D(${translateX}px, 0, 0)`;
             }
 
+            eventAddressDel();
             eventBasisDel();
             eventELDel();
             eventDaelDel();
@@ -1002,7 +970,7 @@ window.addEventListener('DOMContentLoaded', () => {
             ativeDaelInput();
 
         } else if (el.classList.contains('js-add-new-basis')) {
-            const container = containerSearch(el);
+            const container = containerSearchAdd(el, 'basis-container');
             container.insertAdjacentHTML('beforeEnd', newBasisTpl);
 
             basisSetWidth();
@@ -1024,41 +992,26 @@ window.addEventListener('DOMContentLoaded', () => {
             ativeDaelInput();
 
         } else if (el.classList.contains('js-add-new-legal-entity')) {
-            // const container = containerSearch(el);
-            const container = containerSearchLE(el);
+            const container = containerSearchAdd(el, 'legal-entity-container');
             container.insertAdjacentHTML('beforeEnd', newLegalEntityTpl);
-            // height.innerHTML = document.body.scrollHeight;
-            // addressContainer.style.height = String(document.body.scrollHeight) + 'px';
             eventELDel();
             eventDaelDel();
             ativeDaelInput();
         } else if (el.classList.contains('js-add-new-dael')) {
-            const container = containerSearch(el);
+            const container = containerSearchAdd(el, 'dael-container');
             container.insertAdjacentHTML('beforeEnd', newDael);
-            // height.innerHTML = document.body.scrollHeight;
-            // addressContainer.style.height = String(document.body.scrollHeight) + 'px';
             eventDaelDel();
             ativeDaelInput();
         }
     });
 
-    // Поиск контейнера куда будет добавлен новый элемент
-    function containerSearch (e) {
-        let parent = e;
+    function containerSearchAdd (element, container) {
+        let parent = element;
 
-        while (parent.tagName != 'A') {
+        while (!parent.classList.contains(container)) {
             parent = parent.parentElement;
         }
-       return parent.nextElementSibling;
-    }
-
-    function containerSearchLE(e) {
-        let parent = e;
-
-        while (!parent.classList.contains('basis')) {
-            parent = parent.parentElement;
-        }
-        return parent.querySelector('.legal-entity-container');
+       return parent;
     }
 
     // Слайдер
@@ -1165,7 +1118,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     }
 
-
     // Возвращает ширину клиента
     function clientElementWidth() {
         return document.querySelector('.client').offsetWidth;
@@ -1178,7 +1130,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (cW < 900) {
             b.forEach(e => {
-                e.style.width = cW +'px';
+                // e.style.width = cW +'px';
+                e.style.width = '100%';
             });
             console.log(cW);
         } else {
@@ -1321,6 +1274,36 @@ window.addEventListener('DOMContentLoaded', () => {
 
     ativeDaelInput();
 
+    // Удалить адрес
+    function eventAddressDel() {
+        const btnAddressDel = document.querySelectorAll('.js-del-address');
+
+        btnAddressDel.forEach(btn => {
+            btn.addEventListener('click', e => {
+                let parent = e.target;
+                const addressCoun = document.querySelectorAll('.address').length;
+                const container = containerSearchAdd (parent, 'address');
+
+                if (addressCoun > 1) {
+                    container.remove();
+
+                    if (basisWidthOfAllElements() < clientElementWidth()) {
+                        const client = document.querySelector('.address-container');
+                        client.style.transform = `translate3D(0px, 0px, 0px)`;
+                    } else {
+                        const client = document.querySelector('.address-container');
+                        client.style.transform = `translate3D(-${basisWidthOfAllElements() - clientElementWidth()}px, 0px, 0px)`;
+                    }
+
+                }
+
+
+            });
+        });
+    }
+
+    eventAddressDel();
+
     // Удалить базис
     function eventBasisDel() {
         const btnBasisDel = document.querySelectorAll('.js-btn-basis-del');
@@ -1329,25 +1312,12 @@ window.addEventListener('DOMContentLoaded', () => {
             btn.addEventListener('click', e => {
                 let parent = e.target;
 
-                const basisCoun = document.querySelectorAll('.basis').length;
+                const address = containerSearchAdd(parent, 'address');
+                const basisCoun = address.querySelectorAll('.basis').length;
+                const container = containerSearchAdd(parent, 'basis');
 
                 if (basisCoun > 1) {
-                    while (!parent.classList.contains('address')) {
-                        parent = parent.parentElement;
-                    }
-
-                    const address = parent.querySelectorAll('.basis').length;
-                    if (address > 1) {
-                        parent = e.target;
-
-                        while (!parent.classList.contains('basis')) {
-                            parent = parent.parentElement;
-                        }
-                        parent.remove();
-                    } else {
-                        parent.remove();
-                    }
-
+                    container.remove();
                     if (basisWidthOfAllElements() < clientElementWidth()) {
                         const client = document.querySelector('.address-container');
                         client.style.transform = `translate3D(0px, 0px, 0px)`;
@@ -1372,23 +1342,13 @@ window.addEventListener('DOMContentLoaded', () => {
         btnBasisDel.forEach(btn => {
             btn.addEventListener('click', e => {
                 let parent = e.target;
-                let basis = e.target;
-                let classBasis;
+                const basis = containerSearchAdd(parent, 'basis');
+                const LECoun = basis.querySelectorAll('.legal-entity').length;
+                const container = containerSearchAdd(parent, 'legal-entity');
 
-                while (!basis.classList.contains('basis')) {
-                    basis = basis.parentElement;
+                if (LECoun > 1) {
+                    container.remove();
                 }
-
-                const count = basis.querySelectorAll('.legal-entity').length;
-
-                if (count > 1) {
-                    while (!parent.classList.contains('legal-entity')) {
-                        parent = parent.parentElement;
-                    }
-                    parent.remove();
-                }
-
-
 
             });
         });
@@ -1398,26 +1358,17 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Удалить сделку
     function eventDaelDel() {
-        const btnBasisDel = document.querySelectorAll('.js-btn-dael-del');
+        const btnBasisDel = document.querySelectorAll('.js-del-dael');
 
         btnBasisDel.forEach(btn => {
             btn.addEventListener('click', e => {
                 let parent = e.target;
-                let basis = e.target;
+                const le = containerSearchAdd(parent, 'legal-entity');
+                const daelCoun = le.querySelectorAll('.dael').length;
+                const container = containerSearchAdd(parent, 'dael');
 
-                while (!basis.classList.contains('basis')) {
-                    basis = basis.parentElement;
-                }
-
-                const count = basis.querySelectorAll('.dael').length;
-
-                if (count > 1) {
-
-                    while (!parent.classList.contains('dael')) {
-                        parent = parent.parentElement;
-                    }
-                    parent.remove();
-
+                if (daelCoun > 1) {
+                    container.remove();
                 }
 
             });

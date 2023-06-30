@@ -135,16 +135,16 @@
                         <div class="field has-addons position-r0-t0">
                             <p class="control">
                                 <!-- Кнопка удалить адрес -->
-                                <a class="button is-white ">
-                                    <span class="icon">
-                                        <i class="fa fa-minus-square-o fa-lg" aria-hidden="true"></i>
+                                <a class="button is-white js-del-address">
+                                    <span class="icon ">
+                                        <i class="fa fa-minus-square-o fa-lg " aria-hidden="true"></i>
                                     </span>
                                 </a>
                             </p>
                             <p class="control">
                                 <!-- Кнопка добавить адрес -->
                                 <a class="button is-white js-add-new-address">
-                                    <span class="js-add-new-address">Адрес</span>
+                                    <!-- <span class="js-add-new-address">Адрес</span> -->
                                     <span class="icon is-small js-add-new-address">
                                         <i class="fa fa-plus-square-o js-add-new-address" aria-hidden="true"></i>
                                     </span>
@@ -159,31 +159,10 @@
                             </div>
                         </div>
 
-                        <!-- Кнопка добавить Базис -->
-
-                        <!-- <a class="button is-white width-100px position-sticky js-add-new-basis">
-                            <span class="js-add-new-basis">Базис</span>
-                            <span class="icon is-small js-add-new-basis">
-                                <i class="fa fa-plus-square-o js-add-new-basis" aria-hidden="true"></i>
-                            </span>
-                        </a> -->
 
                         <div class="basis-container">
                             <!-- Базис -->
                             <div id="" class="basis">
-
-                                <!-- <a class="button is-white button-basis-del">
-                                    <span class="icon">
-                                        <i class="fa fa-minus-square-o fa-lg" aria-hidden="true"></i>
-                                    </span>
-                                </a>
-
-                                <a class="button is-white">
-                                    <span class="">Базис</span>
-                                    <span class="icon is-small ">
-                                        <i class="fa fa-plus-square-o " aria-hidden="true"></i>
-                                    </span>
-                                </a> -->
 
                                 <div class="field basis-panel">
                                     <label class="label">Базис</label>
@@ -192,7 +171,7 @@
                                         <div class="field is-flex">
                                             <p class="control ml-3">
                                                 <!-- Кнопка удалить адрес -->
-                                                <a class="button is-lite-gray">
+                                                <a class="button is-lite-gray js-btn-basis-del">
                                                     <span class="icon">
                                                         <i class="fa fa-minus-square-o fa-lg" aria-hidden="true"></i>
                                                     </span>
@@ -200,10 +179,10 @@
                                             </p>
                                             <p class="control ml-3">
                                                 <!-- Кнопка добавить адрес -->
-                                                <a class="button is-lite-gray js-add-new-address">
-                                                    <span class="">Базис</span>
-                                                    <span class="icon is-small ">
-                                                        <i class="fa fa-plus-square-o " aria-hidden="true"></i>
+                                                <a class="button is-lite-gray js-add-new-basis">
+                                                    <!-- <span class="js-add-new-basis">Базис</span> -->
+                                                    <span class="icon is-small js-add-new-basis">
+                                                        <i class="fa fa-plus-square-o js-add-new-basis" aria-hidden="true"></i>
                                                     </span>
                                                 </a>
                                             </p>
@@ -377,15 +356,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Кнопка добавить Юр. лицо -->
-                                <!-- <a class="button is-white js-add-new-legal-entity">
-                                    <span class="js-add-new-legal-entity">Юр. лицо</span>
-                                    <span class="icon is-small js-add-new-legal-entity">
-                                        <i class="fa fa-plus-square-o js-add-new-legal-entity" aria-hidden="true"></i>
-                                    </span>
-                                </a> -->
-
-
 
                                 <div class="legal-entity-container">
 
@@ -405,20 +375,20 @@
                                             <label class="label">Юридическое лицо</label>
                                             <div class="control is-flex">
                                                 <input class="input" type="text" name="order-legal-entity" placeholder="">
-                                                <!-- <a id="2" class="button button-ico button-ico-color-gray js-btn-le-del">
-                                                    <span class="icon">
-                                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                    </span>
-                                                </a> -->
                                             </div>
                                         </div>
 
                                         <!-- Удалить ЮЛ -->
-                                        <a class="button is-white position-r0-t10">
+                                        <a class="button is-white position-r0-t10 js-btn-le-del">
                                             <span class="icon">
                                                 <i class="fa fa-minus-square-o fa-lg" aria-hidden="true"></i>
                                             </span>
                                         </a>
+
+
+
+                                        <div class="dael-container">
+                                            <!-- Сделка -->
 
                                         <!-- Кнопка добавить сделку -->
                                         <a class="button is-white js-add-new-dael position-r0-b10">
@@ -428,11 +398,9 @@
                                             </span>
                                         </a>
 
-                                        <div class="dael-container">
-                                            <!-- Сделка -->
                                             <div class="dael">
 
-                                                <a class="button is-white position-r0-t0">
+                                                <a class="button is-white position-r0-t0 js-del-dael">
                                                     <span class="icon">
                                                         <i class="fa fa-minus-square-o fa-lg" aria-hidden="true"></i>
                                                     </span>
@@ -512,19 +480,12 @@
                                                         <label class="label">Количество дней</label>
                                                         <div class="field has-addons">
                                                             <p class="control is-flex is-justify-content-space-between">
-                                                                <input class="input" type="text" name="" value="" placeholder=""
+                                                                <input class="input" type="text" name="" value="" placeholder="">
                                                             </p>
                                                         </div>
 
                                                     </div>
 
-                                                    <!-- <div class="column is-1">
-                                                        <a id="3" class="button button-ico button-ico-color-gray is-flex is-align-items-end js-btn-dael-del">
-                                                            <span class="icon">
-                                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                            </span>
-                                                        </a>
-                                                    </div> -->
                                                 </div>
 
                                             </div>
