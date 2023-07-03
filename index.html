@@ -32,403 +32,478 @@
 <body>
 
     <div class="container is-fullhd">
+        <!-- Верхняя панель -->
+        <div class="top-bar is-flex is-align-items-center is-justify-content-space-between">
 
-        <div class="columns">
-            <div class="column is-6-tablet is-4-desktop">
-                <div class="order">
+            <div class="buttons has-addons is-align-items-center">
+                <a class="button is-link is-uppercase">
+                    <span>Заявка</span>
+                </a>
+                <a class="button is-link is-outlined is-uppercase">
+                    <span>Бронь</span>
+                </a>
+            </div>
 
-                    <form action="#" class="form">
+            <!-- <span class="order-title">Сбыт</span> -->
 
-                        <!-- Кнопка добавить базис -->
-                        <div class="field">
-                            <a class="button is-white button-rt">
-                                <span>Базис</span>
-                                <span class="icon is-small">
-                                    <i class="fa fa-plus-square-o" aria-hidden="true"></i>
-                                </span>
-                            </a>
-                            <label class="label">Адрес 1</label>
+            <div class="field is-horizontal is-align-items-center mb-0">
+                <label class="label mb-0 mr-3">Статус</label>
+                <div class="control">
+                    <div class="select">
+                        <select>
+                          <option>Статус 1</option>
+                          <option>Статус 2</option>
+                          <option>Статус 3</option>
+                          <option>Статус 4</option>
+                        </select>
+                      </div>
+                </div>
+              </div>
+
+            <div class="buttons">
+                <a class="button is-link is-outlined is-uppercase">
+                    <span>Отмена</span>
+                </a>
+                <a class="button is-link is-uppercase js-create-order">
+                    <span>Создать</span>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Заявка -->
+        <form class="order">
+            <!-- Клиент -->
+            <div class="client">
+
+                <div class="columns is-gapless is-multiline client-panel">
+
+                    <div class="column is-3 mb-5">
+                        <div class="field mr-2">
+                            <label class="label">Дата</label>
                             <div class="control">
-                                <input class="input" type="text" name="address" placeholder="">
+                                <input class="input js-type-date-is-range" type="date" name="order-date" placeholder="">
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Поле базис -->
-                        <label class="label">Базис</label>
-                        <div class="field has-addons is-justify-content-space-between">
-                            <p class="control width-100">
-                                <input class="input" type="text" name="basis" placeholder="">
+                    <div class="column is-9"></div>
+
+                    <div class="column is-2">
+                        <div class="field mr-2">
+                            <label class="label">Клиент</label>
+                            <div class="control">
+                                <input class="input" type="input" name="order-client" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-1">
+                        <div class="field mr-2">
+                            <label class="label">Тип клиента</label>
+                            <div class="control">
+                                <input class="input" type="input" name="order-client-type" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-2">
+                        <div class="field mr-2">
+                            <label class="label">Тип отгрузки</label>
+                            <div class="control">
+                                <div class="select width-100">
+                                    <select class="width-100">
+                                        <option>Перемещение</option>
+                                        <option>Самовывоз</option>
+                                        <option>Доставка</option>
+                                        <option>Самовывоз СК</option>
+                                        <option>С доставкой</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Адрес контейнер -->
+                <div class="address-container">
+                    <!-- Адрес -->
+                    <div class="address">
+
+                        <div class="field has-addons position-r5-t0">
+                            <p class="control mr-3">
+                                <!-- Кнопка удалить адрес -->
+                                <a class="button is-white js-del-address">
+                                    <span class="icon ">
+                                        <i class="fa fa-minus-square-o fa-lg " aria-hidden="true"></i>
+                                    </span>
+                                </a>
                             </p>
                             <p class="control">
-                                <a class="button ">
-                                    <span class="icon icon-width">
-                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                <!-- Кнопка добавить адрес -->
+                                <a class="button is-white js-add-new-address">
+                                    <!-- <span class="js-add-new-address">Адрес</span> -->
+                                    <span class="icon is-small js-add-new-address">
+                                        <i class="fa fa-plus-square-o js-add-new-address" aria-hidden="true"></i>
                                     </span>
                                 </a>
                             </p>
                         </div>
 
-                        <div class="columns is-mobile is-variable is-1 mb-0">
-                            <div class="column is-6 is-6-mobile">
-                                <!-- Поле продукт -->
-                                <div class="field">
-                                    <label class="label">Продукт</label>
-                                    <div class="control">
-                                        <input class="input" type="text" name="" placeholder="">
+                        <div class="field px-15px border-box">
+                            <label class="label">Адрес</label>
+                            <div class="control width-470px">
+                                <input class="input" type="text" name="order-address-date" placeholder="">
+                            </div>
+                        </div>
+
+
+                        <div class="basis-container">
+                            <!-- Базис -->
+                            <div id="" class="basis">
+
+                                <div class="field basis-panel">
+                                    <label class="label">Базис</label>
+                                    <div class="control is-flex is-justify-content-space-between">
+                                        <input class="input" type="text" name="order-basis" placeholder="">
+                                        <div class="field is-flex">
+                                            <p class="control ml-3">
+                                                <!-- Кнопка удалить адрес -->
+                                                <a class="button is-lite-gray js-btn-basis-del">
+                                                    <span class="icon">
+                                                        <i class="fa fa-minus-square-o fa-lg" aria-hidden="true"></i>
+                                                    </span>
+                                                </a>
+                                            </p>
+                                            <p class="control ml-3">
+                                                <!-- Кнопка добавить адрес -->
+                                                <a class="button is-lite-gray js-add-new-basis">
+                                                    <!-- <span class="js-add-new-basis">Базис</span> -->
+                                                    <span class="icon is-small js-add-new-basis">
+                                                        <i class="fa fa-plus-square-o js-add-new-basis" aria-hidden="true"></i>
+                                                    </span>
+                                                </a>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
 
-                            </div>
-                            <div class="column is-6 is-6-mobile">
-                                <!-- Поле номенклатура -->
-                                <label class="label">Номенклатура</label>
-                                <div class="field has-addons is-justify-content-space-between">
-                                    <p class="control width-100">
-                                        <input class="input" type="text" name="" placeholder="">
-                                    </p>
-                                    <p class="control">
-                                        <a class="button">
-                                            <span class="icon icon-width">
-                                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                <div class="columns is-mobile is-variable is-1 is-multiline">
+                                    <div class="column is-6 is-6-mobile">
+                                        <!-- Поле продукт -->
+                                        <div class="field">
+                                            <label class="label">Продукт</label>
+                                            <div class="control">
+                                                <input class="input" type="text" name="order-basis-product" placeholder="">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="column is-6 is-6-mobile">
+                                        <!-- Поле номенклатура -->
+                                        <label class="label">Номенклатура</label>
+                                        <div class="field">
+                                            <p class="control is-flex is-justify-content-space-between is-align-items-center">
+                                                <input class="input" type="text" name="" placeholder="">
+                                                <a class="button button-ico button-ico-color-red">
+                                                    <span class="icon icon-width">
+                                                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                                    </span>
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="column is-6">
+                                        <!-- Поле объем -->
+                                        <label class="label">Объем</label>
+                                        <label class="checkbox is-flex mb-3">
+                                            <input class="mr-2 js-volume-checkbox" type="checkbox">
+                                            Диапазон
+                                        </label>
+                                        <div class="field has-addons is-align-items-end">
+                                            <p class="control width-100 js-volume-min">
+                                                <input class="input js-order-basis-volume-min" type="text" name="order-basis-volume-min" placeholder="-">
+                                            </p>
+                                            <p class="control width-100 js-volume-max is-hidden">
+                                                <input class="input" type="text" name="order-basis-volume-max" placeholder="Максимум">
+                                            </p>
+                                            <p class="control">
+                                                <a class="button is-static">
+                                                    Литр
+                                                </a>
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="column is-6 is-6-mobile">
+                                        <!-- Поле доставка -->
+                                        <label class="label">Доставка</label>
+                                        <div class="control mb-2">
+                                            <label class="radio">
+                                              <input type="radio" name="foobar">
+                                              С НДС
+                                            </label>
+                                            <label class="radio">
+                                              <input type="radio" name="foobar" checked>
+                                              Без НДС
+                                            </label>
+                                        </div>
+                                        <div class="field has-addons">
+                                            <p class="control width-100">
+                                                <input class="input" type="text" name="#" placeholder="">
+                                            </p>
+                                            <p class="control">
+                                                <span class="select">
+                                                    <select>
+                                                        <option>руб/л</option>
+                                                        <option>руб/т</option>
+                                                        <option>руб</option>
+                                                    </select>
+                                                </span>
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="column is-6 is-4-mobile">
+                                        <!-- Поле Документы -->
+                                        <label class="label">Документы</label>
+                                        <div class="field">
+                                            <p class="control">
+                                                <span class="select width-100">
+                                                    <select class="width-100">
+                                                        <option>Документы</option>
+                                                        <option>Документы + счет</option>
+                                                        <option>Счет</option>
+                                                        <option>Без документов</option>
+                                                    </select>
+                                                </span>
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="column is-6 is-4-mobile js-order-basis-urgency-container">
+                                        <!-- Поле Срочность -->
+                                        <label class="label">Срочность</label>
+                                        <div class="field">
+                                            <p class="control">
+                                                <span class="select width-100">
+                                                    <select class="width-100 js-order-basis-urgency">
+                                                        <option>-</option>
+                                                        <option>Крайне срочно</option>
+                                                        <option>Срочно в течение</option>
+                                                        <option>До</option>
+                                                        <option>В течение дня</option>
+                                                    </select>
+                                                </span>
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="column is-6 is-4-mobile js-order-basis-term is-hidden">
+                                        <!-- Поле Срочность -->
+                                        <label class="label">Срок</label>
+                                        <div class="field">
+                                            <p class="control">
+                                                <span class="select width-100">
+                                                    <select class="width-100">
+                                                        <option>30 минут</option>
+                                                        <option>Час</option>
+                                                        <option>2 часа</option>
+                                                        <option>До конца рабочего дня</option>
+                                                        <option>Утром следующего дня</option>
+                                                    </select>
+                                                </span>
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="column is-12 is-4-mobile js-order-basis-datetime is-hidden">
+                                        <!-- Поле До -->
+                                        <label class="label">До</label>
+                                        <div class="is-flex is-justify-content-space-between">
+                                            <div class="field has-addons width-100 pr-4px">
+                                                <p class="control width-100">
+                                                    <input class="input" type="date" name="order-basis-datetime" value="2023-07-22" placeholder="">
+                                                </p>
+                                            </div>
+                                            <div class="field width-100 pl-4px">
+                                                <p class="control width-100">
+                                                    <input class="input" type="time" name="" value="" placeholder="__:__">
+                                                </p>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="column is-12">
+                                        <!-- Комментарий -->
+                                        <div class="field">
+                                            <label class="label mt-2">Комментарий</label>
+                                            <div class="control width-100 is-widescreen">
+                                                <textarea class="textarea" placeholder=""></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="legal-entity-container">
+
+                                    <!-- Кнопка добавить Юр. лицо -->
+                                    <a class="button is-white js-add-new-legal-entity position-r15-b10">
+                                        <span class="js-add-new-legal-entity">Юр. лицо</span>
+                                        <span class="icon is-small js-add-new-legal-entity">
+                                            <i class="fa fa-plus-square-o js-add-new-legal-entity" aria-hidden="true"></i>
+                                        </span>
+                                    </a>
+                                    <!-- Юридическое лицо -->
+                                    <div class="legal-entity">
+
+                                        <hr>
+
+                                        <div class="field">
+                                            <label class="label">Юридическое лицо</label>
+                                            <div class="control is-flex">
+                                                <input class="input" type="text" name="order-legal-entity" placeholder="">
+                                            </div>
+                                        </div>
+
+                                        <!-- Удалить ЮЛ -->
+                                        <a class="button is-white position-r0-t10 js-btn-le-del">
+                                            <span class="icon">
+                                                <i class="fa fa-minus-square-o fa-lg" aria-hidden="true"></i>
                                             </span>
                                         </a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="columns is-mobile is-variable is-1 is-multiline">
 
-                            <div class="column is-6-mobile">
-                                <!-- Поле объем -->
-                                <label class="label">Объем</label>
-                                <div class="field has-addons">
-                                    <p class="control width-100">
-                                        <input class="input" type="text" name="volume" placeholder="">
-                                    </p>
-                                    <p class="control">
-                                        <span class="select">
-                                            <select>
-                                                <option>л</option>
-                                                <option>т</option>
-                                            </select>
-                                        </span>
-                                    </p>
-                                </div>
 
-                            </div>
+                                        <div class="dael-container">
+                                            <!-- Сделка -->
 
-                            <div class="column is-6 is-6-mobile">
-                                <!-- Поле доставка с учетом НДС -->
-                                <label class="label">Доставка с учетом НДС</label>
-                                <div class="field has-addons">
-                                    <p class="control width-100">
-                                        <input class="input" type="text" name="#" placeholder="">
-                                    </p>
-                                    <p class="control">
-                                        <span class="select">
-                                            <select>
-                                                <option>руб/л</option>
-                                                <option>руб/т</option>
-                                            </select>
-                                        </span>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <div class="column is-12">
-                                <!-- Комментарий -->
-                                <div class="field">
-                                    <label class="label">Комментарий</label>
-                                    <div class="control width-100 is-widescreen">
-                                        <textarea class="textarea" placeholder=""></textarea>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <hr>
-
-                        <!-- Юридическое лицо -->
-                        <div class="legal-entity">
-
-                            <div class="columns is-mobile is-variable is-1 is-multiline is-align-items-flex-end">
-
-                                <div class="column is-12">
-                                    <!-- Поле юридическое лицо -->
-                                    <label class="label">Юр. лицо</label>
-                                    <div class="field has-addons">
-                                        <p class="control width-100">
-                                            <input class="input" type="text" name="legal-entity" placeholder="">
-                                        </p>
-                                        <p class="control">
-                                            <a class="button ">
-                                                <span class="icon icon-width">
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                </span>
-                                            </a>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <!-- Поле объем заказа -->
-                                <div class="column is-6-mobile">
-                                    <label class="label">Объем</label>
-                                    <div class="field has-addons">
-                                        <p class="control width-100">
-                                            <input class="input" type="text" name="volume" placeholder="">
-                                        </p>
-                                        <p class="control">
-                                            <span class="select">
-                                                <select>
-                                                    <option>л</option>
-                                                    <option>т</option>
-                                                </select>
+                                        <!-- Кнопка добавить сделку -->
+                                        <a class="button is-white js-add-new-dael position-r0-b10">
+                                            <span class="js-add-new-dael">Сделка</span>
+                                            <span class="icon is-small js-add-new-dael">
+                                                <i class="fa fa-plus-square-o js-add-new-dael" aria-hidden="true"></i>
                                             </span>
-                                        </p>
+                                        </a>
+
+                                            <div class="dael">
+
+                                                <a class="button is-white position-r0-t0 js-del-dael">
+                                                    <span class="icon">
+                                                        <i class="fa fa-minus-square-o fa-lg" aria-hidden="true"></i>
+                                                    </span>
+                                                </a>
+
+                                                <div class="columns is-multiline is-variable is-1 mt-4">
+
+                                                    <div class="column is-4">
+                                                        <label class="label">Объем</label>
+                                                        <div class="field has-addons">
+                                                            <p class="control width-100">
+                                                                <input class="input" type="text" name="order-wt" placeholder="">
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="column is-4">
+                                                        <label class="label">Вес</label>
+                                                        <div class="field has-addons">
+                                                            <p class="control width-100">
+                                                                <input class="input" type="text" name="order-volume" placeholder="">
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="column is-4">
+
+                                                        <label class="label">Цена</label>
+                                                        <div class="field has-addons">
+                                                            <p class="control width-100">
+                                                                <input class="input" type="text" name="order-prisce" placeholder="">
+                                                            </p>
+                                                            <p class="control">
+                                                                <span class="select">
+                                                                    <select>
+                                                                        <option>руб/л</option>
+                                                                        <option>руб/т</option>
+                                                                    </select>
+                                                                </span>
+                                                            </p>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="column is-4 js-order-dael-payment-type-container">
+
+                                                        <label class="label">Тип оплаты</label>
+                                                        <p class="control">
+                                                            <span class="select width-100">
+                                                                <select class="width-100 js-order-dael-payment-type">
+                                                                    <option>-</option>
+                                                                    <option>Предоплата на дату</option>
+                                                                    <option>Предоплата до отгрузки</option>
+                                                                    <option>По факту отгрузки</option>
+                                                                    <option>Отсрочка на дату</option>
+                                                                    <option>Отсрочка сдвиг</option>
+                                                                </select>
+                                                            </span>
+
+                                                        </p>
+
+                                                    </div>
+
+                                                    <div class="column is-4 js-order-dael-date is-hidden">
+
+                                                        <label class="label">Дата</label>
+                                                        <div class="field has-addons">
+                                                            <p class="control width-100">
+                                                                <input class="input" type="date" name="order-dael-date" value="2023-07-22" placeholder="">
+                                                            </p>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="column is-4 js-order-dael-dey is-hidden">
+
+                                                        <label class="label">Количество дней</label>
+                                                        <div class="field has-addons">
+                                                            <p class="control is-flex is-justify-content-space-between">
+                                                                <input class="input" type="text" name="" value="" placeholder="">
+                                                            </p>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
 
-                                <div class="column is-6-mobile">
-                                    <!-- Поле стоимость заказа -->
-                                    <label class="label">Стоимость</label>
-                                    <div class="field has-addons">
-                                        <p class="control width-100">
-                                            <input class="input" type="text" name="volume" placeholder="">
-                                        </p>
-                                        <p class="control">
-                                            <span class="select">
-                                                <select>
-                                                    <option>руб/л</option>
-                                                    <option>руб/т</option>
-                                                </select>
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="column is-6-mobile">
-                                    <!-- Поле дата заказа -->
-                                    <label class="label">Дата</label>
-                                    <div class="field has-addons">
-                                        <p class="control width-100">
-                                            <input class="input" type="date" name="volume" value="2023-07-22" placeholder="">
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="column is-1 has-text-right">
-                                    <!-- Кнопка удалить заказ -->
-                                    <a class="button ">
-                                        <span class="icon icon-width">
-                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                        </span>
-                                    </a>
-                                </div>
-
-                                <!-- <div class="column is-12 has-text-right">
-                                    <a class="button is-white">
-                                        <span>Сделка</span>
-                                        <span class="icon is-small">
-                                            <i class="fa fa-plus-square-o" aria-hidden="true"></i>
-                                        </span>
-                                    </a>
-                                </div> -->
-
-
-
-                            </div>
-                            <hr>
-
-
-                            <div class="columns is-mobile is-variable is-1 is-multiline is-align-items-flex-end">
-
-                                <div class="column is-6">
-                                    <!-- Поле юридическое лицо -->
-                                    <label class="label">Юр. лицо</label>
-                                    <div class="field has-addons">
-                                        <p class="control width-100">
-                                            <input class="input" type="text" name="legal-entity" placeholder="">
-                                        </p>
-                                        <p class="control">
-                                            <a class="button ">
-                                                <span class="icon icon-width">
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                </span>
-                                            </a>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <!-- Поле объем заказа -->
-                                <div class="column is-6">
-                                    <label class="label">Объем</label>
-                                    <div class="field has-addons">
-                                        <p class="control width-100">
-                                            <input class="input" type="text" name="volume" placeholder="">
-                                        </p>
-                                        <p class="control">
-                                            <span class="select">
-                                                <select>
-                                                    <option>л</option>
-                                                    <option>т</option>
-                                                </select>
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="column is-6">
-                                    <!-- Поле стоимость заказа -->
-                                    <label class="label">Стоимость</label>
-                                    <div class="field has-addons">
-                                        <p class="control width-100">
-                                            <input class="input" type="text" name="volume" placeholder="">
-                                        </p>
-                                        <p class="control">
-                                            <span class="select">
-                                                <select>
-                                                    <option>руб/л</option>
-                                                    <option>руб/т</option>
-                                                </select>
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="column is-4">
-                                    <!-- Поле дата заказа -->
-                                    <label class="label">Дата</label>
-                                    <div class="field has-addons">
-                                        <p class="control width-100">
-                                            <input class="input" type="date" name="volume" value="2023-07-22" placeholder="">
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="column is-2 has-text-right">
-                                    <!-- Кнопка удалить заказ -->
-                                    <a class="button ">
-                                        <span class="icon icon-width">
-                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                        </span>
-                                    </a>
-                                </div>
-
-                                <div class="column is-12 has-text-right">
-                                    <a class="button is-white">
-                                        <span>Сделка</span>
-                                        <span class="icon is-small">
-                                            <i class="fa fa-plus-square-o" aria-hidden="true"></i>
-                                        </span>
-                                    </a>
-                                </div>
-
-                                <hr>
-
-                            </div>
-
-
-
-
-
-                        </div>
-
-
-                        <div class="columns is-mobile is-variable is-1 is-multiline is-align-items-flex-end">
-
-                            <div class="column is-6">
-                                <label class="label">Объем</label>
-                                <div class="field has-addons">
-                                    <p class="control">
-                                        <input class="input" type="text" name="volume" placeholder="">
-                                    </p>
-                                    <p class="control">
-                                        <span class="select">
-                                            <select>
-                                                <option>л</option>
-                                                <option>т</option>
-                                            </select>
-                                        </span>
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="column is-6">
-                                <label class="label">Стоимость</label>
-                                <div class="field has-addons">
-                                    <p class="control">
-                                        <input class="input" type="text" name="volume" placeholder="">
-                                    </p>
-                                    <p class="control">
-                                        <span class="select">
-                                            <select>
-                                                <option>руб/л</option>
-                                                <option>руб/т</option>
-                                            </select>
-                                        </span>
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="column is-6">
-                                <label class="label">Дата</label>
-                                <div class="field has-addons">
-                                    <p class="control">
-                                        <input class="input" type="date" name="volume" value="2018-07-22" placeholder="">
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="column is-6 has-text-right">
-                                <a class="button ">
-                                    <span class="icon icon-width">
-                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                    </span>
-                                </a>
                             </div>
 
                         </div>
 
-                        <div class="columns is-mobile">
-                            <div class="column is-12 has-text-right">
-                                <a class="button is-white">
-                                    <span>Сделка</span>
-                                    <span class="icon is-small">
-                                        <i class="fa fa-plus-square-o" aria-hidden="true"></i>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
+                    </div>
 
-                        <div class="columns is-mobile">
-                            <div class="column is-12">
-                                <div class="field">
-                                    <label class="label">Адрес 1</label>
-                                    <div class="control">
-                                        <input class="input" type="text" name="address" placeholder="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="columns is-mobile">
-                            <div class="column is-12">
-                                <a class="button is-white">
-                                    <span>Юр. лицо</span>
-                                    <span class="icon is-small">
-                                        <i class="fa fa-plus-square-o" aria-hidden="true"></i>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-
-                    </form>
                 </div>
+
             </div>
-        </div>
+        </form>
 
     </div>
 

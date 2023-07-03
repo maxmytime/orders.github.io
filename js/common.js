@@ -3,10 +3,10 @@
 window.addEventListener('DOMContentLoaded', () => {
 
     // Добавляем новый адрес доставки
-    const newAddresTpl = `<div class="address">
+    const newAddresTpl = `                    <div class="address">
 
-    <div class="field has-addons position-r0-t0">
-        <p class="control">
+    <div class="field has-addons position-r5-t0">
+        <p class="control mr-3">
             <!-- Кнопка удалить адрес -->
             <a class="button is-white js-del-address">
                 <span class="icon ">
@@ -17,6 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
         <p class="control">
             <!-- Кнопка добавить адрес -->
             <a class="button is-white js-add-new-address">
+                <!-- <span class="js-add-new-address">Адрес</span> -->
                 <span class="icon is-small js-add-new-address">
                     <i class="fa fa-plus-square-o js-add-new-address" aria-hidden="true"></i>
                 </span>
@@ -24,9 +25,9 @@ window.addEventListener('DOMContentLoaded', () => {
         </p>
     </div>
 
-    <div class="field">
+    <div class="field px-15px border-box">
         <label class="label">Адрес</label>
-        <div class="control width-500px">
+        <div class="control width-470px">
             <input class="input" type="text" name="order-address-date" placeholder="">
         </div>
     </div>
@@ -52,6 +53,7 @@ window.addEventListener('DOMContentLoaded', () => {
                         <p class="control ml-3">
                             <!-- Кнопка добавить адрес -->
                             <a class="button is-lite-gray js-add-new-basis">
+                                <!-- <span class="js-add-new-basis">Базис</span> -->
                                 <span class="icon is-small js-add-new-basis">
                                     <i class="fa fa-plus-square-o js-add-new-basis" aria-hidden="true"></i>
                                 </span>
@@ -231,7 +233,7 @@ window.addEventListener('DOMContentLoaded', () => {
             <div class="legal-entity-container">
 
                 <!-- Кнопка добавить Юр. лицо -->
-                <a class="button is-white js-add-new-legal-entity position-r0-b10">
+                <a class="button is-white js-add-new-legal-entity position-r15-b10">
                     <span class="js-add-new-legal-entity">Юр. лицо</span>
                     <span class="icon is-small js-add-new-legal-entity">
                         <i class="fa fa-plus-square-o js-add-new-legal-entity" aria-hidden="true"></i>
@@ -390,6 +392,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 <p class="control ml-3">
                     <!-- Кнопка добавить адрес -->
                     <a class="button is-lite-gray js-add-new-basis">
+                        <!-- <span class="js-add-new-basis">Базис</span> -->
                         <span class="icon is-small js-add-new-basis">
                             <i class="fa fa-plus-square-o js-add-new-basis" aria-hidden="true"></i>
                         </span>
@@ -569,7 +572,7 @@ window.addEventListener('DOMContentLoaded', () => {
     <div class="legal-entity-container">
 
         <!-- Кнопка добавить Юр. лицо -->
-        <a class="button is-white js-add-new-legal-entity position-r0-b10">
+        <a class="button is-white js-add-new-legal-entity position-r15-b10">
             <span class="js-add-new-legal-entity">Юр. лицо</span>
             <span class="icon is-small js-add-new-legal-entity">
                 <i class="fa fa-plus-square-o js-add-new-legal-entity" aria-hidden="true"></i>
@@ -1109,7 +1112,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
             const width = document.querySelector('.basis').offsetWidth;
             const count = document.querySelectorAll('.basis').length;
-            return (width + 38) * count;
+            // return (width + 38) * count;
+            return (width) * count;
           } catch (err) {
 
             // обработка ошибки
@@ -1130,8 +1134,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (cW < 900) {
             b.forEach(e => {
-                // e.style.width = cW +'px';
-                e.style.width = '100%';
+                e.style.width = cW +'px';
+                // e.style.width = '100%';
             });
             console.log(cW);
         } else {
@@ -1376,4 +1380,42 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     eventDaelDel();
+
+    // Создать заявку
+    const buttonCreateOrder = document.querySelector('.js-create-order');
+
+    class Order {
+        constructor() {
+            this.data = this.date();
+            this.time = this.time();
+            this.number = 'Ноява заявка';
+            this.autor = 'Иванов Иван Иванович';
+            this.client = {
+                dateMin: document.querySelector('input[name="order-date"]').value,
+                dateMax: "",
+                client: "",
+                typeClient: "",
+                typeShipment: "",
+                address: [{}]
+            };
+        }
+
+        // Получаем текущую дату
+        date() {
+            const date = new Date();
+            return date.getDate()+ ':' + date.getMonth() + ':' + date.getFullYear();
+        }
+
+        // Получаем текущее время
+        time() {
+            const time = new Date();
+            return time.getHours()+ ':' + time.getMinutes() + ':' + time.getSeconds();
+        }
+    }
+
+    buttonCreateOrder.addEventListener('click', (e) => {
+        const order = new Order();
+
+        console.log(order.client.dateMin);
+    });
 });
