@@ -3,7 +3,7 @@
 window.addEventListener('DOMContentLoaded', () => {
 
     // Добавляем новый адрес доставки
-    const newAddresTpl = `                    <div class="address">
+    const newAddresTpl = `<div class="address">
 
     <div class="field has-addons position-r5-t0">
         <p class="control mr-3">
@@ -28,7 +28,7 @@ window.addEventListener('DOMContentLoaded', () => {
     <div class="field px-15px border-box">
         <label class="label">Адрес</label>
         <div class="control width-470px">
-            <input class="input" type="text" name="order-address-date" placeholder="">
+            <input class="input" type="text" name="order-address" placeholder="">
         </div>
     </div>
 
@@ -40,7 +40,7 @@ window.addEventListener('DOMContentLoaded', () => {
             <div class="field basis-panel">
                 <label class="label">Базис</label>
                 <div class="control is-flex is-justify-content-space-between">
-                    <input class="input" type="text" name="order-basis" placeholder="">
+                    <input class="input" type="text" name="order-address-basis" placeholder="">
                     <div class="field is-flex">
                         <p class="control ml-3">
                             <!-- Кнопка удалить адрес -->
@@ -69,7 +69,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     <div class="field">
                         <label class="label">Продукт</label>
                         <div class="control">
-                            <input class="input" type="text" name="order-basis-product" placeholder="">
+                            <input class="input" type="text" name="order-address-basis-product" placeholder="">
                         </div>
                     </div>
 
@@ -80,7 +80,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     <label class="label">Номенклатура</label>
                     <div class="field">
                         <p class="control is-flex is-justify-content-space-between is-align-items-center">
-                            <input class="input" type="text" name="" placeholder="">
+                            <input class="input" type="text" name="order-address-basis-nomenclature" placeholder="">
                             <a class="button button-ico button-ico-color-red">
                                 <span class="icon icon-width">
                                     <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
@@ -94,15 +94,15 @@ window.addEventListener('DOMContentLoaded', () => {
                     <!-- Поле объем -->
                     <label class="label">Объем</label>
                     <label class="checkbox is-flex mb-3">
-                        <input class="mr-2 js-volume-checkbox" type="checkbox">
+                        <input class="mr-2 js-volume-checkbox" name="order-address-basis-volume-range" type="checkbox">
                         Диапазон
                     </label>
                     <div class="field has-addons is-align-items-end">
                         <p class="control width-100 js-volume-min">
-                            <input class="input js-order-basis-volume-min" type="text" name="order-basis-volume-min" placeholder="-">
+                            <input class="input js-order-basis-volume-min" type="text" name="order-address-basis-volume-min" placeholder="-">
                         </p>
                         <p class="control width-100 js-volume-max is-hidden">
-                            <input class="input" type="text" name="order-basis-volume-max" placeholder="Максимум">
+                            <input class="input" type="text" name="order-address-basis-volume-max" placeholder="Максимум">
                         </p>
                         <p class="control">
                             <a class="button is-static">
@@ -118,21 +118,21 @@ window.addEventListener('DOMContentLoaded', () => {
                     <label class="label">Доставка</label>
                     <div class="control mb-2">
                         <label class="radio">
-                          <input type="radio" name="foobar">
+                          <input type="radio" name="order-address-basis-nds">
                           С НДС
                         </label>
                         <label class="radio">
-                          <input type="radio" name="foobar" checked>
+                          <input type="radio" name="order-address-basis-nds" checked>
                           Без НДС
                         </label>
                     </div>
                     <div class="field has-addons">
                         <p class="control width-100">
-                            <input class="input" type="text" name="#" placeholder="">
+                            <input class="input" type="text" name="order-address-basis-value" placeholder="">
                         </p>
                         <p class="control">
                             <span class="select">
-                                <select>
+                                <select name="order-address-basis-unit">
                                     <option>руб/л</option>
                                     <option>руб/т</option>
                                     <option>руб</option>
@@ -149,7 +149,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     <div class="field">
                         <p class="control">
                             <span class="select width-100">
-                                <select class="width-100">
+                                <select class="width-100" name="order-address-basis-document">
                                     <option>Документы</option>
                                     <option>Документы + счет</option>
                                     <option>Счет</option>
@@ -167,7 +167,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     <div class="field">
                         <p class="control">
                             <span class="select width-100">
-                                <select class="width-100 js-order-basis-urgency">
+                                <select class="width-100 js-order-basis-urgency" name="order-address-basis-urgency">
                                     <option>-</option>
                                     <option>Крайне срочно</option>
                                     <option>Срочно в течение</option>
@@ -186,7 +186,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     <div class="field">
                         <p class="control">
                             <span class="select width-100">
-                                <select class="width-100">
+                                <select class="width-100" name="order-address-basis-term">
                                     <option>30 минут</option>
                                     <option>Час</option>
                                     <option>2 часа</option>
@@ -205,12 +205,12 @@ window.addEventListener('DOMContentLoaded', () => {
                     <div class="is-flex is-justify-content-space-between">
                         <div class="field has-addons width-100 pr-4px">
                             <p class="control width-100">
-                                <input class="input" type="date" name="order-basis-datetime" value="2023-07-22" placeholder="">
+                                <input class="input" type="date" name="order-address-basis-date" value="2023-07-22" placeholder="">
                             </p>
                         </div>
                         <div class="field width-100 pl-4px">
                             <p class="control width-100">
-                                <input class="input" type="time" name="" value="" placeholder="__:__">
+                                <input class="input" type="time" name="order-address-basis-time" value="" placeholder="__:__">
                             </p>
                         </div>
                     </div>
@@ -223,7 +223,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     <div class="field">
                         <label class="label mt-2">Комментарий</label>
                         <div class="control width-100 is-widescreen">
-                            <textarea class="textarea" placeholder=""></textarea>
+                            <textarea class="textarea" name="order-address-basis-comment" placeholder=""></textarea>
                         </div>
                     </div>
                 </div>
@@ -247,7 +247,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     <div class="field">
                         <label class="label">Юридическое лицо</label>
                         <div class="control is-flex">
-                            <input class="input" type="text" name="order-legal-entity" placeholder="">
+                            <input class="input" type="text" name="order-address-basis-legal-entity" placeholder="">
                         </div>
                     </div>
 
@@ -285,7 +285,7 @@ window.addEventListener('DOMContentLoaded', () => {
                                     <label class="label">Объем</label>
                                     <div class="field has-addons">
                                         <p class="control width-100">
-                                            <input class="input" type="text" name="order-wt" placeholder="">
+                                            <input class="input" type="text" name="order-address-basis-legal-entity-dael-volume" placeholder="">
                                         </p>
                                     </div>
                                 </div>
@@ -294,7 +294,7 @@ window.addEventListener('DOMContentLoaded', () => {
                                     <label class="label">Вес</label>
                                     <div class="field has-addons">
                                         <p class="control width-100">
-                                            <input class="input" type="text" name="order-volume" placeholder="">
+                                            <input class="input" type="text" name="order-address-basis-legal-entity-dael-wt" placeholder="">
                                         </p>
                                     </div>
                                 </div>
@@ -304,11 +304,11 @@ window.addEventListener('DOMContentLoaded', () => {
                                     <label class="label">Цена</label>
                                     <div class="field has-addons">
                                         <p class="control width-100">
-                                            <input class="input" type="text" name="order-prisce" placeholder="">
+                                            <input class="input" type="text" name="order-address-basis-legal-entity-dael-price" placeholder="">
                                         </p>
                                         <p class="control">
                                             <span class="select">
-                                                <select>
+                                                <select name="order-address-basis-legal-entity-dael-unit">
                                                     <option>руб/л</option>
                                                     <option>руб/т</option>
                                                 </select>
@@ -323,7 +323,7 @@ window.addEventListener('DOMContentLoaded', () => {
                                     <label class="label">Тип оплаты</label>
                                     <p class="control">
                                         <span class="select width-100">
-                                            <select class="width-100 js-order-dael-payment-type">
+                                            <select class="width-100 js-order-dael-payment-type" name="order-address-basis-legal-entity-dael-payment-type">
                                                 <option>-</option>
                                                 <option>Предоплата на дату</option>
                                                 <option>Предоплата до отгрузки</option>
@@ -342,7 +342,7 @@ window.addEventListener('DOMContentLoaded', () => {
                                     <label class="label">Дата</label>
                                     <div class="field has-addons">
                                         <p class="control width-100">
-                                            <input class="input" type="date" name="order-dael-date" value="2023-07-22" placeholder="">
+                                            <input class="input" type="date" name="order-address-basis-legal-entity-dael-date" value="2023-07-22" placeholder="">
                                         </p>
                                     </div>
 
@@ -353,7 +353,7 @@ window.addEventListener('DOMContentLoaded', () => {
                                     <label class="label">Количество дней</label>
                                     <div class="field has-addons">
                                         <p class="control is-flex is-justify-content-space-between">
-                                            <input class="input" type="text" name="" value="" placeholder="">
+                                            <input class="input" type="text" name="order-address-basis-legal-entity-dael-number-of-days" value="" placeholder="">
                                         </p>
                                     </div>
 
@@ -379,7 +379,7 @@ window.addEventListener('DOMContentLoaded', () => {
     <div class="field basis-panel">
         <label class="label">Базис</label>
         <div class="control is-flex is-justify-content-space-between">
-            <input class="input" type="text" name="order-basis" placeholder="">
+            <input class="input" type="text" name="order-address-basis" placeholder="">
             <div class="field is-flex">
                 <p class="control ml-3">
                     <!-- Кнопка удалить адрес -->
@@ -408,7 +408,7 @@ window.addEventListener('DOMContentLoaded', () => {
             <div class="field">
                 <label class="label">Продукт</label>
                 <div class="control">
-                    <input class="input" type="text" name="order-basis-product" placeholder="">
+                    <input class="input" type="text" name="order-address-basis-product" placeholder="">
                 </div>
             </div>
 
@@ -419,7 +419,7 @@ window.addEventListener('DOMContentLoaded', () => {
             <label class="label">Номенклатура</label>
             <div class="field">
                 <p class="control is-flex is-justify-content-space-between is-align-items-center">
-                    <input class="input" type="text" name="" placeholder="">
+                    <input class="input" type="text" name="order-address-basis-nomenclature" placeholder="">
                     <a class="button button-ico button-ico-color-red">
                         <span class="icon icon-width">
                             <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
@@ -433,15 +433,15 @@ window.addEventListener('DOMContentLoaded', () => {
             <!-- Поле объем -->
             <label class="label">Объем</label>
             <label class="checkbox is-flex mb-3">
-                <input class="mr-2 js-volume-checkbox" type="checkbox">
+                <input class="mr-2 js-volume-checkbox" name="order-address-basis-volume-range" type="checkbox">
                 Диапазон
             </label>
             <div class="field has-addons is-align-items-end">
                 <p class="control width-100 js-volume-min">
-                    <input class="input js-order-basis-volume-min" type="text" name="order-basis-volume-min" placeholder="-">
+                    <input class="input js-order-basis-volume-min" type="text" name="order-address-basis-volume-min" placeholder="-">
                 </p>
                 <p class="control width-100 js-volume-max is-hidden">
-                    <input class="input" type="text" name="order-basis-volume-max" placeholder="Максимум">
+                    <input class="input" type="text" name="order-address-basis-volume-max" placeholder="Максимум">
                 </p>
                 <p class="control">
                     <a class="button is-static">
@@ -457,21 +457,21 @@ window.addEventListener('DOMContentLoaded', () => {
             <label class="label">Доставка</label>
             <div class="control mb-2">
                 <label class="radio">
-                  <input type="radio" name="foobar">
+                  <input type="radio" name="order-address-basis-nds">
                   С НДС
                 </label>
                 <label class="radio">
-                  <input type="radio" name="foobar" checked>
+                  <input type="radio" name="order-address-basis-nds" checked>
                   Без НДС
                 </label>
             </div>
             <div class="field has-addons">
                 <p class="control width-100">
-                    <input class="input" type="text" name="#" placeholder="">
+                    <input class="input" type="text" name="order-address-basis-value" placeholder="">
                 </p>
                 <p class="control">
                     <span class="select">
-                        <select>
+                        <select name="order-address-basis-unit">
                             <option>руб/л</option>
                             <option>руб/т</option>
                             <option>руб</option>
@@ -488,7 +488,7 @@ window.addEventListener('DOMContentLoaded', () => {
             <div class="field">
                 <p class="control">
                     <span class="select width-100">
-                        <select class="width-100">
+                        <select class="width-100" name="order-address-basis-document">
                             <option>Документы</option>
                             <option>Документы + счет</option>
                             <option>Счет</option>
@@ -506,7 +506,7 @@ window.addEventListener('DOMContentLoaded', () => {
             <div class="field">
                 <p class="control">
                     <span class="select width-100">
-                        <select class="width-100 js-order-basis-urgency">
+                        <select class="width-100 js-order-basis-urgency" name="order-address-basis-urgency">
                             <option>-</option>
                             <option>Крайне срочно</option>
                             <option>Срочно в течение</option>
@@ -525,7 +525,7 @@ window.addEventListener('DOMContentLoaded', () => {
             <div class="field">
                 <p class="control">
                     <span class="select width-100">
-                        <select class="width-100">
+                        <select class="width-100" name="order-address-basis-term">
                             <option>30 минут</option>
                             <option>Час</option>
                             <option>2 часа</option>
@@ -544,12 +544,12 @@ window.addEventListener('DOMContentLoaded', () => {
             <div class="is-flex is-justify-content-space-between">
                 <div class="field has-addons width-100 pr-4px">
                     <p class="control width-100">
-                        <input class="input" type="date" name="order-basis-datetime" value="2023-07-22" placeholder="">
+                        <input class="input" type="date" name="order-address-basis-date" value="2023-07-22" placeholder="">
                     </p>
                 </div>
                 <div class="field width-100 pl-4px">
                     <p class="control width-100">
-                        <input class="input" type="time" name="" value="" placeholder="__:__">
+                        <input class="input" type="time" name="order-address-basis-time" value="" placeholder="__:__">
                     </p>
                 </div>
             </div>
@@ -562,7 +562,7 @@ window.addEventListener('DOMContentLoaded', () => {
             <div class="field">
                 <label class="label mt-2">Комментарий</label>
                 <div class="control width-100 is-widescreen">
-                    <textarea class="textarea" placeholder=""></textarea>
+                    <textarea class="textarea" name="order-address-basis-comment" placeholder=""></textarea>
                 </div>
             </div>
         </div>
@@ -586,7 +586,7 @@ window.addEventListener('DOMContentLoaded', () => {
             <div class="field">
                 <label class="label">Юридическое лицо</label>
                 <div class="control is-flex">
-                    <input class="input" type="text" name="order-legal-entity" placeholder="">
+                    <input class="input" type="text" name="order-address-basis-legal-entity" placeholder="">
                 </div>
             </div>
 
@@ -624,7 +624,7 @@ window.addEventListener('DOMContentLoaded', () => {
                             <label class="label">Объем</label>
                             <div class="field has-addons">
                                 <p class="control width-100">
-                                    <input class="input" type="text" name="order-wt" placeholder="">
+                                    <input class="input" type="text" name="order-address-basis-legal-entity-dael-volume" placeholder="">
                                 </p>
                             </div>
                         </div>
@@ -633,7 +633,7 @@ window.addEventListener('DOMContentLoaded', () => {
                             <label class="label">Вес</label>
                             <div class="field has-addons">
                                 <p class="control width-100">
-                                    <input class="input" type="text" name="order-volume" placeholder="">
+                                    <input class="input" type="text" name="order-address-basis-legal-entity-dael-wt" placeholder="">
                                 </p>
                             </div>
                         </div>
@@ -643,11 +643,11 @@ window.addEventListener('DOMContentLoaded', () => {
                             <label class="label">Цена</label>
                             <div class="field has-addons">
                                 <p class="control width-100">
-                                    <input class="input" type="text" name="order-prisce" placeholder="">
+                                    <input class="input" type="text" name="order-address-basis-legal-entity-dael-price" placeholder="">
                                 </p>
                                 <p class="control">
                                     <span class="select">
-                                        <select>
+                                        <select name="order-address-basis-legal-entity-dael-unit">
                                             <option>руб/л</option>
                                             <option>руб/т</option>
                                         </select>
@@ -662,7 +662,7 @@ window.addEventListener('DOMContentLoaded', () => {
                             <label class="label">Тип оплаты</label>
                             <p class="control">
                                 <span class="select width-100">
-                                    <select class="width-100 js-order-dael-payment-type">
+                                    <select class="width-100 js-order-dael-payment-type" name="order-address-basis-legal-entity-dael-payment-type">
                                         <option>-</option>
                                         <option>Предоплата на дату</option>
                                         <option>Предоплата до отгрузки</option>
@@ -681,7 +681,7 @@ window.addEventListener('DOMContentLoaded', () => {
                             <label class="label">Дата</label>
                             <div class="field has-addons">
                                 <p class="control width-100">
-                                    <input class="input" type="date" name="order-dael-date" value="2023-07-22" placeholder="">
+                                    <input class="input" type="date" name="order-address-basis-legal-entity-dael-date" value="2023-07-22" placeholder="">
                                 </p>
                             </div>
 
@@ -692,7 +692,7 @@ window.addEventListener('DOMContentLoaded', () => {
                             <label class="label">Количество дней</label>
                             <div class="field has-addons">
                                 <p class="control is-flex is-justify-content-space-between">
-                                    <input class="input" type="text" name="" value="" placeholder="">
+                                    <input class="input" type="text" name="order-address-basis-legal-entity-dael-number-of-days" value="" placeholder="">
                                 </p>
                             </div>
 
@@ -716,7 +716,7 @@ window.addEventListener('DOMContentLoaded', () => {
     <div class="field">
         <label class="label">Юридическое лицо</label>
         <div class="control is-flex">
-            <input class="input" type="text" name="order-legal-entity" placeholder="">
+            <input class="input" type="text" name="order-address-basis-legal-entity" placeholder="">
         </div>
     </div>
 
@@ -754,7 +754,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     <label class="label">Объем</label>
                     <div class="field has-addons">
                         <p class="control width-100">
-                            <input class="input" type="text" name="order-wt" placeholder="">
+                            <input class="input" type="text" name="order-address-basis-legal-entity-dael-volume" placeholder="">
                         </p>
                     </div>
                 </div>
@@ -763,7 +763,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     <label class="label">Вес</label>
                     <div class="field has-addons">
                         <p class="control width-100">
-                            <input class="input" type="text" name="order-volume" placeholder="">
+                            <input class="input" type="text" name="order-address-basis-legal-entity-dael-wt" placeholder="">
                         </p>
                     </div>
                 </div>
@@ -773,11 +773,11 @@ window.addEventListener('DOMContentLoaded', () => {
                     <label class="label">Цена</label>
                     <div class="field has-addons">
                         <p class="control width-100">
-                            <input class="input" type="text" name="order-prisce" placeholder="">
+                            <input class="input" type="text" name="order-address-basis-legal-entity-dael-price" placeholder="">
                         </p>
                         <p class="control">
                             <span class="select">
-                                <select>
+                                <select name="order-address-basis-legal-entity-dael-unit">
                                     <option>руб/л</option>
                                     <option>руб/т</option>
                                 </select>
@@ -792,7 +792,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     <label class="label">Тип оплаты</label>
                     <p class="control">
                         <span class="select width-100">
-                            <select class="width-100 js-order-dael-payment-type">
+                            <select class="width-100 js-order-dael-payment-type" name="order-address-basis-legal-entity-dael-payment-type">
                                 <option>-</option>
                                 <option>Предоплата на дату</option>
                                 <option>Предоплата до отгрузки</option>
@@ -811,7 +811,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     <label class="label">Дата</label>
                     <div class="field has-addons">
                         <p class="control width-100">
-                            <input class="input" type="date" name="order-dael-date" value="2023-07-22" placeholder="">
+                            <input class="input" type="date" name="order-address-basis-legal-entity-dael-date" value="2023-07-22" placeholder="">
                         </p>
                     </div>
 
@@ -822,7 +822,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     <label class="label">Количество дней</label>
                     <div class="field has-addons">
                         <p class="control is-flex is-justify-content-space-between">
-                            <input class="input" type="text" name="" value="" placeholder="">
+                            <input class="input" type="text" name="order-address-basis-legal-entity-dael-number-of-days" value="" placeholder="">
                         </p>
                     </div>
 
@@ -850,7 +850,7 @@ window.addEventListener('DOMContentLoaded', () => {
             <label class="label">Объем</label>
             <div class="field has-addons">
                 <p class="control width-100">
-                    <input class="input" type="text" name="order-wt" placeholder="">
+                    <input class="input" type="text" name="order-address-basis-legal-entity-dael-volume" placeholder="">
                 </p>
             </div>
         </div>
@@ -859,7 +859,7 @@ window.addEventListener('DOMContentLoaded', () => {
             <label class="label">Вес</label>
             <div class="field has-addons">
                 <p class="control width-100">
-                    <input class="input" type="text" name="order-volume" placeholder="">
+                    <input class="input" type="text" name="order-address-basis-legal-entity-dael-wt" placeholder="">
                 </p>
             </div>
         </div>
@@ -869,11 +869,11 @@ window.addEventListener('DOMContentLoaded', () => {
             <label class="label">Цена</label>
             <div class="field has-addons">
                 <p class="control width-100">
-                    <input class="input" type="text" name="order-prisce" placeholder="">
+                    <input class="input" type="text" name="order-address-basis-legal-entity-dael-price" placeholder="">
                 </p>
                 <p class="control">
                     <span class="select">
-                        <select>
+                        <select name="order-address-basis-legal-entity-dael-unit">
                             <option>руб/л</option>
                             <option>руб/т</option>
                         </select>
@@ -888,7 +888,7 @@ window.addEventListener('DOMContentLoaded', () => {
             <label class="label">Тип оплаты</label>
             <p class="control">
                 <span class="select width-100">
-                    <select class="width-100 js-order-dael-payment-type">
+                    <select class="width-100 js-order-dael-payment-type" name="order-address-basis-legal-entity-dael-payment-type">
                         <option>-</option>
                         <option>Предоплата на дату</option>
                         <option>Предоплата до отгрузки</option>
@@ -907,7 +907,7 @@ window.addEventListener('DOMContentLoaded', () => {
             <label class="label">Дата</label>
             <div class="field has-addons">
                 <p class="control width-100">
-                    <input class="input" type="date" name="order-dael-date" value="2023-07-22" placeholder="">
+                    <input class="input" type="date" name="order-address-basis-legal-entity-dael-date" value="2023-07-22" placeholder="">
                 </p>
             </div>
 
@@ -918,7 +918,7 @@ window.addEventListener('DOMContentLoaded', () => {
             <label class="label">Количество дней</label>
             <div class="field has-addons">
                 <p class="control is-flex is-justify-content-space-between">
-                    <input class="input" type="text" name="" value="" placeholder="">
+                    <input class="input" type="text" name="order-address-basis-legal-entity-dael-number-of-days" value="" placeholder="">
                 </p>
             </div>
 
@@ -1157,7 +1157,7 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     // Initialize all input of date type.
-    const calendars = bulmaCalendar.attach('[name="order-date"]', options);
+    const calendars = bulmaCalendar.attach('[name="order-client-date"]', options);
 
     // Loop on each calendar initialized
     // calendars.forEach(calendar => {
@@ -1382,22 +1382,13 @@ window.addEventListener('DOMContentLoaded', () => {
     eventDaelDel();
 
     // Создать заявку
-    const buttonCreateOrder = document.querySelector('.js-create-order');
-
     class Order {
         constructor() {
-            this.data = this.date();
+            this.date = this.date();
             this.time = this.time();
             this.number = 'Ноява заявка';
             this.autor = 'Иванов Иван Иванович';
-            this.client = {
-                dateMin: document.querySelector('input[name="order-date"]').value,
-                dateMax: "",
-                client: "",
-                typeClient: "",
-                typeShipment: "",
-                address: [{}]
-            };
+            this.client = {};
         }
 
         // Получаем текущую дату
@@ -1413,9 +1404,123 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    buttonCreateOrder.addEventListener('click', (e) => {
-        const order = new Order();
+    class Client {
+        constructor(order) {
+            this.dateMin = order.querySelector('input[name=order-client-date]').value.split(' ')[0];
+            this.dateMax = order.querySelector('input[name=order-client-date]').value.split(' ')[2];
+            this.client = order.querySelector('input[name=order-client-name]').value;
+            this.typeClient = order.querySelector('input[name=order-client-type]').value;
+            this.typeShipment = order.querySelector('select[name=order-client-type-shipment]').value;
+            this.address = [];
+        }
+    }
 
-        console.log(order.client.dateMin);
+    class Address {
+        constructor(address) {
+            this.address = order.querySelector('input[name=order-address]').value;
+            this.basis = [];
+        }
+    }
+
+    class Basis {
+        constructor(basis) {
+            this.basis = basis.querySelector('input[name=order-address-basis]').value;
+            this.product = basis.querySelector('input[name=order-address-basis-product]').value;
+            this.nomenclature = basis.querySelector('input[name=order-address-basis-nomenclature]').value;
+            this.volume = {
+                range: basis.querySelector('input[name=order-address-basis-volume-range]').checked,
+                min: basis.querySelector('input[name=order-address-basis-volume-min]').value,
+                max: basis.querySelector('input[name=order-address-basis-volume-max]').value,
+            };
+            this.nds = {
+                nds: basis.querySelector('input[name=order-address-basis-nds]').checked,
+                value: basis.querySelector('input[name=order-address-basis-value]').value,
+                unit: basis.querySelector('select[name=order-address-basis-unit]').value,
+            };
+            this.document = basis.querySelector('select[name=order-address-basis-document]').value;
+            this.urgency = basis.querySelector('select[name=order-address-basis-urgency]').value;
+            this.term = basis.querySelector('select[name=order-address-basis-term]').value;
+            this.date = basis.querySelector('input[name=order-address-basis-date]').value;
+            this.time = basis.querySelector('input[name=order-address-basis-time]').value;
+            this.comment = basis.querySelector('textarea[name=order-address-basis-comment]').value;
+            this.legalEntity = [];
+        }
+    }
+
+    class LegalEntity{
+        constructor(le) {
+            this.legalEntity = le.querySelector('input[name=order-address-basis-legal-entity]').value;
+            this.deal = [];
+        }
+    }
+
+    class Dael{
+        constructor(dael) {
+            this.volume = dael.querySelector('input[name=order-address-basis-legal-entity-dael-volume]').value;
+            this.wt = dael.querySelector('input[name=order-address-basis-legal-entity-dael-wt]').value;
+            this.price = {
+                value: dael.querySelector('input[name=order-address-basis-legal-entity-dael-price]').value,
+                unit: dael.querySelector('select[name=order-address-basis-legal-entity-dael-unit]').value,
+            };
+            this.paymentType = dael.querySelector('select[name=order-address-basis-legal-entity-dael-payment-type]').value;
+            this.date = dael.querySelector('input[name=order-address-basis-legal-entity-dael-date]').value;
+            this.numberOfDays = dael.querySelector('input[name=order-address-basis-legal-entity-dael-number-of-days]').value;
+        }
+    }
+
+    const buttonCreateOrder = document.querySelector('.js-create-order');
+
+    buttonCreateOrder.addEventListener('click', (e) => {
+        // Сбор данных о заявке и клиенте
+        const orderContainer = document.querySelector('.order'),
+              order = new Order(orderContainer),
+              clientContainer = orderContainer.querySelector('.client'),
+              client = new Client(clientContainer);
+
+        order.client = client;
+
+        // Сбор данных о адресах
+        const addressContainer = clientContainer.querySelectorAll('.address');
+        addressContainer.forEach(e => {
+            const address = new Address(e);
+            order.client.address.push(address);
+            // Сбор данных о базисах
+            const basisContainer = e.querySelectorAll('.basis');
+            basisContainer.forEach(e => {
+                const basis = new Basis(e),
+                      lastChildBasis = order.client.address.length - 1;
+                    order.client.address[lastChildBasis].basis.push(basis);
+                    // Сбор данных о юредических лицах
+                    const leContainer = e.querySelectorAll('.legal-entity');
+                        leContainer.forEach(e => {
+                            const le = new LegalEntity(e),
+                                lastChildLE = order.client.address[lastChildBasis].basis.length - 1;
+                            order.client.address[lastChildBasis].basis[lastChildLE].legalEntity.push(le);
+                        // Сбор данных о сделках
+                        const daelContainer = e.querySelectorAll('.dael');
+                            daelContainer.forEach(e => {
+                                const dael = new Dael(e),
+                                    lastChildDael = order.client.address[lastChildBasis].basis[lastChildLE].legalEntity.length - 1;
+                                order.client.address[lastChildBasis].basis[lastChildLE].legalEntity[lastChildDael].deal.push(dael);
+                            });
+
+                });
+            });
+        });
+
+        console.log(JSON.stringify(order));
+        console.log(window.location.href + 'order');
+
+        const hostName = window.location.href + 'order'
+
+        // fetch('http://localhost:3003/order', {
+        fetch(hostName, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(order)
+        }).then(response => response.text())
+          .then(commits => console.log(commits));
     });
 });

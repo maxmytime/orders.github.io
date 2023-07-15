@@ -64,7 +64,7 @@
                 <a class="button is-link is-outlined is-uppercase">
                     <span>Отмена</span>
                 </a>
-                <a class="button is-link is-uppercase js-create-order">
+                <a class="button has-background-link-dark has-text-white is-uppercase  js-create-order">
                     <span>Создать</span>
                 </a>
             </div>
@@ -82,7 +82,7 @@
                         <div class="field mr-2">
                             <label class="label">Дата</label>
                             <div class="control">
-                                <input class="input js-type-date-is-range" type="date" name="order-date" placeholder="">
+                                <input class="input js-type-date-is-range" type="date" name="order-client-date" placeholder="">
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                         <div class="field mr-2">
                             <label class="label">Клиент</label>
                             <div class="control">
-                                <input class="input" type="input" name="order-client" placeholder="">
+                                <input class="input" type="input" name="order-client-name" placeholder="">
                             </div>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                             <label class="label">Тип отгрузки</label>
                             <div class="control">
                                 <div class="select width-100">
-                                    <select class="width-100">
+                                    <select class="width-100" name="order-client-type-shipment">
                                         <option>Перемещение</option>
                                         <option>Самовывоз</option>
                                         <option>Доставка</option>
@@ -155,7 +155,7 @@
                         <div class="field px-15px border-box">
                             <label class="label">Адрес</label>
                             <div class="control width-470px">
-                                <input class="input" type="text" name="order-address-date" placeholder="">
+                                <input class="input" type="text" name="order-address" placeholder="">
                             </div>
                         </div>
 
@@ -167,7 +167,7 @@
                                 <div class="field basis-panel">
                                     <label class="label">Базис</label>
                                     <div class="control is-flex is-justify-content-space-between">
-                                        <input class="input" type="text" name="order-basis" placeholder="">
+                                        <input class="input" type="text" name="order-address-basis" placeholder="">
                                         <div class="field is-flex">
                                             <p class="control ml-3">
                                                 <!-- Кнопка удалить адрес -->
@@ -196,7 +196,7 @@
                                         <div class="field">
                                             <label class="label">Продукт</label>
                                             <div class="control">
-                                                <input class="input" type="text" name="order-basis-product" placeholder="">
+                                                <input class="input" type="text" name="order-address-basis-product" placeholder="">
                                             </div>
                                         </div>
 
@@ -207,7 +207,7 @@
                                         <label class="label">Номенклатура</label>
                                         <div class="field">
                                             <p class="control is-flex is-justify-content-space-between is-align-items-center">
-                                                <input class="input" type="text" name="" placeholder="">
+                                                <input class="input" type="text" name="order-address-basis-nomenclature" placeholder="">
                                                 <a class="button button-ico button-ico-color-red">
                                                     <span class="icon icon-width">
                                                         <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
@@ -221,15 +221,15 @@
                                         <!-- Поле объем -->
                                         <label class="label">Объем</label>
                                         <label class="checkbox is-flex mb-3">
-                                            <input class="mr-2 js-volume-checkbox" type="checkbox">
+                                            <input class="mr-2 js-volume-checkbox" name="order-address-basis-volume-range" type="checkbox">
                                             Диапазон
                                         </label>
                                         <div class="field has-addons is-align-items-end">
                                             <p class="control width-100 js-volume-min">
-                                                <input class="input js-order-basis-volume-min" type="text" name="order-basis-volume-min" placeholder="-">
+                                                <input class="input js-order-basis-volume-min" type="text" name="order-address-basis-volume-min" placeholder="-">
                                             </p>
                                             <p class="control width-100 js-volume-max is-hidden">
-                                                <input class="input" type="text" name="order-basis-volume-max" placeholder="Максимум">
+                                                <input class="input" type="text" name="order-address-basis-volume-max" placeholder="Максимум">
                                             </p>
                                             <p class="control">
                                                 <a class="button is-static">
@@ -245,21 +245,21 @@
                                         <label class="label">Доставка</label>
                                         <div class="control mb-2">
                                             <label class="radio">
-                                              <input type="radio" name="foobar">
+                                              <input type="radio" name="order-address-basis-nds">
                                               С НДС
                                             </label>
                                             <label class="radio">
-                                              <input type="radio" name="foobar" checked>
+                                              <input type="radio" name="order-address-basis-nds" checked>
                                               Без НДС
                                             </label>
                                         </div>
                                         <div class="field has-addons">
                                             <p class="control width-100">
-                                                <input class="input" type="text" name="#" placeholder="">
+                                                <input class="input" type="text" name="order-address-basis-value" placeholder="">
                                             </p>
                                             <p class="control">
                                                 <span class="select">
-                                                    <select>
+                                                    <select name="order-address-basis-unit">
                                                         <option>руб/л</option>
                                                         <option>руб/т</option>
                                                         <option>руб</option>
@@ -276,7 +276,7 @@
                                         <div class="field">
                                             <p class="control">
                                                 <span class="select width-100">
-                                                    <select class="width-100">
+                                                    <select class="width-100" name="order-address-basis-document">
                                                         <option>Документы</option>
                                                         <option>Документы + счет</option>
                                                         <option>Счет</option>
@@ -294,7 +294,7 @@
                                         <div class="field">
                                             <p class="control">
                                                 <span class="select width-100">
-                                                    <select class="width-100 js-order-basis-urgency">
+                                                    <select class="width-100 js-order-basis-urgency" name="order-address-basis-urgency">
                                                         <option>-</option>
                                                         <option>Крайне срочно</option>
                                                         <option>Срочно в течение</option>
@@ -313,7 +313,7 @@
                                         <div class="field">
                                             <p class="control">
                                                 <span class="select width-100">
-                                                    <select class="width-100">
+                                                    <select class="width-100" name="order-address-basis-term">
                                                         <option>30 минут</option>
                                                         <option>Час</option>
                                                         <option>2 часа</option>
@@ -332,12 +332,12 @@
                                         <div class="is-flex is-justify-content-space-between">
                                             <div class="field has-addons width-100 pr-4px">
                                                 <p class="control width-100">
-                                                    <input class="input" type="date" name="order-basis-datetime" value="2023-07-22" placeholder="">
+                                                    <input class="input" type="date" name="order-address-basis-date" value="2023-07-22" placeholder="">
                                                 </p>
                                             </div>
                                             <div class="field width-100 pl-4px">
                                                 <p class="control width-100">
-                                                    <input class="input" type="time" name="" value="" placeholder="__:__">
+                                                    <input class="input" type="time" name="order-address-basis-time" value="" placeholder="__:__">
                                                 </p>
                                             </div>
                                         </div>
@@ -350,7 +350,7 @@
                                         <div class="field">
                                             <label class="label mt-2">Комментарий</label>
                                             <div class="control width-100 is-widescreen">
-                                                <textarea class="textarea" placeholder=""></textarea>
+                                                <textarea class="textarea" name="order-address-basis-comment" placeholder=""></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -374,7 +374,7 @@
                                         <div class="field">
                                             <label class="label">Юридическое лицо</label>
                                             <div class="control is-flex">
-                                                <input class="input" type="text" name="order-legal-entity" placeholder="">
+                                                <input class="input" type="text" name="order-address-basis-legal-entity" placeholder="">
                                             </div>
                                         </div>
 
@@ -412,7 +412,7 @@
                                                         <label class="label">Объем</label>
                                                         <div class="field has-addons">
                                                             <p class="control width-100">
-                                                                <input class="input" type="text" name="order-wt" placeholder="">
+                                                                <input class="input" type="text" name="order-address-basis-legal-entity-dael-volume" placeholder="">
                                                             </p>
                                                         </div>
                                                     </div>
@@ -421,7 +421,7 @@
                                                         <label class="label">Вес</label>
                                                         <div class="field has-addons">
                                                             <p class="control width-100">
-                                                                <input class="input" type="text" name="order-volume" placeholder="">
+                                                                <input class="input" type="text" name="order-address-basis-legal-entity-dael-wt" placeholder="">
                                                             </p>
                                                         </div>
                                                     </div>
@@ -431,11 +431,11 @@
                                                         <label class="label">Цена</label>
                                                         <div class="field has-addons">
                                                             <p class="control width-100">
-                                                                <input class="input" type="text" name="order-prisce" placeholder="">
+                                                                <input class="input" type="text" name="order-address-basis-legal-entity-dael-price" placeholder="">
                                                             </p>
                                                             <p class="control">
                                                                 <span class="select">
-                                                                    <select>
+                                                                    <select name="order-address-basis-legal-entity-dael-unit">
                                                                         <option>руб/л</option>
                                                                         <option>руб/т</option>
                                                                     </select>
@@ -450,7 +450,7 @@
                                                         <label class="label">Тип оплаты</label>
                                                         <p class="control">
                                                             <span class="select width-100">
-                                                                <select class="width-100 js-order-dael-payment-type">
+                                                                <select class="width-100 js-order-dael-payment-type" name="order-address-basis-legal-entity-dael-payment-type">
                                                                     <option>-</option>
                                                                     <option>Предоплата на дату</option>
                                                                     <option>Предоплата до отгрузки</option>
@@ -469,7 +469,7 @@
                                                         <label class="label">Дата</label>
                                                         <div class="field has-addons">
                                                             <p class="control width-100">
-                                                                <input class="input" type="date" name="order-dael-date" value="2023-07-22" placeholder="">
+                                                                <input class="input" type="date" name="order-address-basis-legal-entity-dael-date" value="2023-07-22" placeholder="">
                                                             </p>
                                                         </div>
 
@@ -480,7 +480,7 @@
                                                         <label class="label">Количество дней</label>
                                                         <div class="field has-addons">
                                                             <p class="control is-flex is-justify-content-space-between">
-                                                                <input class="input" type="text" name="" value="" placeholder="">
+                                                                <input class="input" type="text" name="order-address-basis-legal-entity-dael-number-of-days" value="" placeholder="">
                                                             </p>
                                                         </div>
 
