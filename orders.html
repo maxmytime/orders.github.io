@@ -30,7 +30,7 @@
 
 <body class="has-background-white height-100vh p-1">
 
-    <div class="container is-fullhd">
+    <div class="is-full-fullhd">
         <!-- Верхняя панель -->
         <div class="top-bar is-flex is-align-items-center is-justify-content-space-between">
 
@@ -42,10 +42,10 @@
             </div>
 
             <div class="buttons">
-                <a class="button has-background-link-dark has-text-white is-uppercase  js-create-order">
+                <a class="button has-background-link-dark has-text-white is-uppercase orders-btn-next">
                     <i class="fa fa-chevron-left" aria-hidden="true"></i>
                 </a>
-                <a class="button has-background-link-dark has-text-white is-uppercase  js-create-order">
+                <a class="button has-background-link-dark has-text-white is-uppercase orders-btn-prev">
                     <i class="fa fa-chevron-right" aria-hidden="true"></i>
                 </a>
             </div>
@@ -53,91 +53,14 @@
         </div>
     </div>
 
-    <div class="orders">
-        <div class="orders-days">
+    <div class="kanban">
+        <div class="kanban-overdue-deliveries">
             <div class="orders-day">
                 <div class="orders-day-head">
-                    <span class="orders-day-date">Понидельник, 18.07.2023</span>
+                    <span class="orders-day-date">Неотгруженные заявки</span>
                 </div>
                 <div class="orders-day-body">
-                    <div class="orders-order">
-                        <div class="orders-order-item">
-                            <div class="orders-order-item-volume">
-                                <span class="orders-order-item-volume-min">6400</span>
-                                <span>-</span>
-                                <span class="orders-order-item-volume-max">8400</span>
-                                <span class="orders-order-item-volume-unit">л</span>
-                            </div>
-                            <div class="orders-order-item-body">
-                                <div>
-                                    <span class="orders-order-item-basis">Норд</span>
-                                    <span class="orders-order-item-addres">ул. Абаканская</span>
-                                    <span class="orders-order-item-date">17.03.2023</span>
-                                </div>
-                                <div>
-                                    <span class="orders-order-item-product">ВПК</span>
-                                    <span class="orders-order-item-nomenclature">Дизель</span>
-                                </div>
-                            </div>
-                            <div class="orders-order-item-status">
-                                <span class="orders-order-item-status-state">Статус</span>
-                                <br>
-                                <span class="orders-order-item-status-state">Статус</span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="orders-order">
-                        <div class="orders-order-item">
-                            <div class="orders-order-item-volume">
-                                <span class="orders-order-item-volume-min">6400</span>
-                                <span>-</span>
-                                <span class="orders-order-item-volume-max">8400</span>
-                                <span class="orders-order-item-volume-unit">л</span>
-                            </div>
-                            <div class="orders-order-item-body">
-                                <div>
-                                    <span class="orders-order-item-basis">Норд</span>
-                                    <span class="orders-order-item-addres">ул. Абаканская</span>
-                                    <span class="orders-order-item-date">17.03.2023</span>
-                                </div>
-                                <div>
-                                    <span class="orders-order-item-product">ВПК</span>
-                                    <span class="orders-order-item-nomenclature">Дизель</span>
-                                </div>
-                            </div>
-                            <div class="orders-order-item-status">
-                                <span class="orders-order-item-status-state">Статус</span>
-                                <br>
-                                <span class="orders-order-item-status-state">Статус</span>
-                            </div>
-                        </div>
-
-                        <div class="orders-order-item">
-                            <div class="orders-order-item-volume">
-                                <span class="orders-order-item-volume-min">6400</span>
-                                <span>-</span>
-                                <span class="orders-order-item-volume-max">8400</span>
-                                <span class="orders-order-item-volume-unit">л</span>
-                            </div>
-                            <div class="orders-order-item-body">
-                                <div>
-                                    <span class="orders-order-item-basis">Норд</span>
-                                    <span class="orders-order-item-addres">ул. Абаканская</span>
-                                    <span class="orders-order-item-date">17.03.2023</span>
-                                </div>
-                                <div>
-                                    <span class="orders-order-item-product">ВПК</span>
-                                    <span class="orders-order-item-nomenclature">Дизель</span>
-                                </div>
-                            </div>
-                            <div class="orders-order-item-status">
-                                <span class="orders-order-item-status-state">Статус</span>
-                                <br>
-                                <span class="orders-order-item-status-state">Статус</span>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
                 <div class="orders-day-footer">
@@ -147,110 +70,221 @@
                     </div>
                     <div class="orders-day-footer-container is-hidden">
 
-                        <div class="orders-order">
-                            <div class="orders-order-item">
-                                <div class="orders-order-item-volume">
-                                    <span class="orders-order-item-volume-min">6400</span>
-                                    <span>-</span>
-                                    <span class="orders-order-item-volume-max">8400</span>
-                                    <span class="orders-order-item-volume-unit">л</span>
-                                </div>
-                                <div class="orders-order-item-body">
-                                    <div>
-                                        <span class="orders-order-item-basis">Норд</span>
-                                        <span class="orders-order-item-addres">ул. Абаканская</span>
-                                        <span class="orders-order-item-date">17.03.2023</span>
-                                    </div>
-                                    <div>
-                                        <span class="orders-order-item-product">ВПК</span>
-                                        <span class="orders-order-item-nomenclature">Дизель</span>
-                                    </div>
-                                </div>
-                                <div class="orders-order-item-status">
-                                    <span class="orders-order-item-status-state">Статус</span>
-                                    <br>
-                                    <span class="orders-order-item-status-state">Статус</span>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
                 </div>
             </div>
-            <div class="orders-day">
-                <div class="orders-day-head">
-                    <span class="orders-day-date">Понидельник, 18.07.2023</span>
-                </div>
-                <div class="orders-day-body">
+        </div>
 
-                </div>
-                <div class="orders-day-footer">
-                    <div class="orders-day-footer-title">
-                        <i class="fa fa-chevron-down pr-2" aria-hidden="true"></i>
-                        <h5 class="title is-5">Архив</h5>
+        <div class="kanban-orders kanban-current-orders orders">
+
+            <div class="orders-days">
+                <div class="orders-day">
+                    <div class="orders-day-head">
+                        <span class="orders-day-date">Понидельник, 18.07.2023</span>
                     </div>
-                    <div class="orders-day-footer-container is-hidden">
+                    <div class="orders-day-body">
 
+                    </div>
+                    <div class="orders-day-footer">
+                        <div class="orders-day-footer-title">
+                            <i class="fa fa-chevron-down pr-2" aria-hidden="true"></i>
+                            <h5 class="title is-5">Архив</h5>
+                        </div>
+                        <div class="orders-day-footer-container is-hidden">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="orders-day">
+                    <div class="orders-day-head">
+                        <span class="orders-day-date">Понидельник, 18.07.2023</span>
+                    </div>
+                    <div class="orders-day-body">
                         <div class="orders-order">
                             <div class="orders-order-item">
                                 <div class="orders-order-item-volume">
-                                    <span class="orders-order-item-volume-min">6400</span>
+                                    <span class="orders-order-item-volume-min">26.7.2023</span>
                                     <span>-</span>
-                                    <span class="orders-order-item-volume-max">8400</span>
-                                    <span class="orders-order-item-volume-unit">л</span>
+                                    <span class="orders-order-item-volume-max">26.7.2023</span>
+                                    <!-- <span class="orders-order-item-volume-unit">л</span> -->
                                 </div>
                                 <div class="orders-order-item-body">
                                     <div>
-                                        <span class="orders-order-item-basis">Норд</span>
                                         <span class="orders-order-item-addres">ул. Абаканская</span>
-                                        <span class="orders-order-item-date">17.03.2023</span>
+                                    </div>
+                                    <div>
+                                        <span class="orders-order-item-basis">Норд</span>
+                                        <span class="orders-order-item-addres">ООО Рамашка</span>
                                     </div>
                                     <div>
                                         <span class="orders-order-item-product">ВПК</span>
                                         <span class="orders-order-item-nomenclature">Дизель</span>
+                                        <span>
+                                            <span class="orders-order-item-volume-min">6 400</span>
+                                            <span>-</span>
+                                            <span class="orders-order-item-volume-max">9 600</span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="orders-order-item-status">
-                                    <span class="orders-order-item-status-state">Статус</span>
+                                    <span class="orders-order-item-status-state"></span>
                                     <br>
-                                    <span class="orders-order-item-status-state">Статус</span>
-                                </div>
-                            </div>
-
-                            <div class="orders-order-item">
-                                <div class="orders-order-item-volume">
-                                    <span class="orders-order-item-volume-min">6400</span>
-                                    <span>-</span>
-                                    <span class="orders-order-item-volume-max">8400</span>
-                                    <span class="orders-order-item-volume-unit">л</span>
-                                </div>
-                                <div class="orders-order-item-body">
-                                    <div>
-                                        <span class="orders-order-item-basis">Норд</span>
-                                        <span class="orders-order-item-addres">ул. Абаканская</span>
-                                        <span class="orders-order-item-date">17.03.2023</span>
-                                    </div>
-                                    <div>
-                                        <span class="orders-order-item-product">ВПК</span>
-                                        <span class="orders-order-item-nomenclature">Дизель</span>
-                                    </div>
-                                </div>
-                                <div class="orders-order-item-status">
-                                    <span class="orders-order-item-status-state">Статус</span>
-                                    <br>
-                                    <span class="orders-order-item-status-state">Статус</span>
+                                    <span class="orders-order-item-status-state"></span>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- <div class="orders-order">
+                            <div class="orders-order-item">
+                                <div class="orders-order-item-volume">
+                                    <span class="orders-order-item-volume-min">6400</span>
+                                    <span>-</span>
+                                    <span class="orders-order-item-volume-max">8400</span>
+                                    <span class="orders-order-item-volume-unit">л</span>
+                                </div>
+                                <div class="orders-order-item-body">
+                                    <div>
+                                        <span class="orders-order-item-basis">Норд</span>
+                                        <span class="orders-order-item-addres">ул. Абаканская</span>
+                                        <span class="orders-order-item-date">17.03.2023</span>
+                                    </div>
+                                    <div>
+                                        <span class="orders-order-item-product">ВПК</span>
+                                        <span class="orders-order-item-nomenclature">Дизель</span>
+                                    </div>
+                                </div>
+                                <div class="orders-order-item-status">
+                                    <span class="orders-order-item-status-state">Статус</span>
+                                    <br>
+                                    <span class="orders-order-item-status-state">Статус</span>
+                                </div>
+                            </div>
+
+                            <div class="orders-order-item">
+                                <div class="orders-order-item-volume">
+                                    <span class="orders-order-item-volume-min">6400</span>
+                                    <span>-</span>
+                                    <span class="orders-order-item-volume-max">8400</span>
+                                    <span class="orders-order-item-volume-unit">л</span>
+                                </div>
+                                <div class="orders-order-item-body">
+                                    <div>
+                                        <span class="orders-order-item-basis">Норд</span>
+                                        <span class="orders-order-item-addres">ул. Абаканская</span>
+                                        <span class="orders-order-item-date">17.03.2023</span>
+                                    </div>
+                                    <div>
+                                        <span class="orders-order-item-product">ВПК</span>
+                                        <span class="orders-order-item-nomenclature">Дизель</span>
+                                    </div>
+                                </div>
+                                <div class="orders-order-item-status">
+                                    <span class="orders-order-item-status-state">Статус</span>
+                                    <br>
+                                    <span class="orders-order-item-status-state">Статус</span>
+                                </div>
+                            </div>
+                        </div> -->
+
+                    </div>
+                    <div class="orders-day-footer">
+                        <div class="orders-day-footer-title">
+                            <i class="fa fa-chevron-down pr-2" aria-hidden="true"></i>
+                            <h5 class="title is-5">Архив</h5>
+                        </div>
+                        <div class="orders-day-footer-container is-hidden">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="orders-day">
+                    <div class="orders-day-head">
+                        <span class="orders-day-date">Понидельник, 18.07.2023</span>
+                    </div>
+                    <div class="orders-day-body">
+
+
+
+                    </div>
+                    <div class="orders-day-footer">
+                        <div class="orders-day-footer-title">
+                            <i class="fa fa-chevron-down pr-2" aria-hidden="true"></i>
+                            <h5 class="title is-5">Архив</h5>
+                        </div>
+                        <div class="orders-day-footer-container is-hidden">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="orders-day">
+                    <div class="orders-day-head">
+                        <span class="orders-day-date">Понидельник, 18.07.2023</span>
+                    </div>
+                    <div class="orders-day-body">
+
+
+
+                    </div>
+                    <div class="orders-day-footer">
+                        <div class="orders-day-footer-title">
+                            <i class="fa fa-chevron-down pr-2" aria-hidden="true"></i>
+                            <h5 class="title is-5">Архив</h5>
+                        </div>
+                        <div class="orders-day-footer-container is-hidden">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="orders-day">
+                    <div class="orders-day-head">
+                        <span class="orders-day-date">Понидельник, 18.07.2023</span>
+                    </div>
+                    <div class="orders-day-body">
+
+
+
+                    </div>
+                    <div class="orders-day-footer">
+                        <div class="orders-day-footer-title">
+                            <i class="fa fa-chevron-down pr-2" aria-hidden="true"></i>
+                            <h5 class="title is-5">Архив</h5>
+                        </div>
+                        <div class="orders-day-footer-container is-hidden">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="orders-day">
+                    <div class="orders-day-head">
+                        <span class="orders-day-date">Понидельник, 18.07.2023</span>
+                    </div>
+                    <div class="orders-day-body">
+
+
+
+                    </div>
+                    <div class="orders-day-footer">
+                        <div class="orders-day-footer-title">
+                            <i class="fa fa-chevron-down pr-2" aria-hidden="true"></i>
+                            <h5 class="title is-5">Архив</h5>
+                        </div>
+                        <div class="orders-day-footer-container is-hidden">
+
+                        </div>
                     </div>
                 </div>
             </div>
+
+        </div>
+
+        <div class="kanban-future-deliveries">
             <div class="orders-day">
                 <div class="orders-day-head">
-                    <span class="orders-day-date">Понидельник, 18.07.2023</span>
+                    <span class="orders-day-date">Будущие поставки</span>
                 </div>
                 <div class="orders-day-body">
+
 
                 </div>
                 <div class="orders-day-footer">
@@ -260,132 +294,14 @@
                     </div>
                     <div class="orders-day-footer-container is-hidden">
 
-                        <div class="orders-order">
-                            <div class="orders-order-item">
-                                <div class="orders-order-item-volume">
-                                    <span class="orders-order-item-volume-min">6400</span>
-                                    <span>-</span>
-                                    <span class="orders-order-item-volume-max">8400</span>
-                                    <span class="orders-order-item-volume-unit">л</span>
-                                </div>
-                                <div class="orders-order-item-body">
-                                    <div>
-                                        <span class="orders-order-item-basis">Норд</span>
-                                        <span class="orders-order-item-addres">ул. Абаканская</span>
-                                        <span class="orders-order-item-date">17.03.2023</span>
-                                    </div>
-                                    <div>
-                                        <span class="orders-order-item-product">ВПК</span>
-                                        <span class="orders-order-item-nomenclature">Дизель</span>
-                                    </div>
-                                </div>
-                                <div class="orders-order-item-status">
-                                    <span class="orders-order-item-status-state">Статус</span>
-                                    <br>
-                                    <span class="orders-order-item-status-state">Статус</span>
-                                </div>
-                            </div>
-
-                            <div class="orders-order-item">
-                                <div class="orders-order-item-volume">
-                                    <span class="orders-order-item-volume-min">6400</span>
-                                    <span>-</span>
-                                    <span class="orders-order-item-volume-max">8400</span>
-                                    <span class="orders-order-item-volume-unit">л</span>
-                                </div>
-                                <div class="orders-order-item-body">
-                                    <div>
-                                        <span class="orders-order-item-basis">Норд</span>
-                                        <span class="orders-order-item-addres">ул. Абаканская</span>
-                                        <span class="orders-order-item-date">17.03.2023</span>
-                                    </div>
-                                    <div>
-                                        <span class="orders-order-item-product">ВПК</span>
-                                        <span class="orders-order-item-nomenclature">Дизель</span>
-                                    </div>
-                                </div>
-                                <div class="orders-order-item-status">
-                                    <span class="orders-order-item-status-state">Статус</span>
-                                    <br>
-                                    <span class="orders-order-item-status-state">Статус</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="orders-day">
-                <div class="orders-day-head">
-                    <span class="orders-day-date">Понидельник, 18.07.2023</span>
-                </div>
-                <div class="orders-day-body">
-
-                </div>
-                <div class="orders-day-footer">
-                    <div class="orders-day-footer-title">
-                        <i class="fa fa-chevron-down pr-2" aria-hidden="true"></i>
-                        <h5 class="title is-5">Архив</h5>
-                    </div>
-                    <div class="orders-day-footer-container is-hidden">
-
-                        <div class="orders-order">
-                            <div class="orders-order-item">
-                                <div class="orders-order-item-volume">
-                                    <span class="orders-order-item-volume-min">6400</span>
-                                    <span>-</span>
-                                    <span class="orders-order-item-volume-max">8400</span>
-                                    <span class="orders-order-item-volume-unit">л</span>
-                                </div>
-                                <div class="orders-order-item-body">
-                                    <div>
-                                        <span class="orders-order-item-basis">Норд</span>
-                                        <span class="orders-order-item-addres">ул. Абаканская</span>
-                                        <span class="orders-order-item-date">17.03.2023</span>
-                                    </div>
-                                    <div>
-                                        <span class="orders-order-item-product">ВПК</span>
-                                        <span class="orders-order-item-nomenclature">Дизель</span>
-                                    </div>
-                                </div>
-                                <div class="orders-order-item-status">
-                                    <span class="orders-order-item-status-state">Статус</span>
-                                    <br>
-                                    <span class="orders-order-item-status-state">Статус</span>
-                                </div>
-                            </div>
-
-                            <div class="orders-order-item">
-                                <div class="orders-order-item-volume">
-                                    <span class="orders-order-item-volume-min">6400</span>
-                                    <span>-</span>
-                                    <span class="orders-order-item-volume-max">8400</span>
-                                    <span class="orders-order-item-volume-unit">л</span>
-                                </div>
-                                <div class="orders-order-item-body">
-                                    <div>
-                                        <span class="orders-order-item-basis">Норд</span>
-                                        <span class="orders-order-item-addres">ул. Абаканская</span>
-                                        <span class="orders-order-item-date">17.03.2023</span>
-                                    </div>
-                                    <div>
-                                        <span class="orders-order-item-product">ВПК</span>
-                                        <span class="orders-order-item-nomenclature">Дизель</span>
-                                    </div>
-                                </div>
-                                <div class="orders-order-item-status">
-                                    <span class="orders-order-item-status-state">Статус</span>
-                                    <br>
-                                    <span class="orders-order-item-status-state">Статус</span>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
 
     <script src="js/orders.js"></script>
 </body>

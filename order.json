@@ -1,17 +1,92 @@
 {
+    "Status": "OK",
+    "Errors": "",
+    "Data": {
+        "OrdersList": [{
+                "date": "19.07.2023",
+                "time": "01:32:35",
+                "number": "000000001",
+                "author": "Шитиков Роман Дмитриевич",
+                "client": {
+                    "name_client": "Нефтесиб",
+                    "code_client": "КА-КА000354",
+                    "type_client": "Тип B"
+                },
+                "type_order": "Заявка",
+                "type_operation": "Перемещение",
+                "archieved": false,
+                "date_order": {
+                    "date_range": false,
+                    "date_start": "19.07.2023",
+                    "date_end": "19.07.2023"
+                },
+                "status_buh": "Ожидает",
+                "status_logistic": "1",
+                "array_addresses": [{
+                    "name_address": "ТестовыйАдрес",
+                    "array_basises": [{
+                        "name_basis": "ТестовыйБазис",
+                        "name_product": "ТестовыйПродукт",
+                        "volume": {
+                            "range_volume": false,
+                            "start_volume": 1000,
+                            "end_volume": 1000
+                        }
+                    }]
+                }]
+            },
+            {
+                "date": "19.07.2023",
+                "time": "01:32:59",
+                "number": "000000002",
+                "author": "Степанов Михаил Сергеевич",
+                "client": {
+                    "name_client": "ВЭЛЛА",
+                    "code_client": "КА-КА000428",
+                    "type_client": "Тип B"
+                },
+                "type_order": "Бронь",
+                "type_operation": "Доставка",
+                "archieved": false,
+                "date_order": {
+                    "date_range": true,
+                    "date_start": "20.07.2023",
+                    "date_end": "21.07.2023"
+                },
+                "status_buh": "Обработана",
+                "status_logistic": "2",
+                "array_addresses": [{
+                    "name_address": "ТестовыйАдрес",
+                    "array_basises": [{
+                        "name_basis": "ТестовыйБазис",
+                        "name_product": "ТестовыйПродукт",
+                        "volume": {
+                            "range_volume": false,
+                            "start_volume": 1000,
+                            "end_volume": 1000
+                        }
+                    }]
+                }]
+            }
+        ]
+    }
+}
+
+
+{
     "data": "10.04.2023",
     "time": "10:25:54",
     "number": "",
     "autor": "",
-    "client": {                                      // Клиент
+    "client": { // Клиент
         "data-min": "",
         "data-max": "",
         "client": "",
         "type-client": "",
         "type-shipment": "",
-        "address": [{                                // Адрес
+        "address": [{ // Адрес
             "address": "",
-            "basis": [{                              // Базис
+            "basis": [{ // Базис
                 "basis": "",
                 "product": "",
                 "nomenclature": "",
@@ -31,9 +106,9 @@
                 "date": "",
                 "time": "",
                 "comment": "",
-                "legal-entity": [{                    // Юридическое лицо
+                "legal-entity": [{ // Юридическое лицо
                     "legal-entity": "",
-                    "deal": [{                        // Сделка
+                    "deal": [{ // Сделка
                         "volume": "",
                         "wt": "",
                         "price": {
@@ -43,6 +118,303 @@
                         "payment-type": "",
                         "date": "10.04.2023",
                         "number-of-days": ""
+                    }]
+                }]
+            }]
+        }]
+    }
+}
+
+{
+    "date": "8:6:2023",
+    "time": "0:12:32",
+    "number": "Ноява заявка",
+    "autor": "Иванов Иван Иванович",
+    "client": {
+        "dateMin": "",
+        "client": "",
+        "typeClient": "",
+        "typeShipment": "Перемещение",
+        "address": [{
+            "address": "",
+            "basis": [{
+                "basis": "",
+                "product": "",
+                "nomenclature": "",
+                "volume": {
+                    "range": false,
+                    "min": "",
+                    "max": ""
+                },
+                "nds": {
+                    "nds": false,
+                    "value": "",
+                    "unit": "руб/л"
+                },
+                "document": "Документы",
+                "urgency": "-",
+                "term": "30 минут",
+                "date": "2023-07-22",
+                "time": "",
+                "comment": "",
+                "legalEntity": []
+            }]
+        }]
+    }
+}
+
+{
+    "date": "8:6:2023",
+    "time": "0:15:42",
+    "number": "Ноява заявка",
+    "autor": "Иванов Иван Иванович",
+    "client": {
+        "dateMin": "",
+        "client": "",
+        "typeClient": "",
+        "typeShipment": "Перемещение",
+        "address": [{
+            "address": "",
+            "basis": [{
+                "basis": "",
+                "product": "",
+                "nomenclature": "",
+                "volume": {
+                    "range": false,
+                    "min": "",
+                    "max": ""
+                },
+                "nds": {
+                    "nds": false,
+                    "value": "",
+                    "unit": "руб/л"
+                },
+                "document": "Документы",
+                "urgency": "-",
+                "term": "30 минут",
+                "date": "2023-07-22",
+                "time": "",
+                "comment": "",
+                "legalEntity": []
+            }, {
+                "basis": "",
+                "product": "",
+                "nomenclature": "",
+                "volume": {
+                    "range": false,
+                    "min": "",
+                    "max": ""
+                },
+                "nds": {
+                    "nds": false,
+                    "value": "",
+                    "unit": "руб/л"
+                },
+                "document": "Документы",
+                "urgency": "-",
+                "term": "30 минут",
+                "date": "2023-07-22",
+                "time": "",
+                "comment": "",
+                "legalEntity": []
+            }]
+        }, {
+            "address": "",
+            "basis": [{
+                "basis": "",
+                "product": "",
+                "nomenclature": "",
+                "volume": {
+                    "range": false,
+                    "min": "",
+                    "max": ""
+                },
+                "nds": {
+                    "nds": false,
+                    "value": "",
+                    "unit": "руб/л"
+                },
+                "document": "Документы",
+                "urgency": "-",
+                "term": "30 минут",
+                "date": "2023-07-22",
+                "time": "",
+                "comment": "",
+                "legalEntity": []
+            }, {
+                "basis": "",
+                "product": "",
+                "nomenclature": "",
+                "volume": {
+                    "range": false,
+                    "min": "",
+                    "max": ""
+                },
+                "nds": {
+                    "nds": false,
+                    "value": "",
+                    "unit": "руб/л"
+                },
+                "document": "Документы",
+                "urgency": "-",
+                "term": "30 минут",
+                "date": "2023-07-22",
+                "time": "",
+                "comment": "",
+                "legalEntity": []
+            }]
+        }]
+    }
+}
+
+{
+    "date": "8:6:2023",
+    "time": "14:21:2",
+    "number": "Ноява заявка",
+    "autor": "Иванов Иван Иванович",
+    "client": {
+        "dateMin": "",
+        "client": "",
+        "typeClient": "",
+        "typeShipment": "Перемещение",
+        "address": [{
+            "address": "",
+            "basis": [{
+                "basis": "",
+                "product": "",
+                "nomenclature": "",
+                "volume": {
+                    "range": false,
+                    "min": "",
+                    "max": ""
+                },
+                "nds": {
+                    "nds": false,
+                    "value": "",
+                    "unit": "руб/л"
+                },
+                "document": "Документы",
+                "urgency": "-",
+                "term": "30 минут",
+                "date": "2023-07-22",
+                "time": "",
+                "comment": "",
+                "legalEntity": [{
+                    "legalEntity": "",
+                    "deal": [{
+                        "volume": "",
+                        "wt": "",
+                        "price": {
+                            "value": "",
+                            "unit": "руб/л"
+                        },
+                        "paymentType": "-",
+                        "date": "2023-07-22",
+                        "numberOfDays": ""
+                    }, {
+                        "volume": "",
+                        "wt": "",
+                        "price": {
+                            "value": "",
+                            "unit": "руб/л"
+                        },
+                        "paymentType": "-",
+                        "date": "2023-07-22",
+                        "numberOfDays": ""
+                    }, {
+                        "volume": "",
+                        "wt": "",
+                        "price": {
+                            "value": "",
+                            "unit": "руб/л"
+                        },
+                        "paymentType": "-",
+                        "date": "2023-07-22",
+                        "numberOfDays": ""
+                    }]
+                }, {
+                    "legalEntity": "",
+                    "deal": [{
+                        "volume": "",
+                        "wt": "",
+                        "price": {
+                            "value": "",
+                            "unit": "руб/л"
+                        },
+                        "paymentType": "-",
+                        "date": "2023-07-22",
+                        "numberOfDays": ""
+                    }]
+                }]
+            }, {
+                "basis": "",
+                "product": "",
+                "nomenclature": "",
+                "volume": {
+                    "range": false,
+                    "min": "",
+                    "max": ""
+                },
+                "nds": {
+                    "nds": false,
+                    "value": "",
+                    "unit": "руб/л"
+                },
+                "document": "Документы",
+                "urgency": "-",
+                "term": "30 минут",
+                "date": "2023-07-22",
+                "time": "",
+                "comment": "",
+                "legalEntity": [{
+                    "legalEntity": "",
+                    "deal": [{
+                        "volume": "",
+                        "wt": "",
+                        "price": {
+                            "value": "",
+                            "unit": "руб/л"
+                        },
+                        "paymentType": "-",
+                        "date": "2023-07-22",
+                        "numberOfDays": ""
+                    }]
+                }]
+            }]
+        }, {
+            "address": "",
+            "basis": [{
+                "basis": "",
+                "product": "",
+                "nomenclature": "",
+                "volume": {
+                    "range": false,
+                    "min": "",
+                    "max": ""
+                },
+                "nds": {
+                    "nds": false,
+                    "value": "",
+                    "unit": "руб/л"
+                },
+                "document": "Документы",
+                "urgency": "-",
+                "term": "30 минут",
+                "date": "2023-07-22",
+                "time": "",
+                "comment": "",
+                "legalEntity": [{
+                    "legalEntity": "",
+                    "deal": [{
+                        "volume": "",
+                        "wt": "",
+                        "price": {
+                            "value": "",
+                            "unit": "руб/л"
+                        },
+                        "paymentType": "-",
+                        "date": "2023-07-22",
+                        "numberOfDays": ""
                     }]
                 }]
             }]
